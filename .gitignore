@@ -1,0 +1,4 @@
+## ignore these file
+/node_modules/*
+
+/docs/.vuepress/dist/*
