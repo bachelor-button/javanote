@@ -5,10 +5,10 @@
   "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.8.2",
+    "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
     "vuepress": "^1.8.2",
-    "vuepress-plugin-fulltext-search": "^2.2.1",
-    "vuepress-plugin-go-top": "^1.0.4"
+    "vuepress-plugin-fulltext-search": "^2.2.1"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",

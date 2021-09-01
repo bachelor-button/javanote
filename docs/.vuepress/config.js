@@ -576,6 +576,6 @@ module.exports = {
         ["img-lazy"],
         ["vuepress-plugin-code-copy"],
         ["fulltext-search"],
-        ["go-top"],
+        ['@vuepress/back-to-top']
     ],
 };
