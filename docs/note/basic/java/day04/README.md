@@ -39,7 +39,9 @@
 > | 其它    | 无            |
 >
 > 请从键盘输入岳小鹏的期末成绩，并加以判断
+>
 
+::: details 点击查看代码
 ```java
 // 1.导入Scanner这个类，告诉JVM现在用的类从哪来
 import java.util.Scanner;
@@ -98,11 +100,12 @@ public class Exercise01 {
 
 }
 ```
+:::
 
 ### 第二题
 
 > 由键盘输入三个整数分别存入变量 num1、num2、num3，对它们进行排序，并且从小到大输出。
-
+::: details 点击查看代码
 ```java
 import java.util.Scanner;
 
@@ -171,6 +174,7 @@ public class Exercise02 {
 
 }
 ```
+::: 
 
 ### 第三题
 
@@ -250,6 +254,8 @@ if (m > 10.0 && n < 20.0) {
 > 我家的狗 5 岁了，5 岁的狗相当于人类多大呢？其实，狗的前两年每一年相当于人类的 10.5 岁，之后每增加一年就增加四岁。那么 5 岁的狗相当于人类多少年龄呢？应该是：10.5 + 10.5 + 4 + 4 + 4 = 33 岁。
 > 编写一个程序，获取用户输入的狗的年龄，通过程序显示其相当于人类的年龄。如果用户输入负数，请显示一个提示信息。
 
+::: details 点击查看代码
+
 ```java
 import java.util.Scanner;
 
@@ -299,6 +305,7 @@ public class Exercise07 {
 
 }
 ```
+:::
 
 ### 第八题
 
@@ -306,6 +313,8 @@ public class Exercise07 {
 >
 > 提示：使用(int)(Math.random() _ 90 + 10)产生随机数。
 > Math.random() : [0, 1) _ 90 [0, 90) + 10 [10, 100) [10, 99]
+
+::: details 点击查看代码
 
 ```java
 import java.util.Scanner;
@@ -390,6 +399,7 @@ public class Exercise08 {
 
 }
 ```
+:::
 
 ### 第九题
 
@@ -397,6 +407,8 @@ public class Exercise08 {
 > 如果这三个条件同时满足，则：“我一定要嫁给他!!!”
 > 如果三个条件有为真的情况，则：“嫁吧，比上不足，比下有余。”
 > 如果三个条件都不满足，则：“不嫁！”
+
+::: details 点击查看代码
 
 ```java
 System.out.print("请输入你的身高：");
@@ -427,11 +439,14 @@ else {
 
 }
 ```
+:::
 
 ### 第十题
 
 > 针对用户输入的英文字母，遇到 a、b、c、e、f 则转换为大写输出，其他直接输出“other”。
 > 提示：String word = scan.next(); char c = word.charAt(0); switch(c){}
+
+::: details 点击查看代码
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -463,10 +478,13 @@ switch(userInputChar){
 		System.out.println("other");
 }
 ```
+:::
 
 ### 第十一题
 
 > 对学生成绩大于 60 分的，输出“合格”。低于 60 分的，输出“不合格”。
+
+::: details 点击查看代码
 
 ```java
 import java.util.Scanner;
@@ -508,12 +526,15 @@ public class Exercise11 {
 
 }
 ```
+:::
 
 ### 第十二题
 
 > 从键盘输入“年、月、日”，判断这一天是当年的第几天。
 >
 > 判断闰年的标准：『可以被 4 整除但不能被 100 整除』或『可以被 400 整除』
+
+::: details 点击查看代码
 
 ```java
 import java.util.Scanner;
@@ -736,6 +757,7 @@ public class Exercise13 {
 
 }
 ```
+:::
 
 ## 3、循环结构概述
 

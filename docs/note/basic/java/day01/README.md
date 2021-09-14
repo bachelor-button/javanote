@@ -1,47 +1,12 @@
 # day01 Java基础语法
 
-## 今日内容
-
-* Java语言的发展历史
-* 安装JDK
-* 配置环境变化
-* 编写HelloWorld程序
-* Java注释
-* Java关键字
-* 标识符
-* 常量
-* 变量
-* Java基本数据类型
-
-## 学习目标
-
-* [ ] 练会：今天讲到的DOS命令
-* [ ] 理解：Java语言的跨平台实现原理
-* [ ] 理解：JDK/JRE/JVM的组成和作用
-* [ ] 做到：配置环境变量JAVA_HOME（参照笔记配置出来就行）
-* [ ] 练会：编写HelloWorld程序编译并执行
-* [ ] 练会：单行注释和多行注释
-* [ ] 理解：什么是关键字
-* [ ] 理解：标识符的含义
-* [ ] 理解：Java中的基本数据类型分类
-* [ ] 理解：常量的概念
-* [ ] 练会：定义8种基本数据集类型的变量
-* [ ] 理解：分清楚两种输出语句的区别
 # 第一章 Java概述
 
 ## 1.0 从项目到代码
 
-| 项目                                                         | 人体                                                 |
-| ------------------------------------------------------------ | ---------------------------------------------------- |
-| 子系统（仓储、物流、商品、认证……）                           | 子系统（呼吸、免疫、消化、血液循环……）               |
-| 模块（商品搜索、商品发布、商品展示……）                       | 器官（胃、小肠、大肠、胰腺、肝脏、胆囊……）           |
-| 包（组件类包、实体类包、工具类包……）                         | 组织（结缔组织、肌肉组织、脂肪组织、……）             |
-| 类（Servlet组件类、Service组件类、Dao组件类……）              | 细胞（肌肉细胞、脂肪细胞、血小板、白血球、红血球……） |
-| 代码（变量、常量、方法、流程控制、异常处理、IO、反射、枚举、泛型……） | 细胞组成部分（细胞壁、细胞质、细胞液……）             |
-
 ![images](./images/1.png)
 
-我们整个培训过程中要学习的技术体系：
+总体技术体系：
 
 ![images](./images/2.png)
 
@@ -103,8 +68,8 @@ JavaSE知识模块介绍
 * Erlang 就是为分布式计算设计的，能保证在大规模并发访问的情况下，保持强壮和稳定性。
 * Go 语言内置了并发能力，可以编译成本地代码。当前新的网络相关项目，很大比例是由 Go 语言编写的，如 Docker、Kubernetes 等。
 * 编写网页用 PHP，函数式编程有 Lisp，编写 iOS 程序有 Swift/Objective-C。
-*  R的思想是：它可以提供一些集成的统计工具，但更大量的是它提供各种数学计算、统计计算的[函数](https://baike.baidu.com/item/函数/301912)，从而使使用者能灵活机动的进行数据分析，甚至创造出符合需要的新的统计计算方法 
-*  SQL 是用于访问和处理数据库的标准的计算机语言， 这类数据库包括：MySQL，Oracle, Sybase, SQL Server, DB2, Access 等等 
+*  R的思想是：它可以提供一些集成的统计工具，但更大量的是它提供各种数学计算、统计计算的[函数](https://baike.baidu.com/item/函数/301912)，从而使使用者能灵活机动的进行数据分析，甚至创造出符合需要的新的统计计算方法
+*  SQL 是用于访问和处理数据库的标准的计算机语言， 这类数据库包括：MySQL，Oracle, Sybase, SQL Server, DB2, Access 等等
 
 一句话概括，**能留在排行榜之上的语言，都是好的语言，在其所在的领域能做到最好。**
 
@@ -183,23 +148,23 @@ Java之父是詹姆斯. 高斯林(James Gosling)。
 
 ### JDK的下载
 
-* 下载网址：www.oracle.com 
+* 下载网址：www.oracle.com
 
 * 下载步骤：
 
   + 登录Oracle公司官网，www.oracle.com，如图所示：在底部选择Developers开发者
-    
+
 
 ![images](./images/9.png)
 
   + 在**Developers**页面中间的技术分类部分，选择`Java`，单击进入，如图所示：
-    
+
 
 ![images](./images/10.png)
 
   + 下拉页面，找到**Java**，在此选择`JavaSEDownload`，单击进入，如图所示：
 
-  
+
 
 ![images](./images/11.png)
 
@@ -226,41 +191,41 @@ Java之父是詹姆斯. 高斯林(James Gosling)。
 * 安装步骤：
 
   + 双击`jdk-8u202-windows-x64.exe`文件，并单击`下一步`，如图所示：
-    
+
 
 ![images](./images/17.png)
 
   + 取消独立JRE的安装，单击`公共JRE前的下拉列表`，选择`此功能将不可用`如图所示：
-    
+
 
 ![images](./images/18.png)
 
   + 修改安装路径，单击更改，如图所示：
-    
+
 
 ![images](./images/19.png)
 
     > 友情提示：安装任何程序（特别是和开发相关）的时候，都选择一个非中文、无空格的路径来安装。
 
   + 将安装路径修改为`D:\develop\Java\jdk1.8.0_202\`，并单击确定，如图所示：
-    
+
 
 ![images](./images/20.png)
 
   + 单击下一步，如图所示：
-    
+
 
 ![images](./images/21.png)
 
   + 稍后几秒，安装完成，如图所示：
-    
+
 
 ![images](./images/22.png)
 
   + 目录结构，如图所示：
-  
 
-    
+
+
 
 ![images](./images/23.png)
 
@@ -278,7 +243,7 @@ Dos： Disk Operating System 磁盘操作系统, 简单说一下windows的目录
 
 * 按下`Windows+R`键，打开运行窗口，输入`cmd`回车，进入到DOS的操作窗口。
 
-  
+
 
 ![images](./images/25.png)
 
@@ -472,32 +437,32 @@ exit
 * 步骤：
 
   + 打开桌面上的计算机，进入后在左侧找到`计算机`，单击鼠标`右键`，选择`属性`，如图所示：
-    
+
 
 ![images](./images/46.png)
 
   + 选择`高级系统设置`，如图所示：
-    
+
 
 ![images](./images/47.png)
 
   + 在`高级`选项卡，单击`环境变量`，如图所示：
-    
+
 
 ![images](./images/48.png)
 
   + 在`系统变量`中，选中`Path` 环境变量，`双击`或者`点击编辑` , 如图所示：
-    
+
 
 ![images](./images/49.png)
 
   + 在变量值的最前面，键入`D:\develop\Java\jdk1.8.0_202\bin; `  分号必须要写，而且还要是**英文符号**。如图所示：
-    
+
 
 ![images](./images/50.png)
 
   + 环境变量配置完成，**重新开启**DOS命令行，在任意目录下输入`javac` 命令，运行成功。
-    
+
 
 ![images](./images/51.png)
 
@@ -510,42 +475,42 @@ exit
 * 步骤：
 
   + 打开桌面上的计算机，进入后在左侧找到`计算机`，单击鼠标`右键`，选择`属性`，如图所示：
-    
+
 
 ![images](./images/46.png)
 
   + 选择`高级系统设置`，如图所示：
-    
+
 
 ![images](./images/47.png)
 
   + 在`高级`选项卡，单击`环境变量`，如图所示：
-    
+
 
 ![images](./images/48.png)
 
   + 在`系统变量`中，单击`新建` ，创建新的环境变量，如图所示：
-    
+
 
 ![images](./images/53.png)
 
   + 变量名输入`JAVA_HOME`，变量值输入 `D:\develop\Java\jdk1.8.0_202` ，并单击`确定`，如图所示：
-    
+
 
 ![images](./images/54.png)
 
   + 选中`Path` 环境变量，`双击`或者`点击编辑` , 如图所示：
-    
+
 
 ![images](./images/49.png)
 
   + 在变量值的最前面，键入`%JAVA_HOME%\bin; `  分号必须要写，而且还要是**英文符号**。如图所示：
-    
+
 
 ![images](./images/55.png)
 
   + 环境变量配置完成，**重新开启**DOS命令行，在任意目录下输入`javac` 命令，运行成功。
-    
+
 
 ![images](./images/51.png)
 
@@ -600,7 +565,7 @@ javac HelloWorld.java
 
 ![images](./images/57.png)
 
-编译成功后，命令行没有任何提示。打开 `D:\atguigu\javaee\JavaSE20190624\code\day01_code` 目录，发现产生了一个新的文件 `HelloWorld.class` ，该文件就是编译后的文件，是Java的可运行文件，称为**字节码文件**，有了字节码文件，就可以运行程序了。 
+编译成功后，命令行没有任何提示。打开 `D:\atguigu\javaee\JavaSE20190624\code\day01_code` 目录，发现产生了一个新的文件 `HelloWorld.class` ，该文件就是编译后的文件，是Java的可运行文件，称为**字节码文件**，有了字节码文件，就可以运行程序了。
 
 > Java源文件的编译工具 `javac.exe`
 
@@ -664,7 +629,7 @@ Java程序的入口是main方法
 
 ```java
 public static void main(String[] args){
-    
+
 }
 ```
 
@@ -751,55 +716,36 @@ javac -encoding utf-8 Review01.java
 * **注释**：就是对代码的解释和说明。其目的是让人们能够更加轻松地了解代码。为代码添加注释，是十分必须要的，它不影响程序的编译和运行。
 * Java中有`单行注释`、`多行注释`和`文档注释`
   + 单行注释以 `//`开头，以`换行`结束，格式如下：
-  
 
-$mdFormatter$61$mdFormatter$
 
 ```java
-    // 注释内容
-    ```
+// 注释内容
+```
 
-  
+
   + 多行注释以 `/*`开头，以`*/`结束，格式如下：
-  
 
-$mdFormatter$61$mdFormatter$
 
 ```java
-    /*
-    	注释内容
-     */
-    ```
-
-  
+/*
+注释内容
+*/
+```
 
     注意：多行注释不能嵌套。
 
-  
+```java
+/* /* 错误的示范：这就是一个嵌套的多行注释  */ */
+```
 
-$mdFormatter$61$mdFormatter$
+
+  + 文档注释以`/**`开头，以`*/`结束
 
 ```java
-    /*  /* 错误的示范：这就是一个嵌套的多行注释  */  */
-    ```
-
-  
-
-    
-
-  
-  + 文档注释以`/**`开头，以`*/`结束 
-  
-
-$mdFormatter$61$mdFormatter$
-
-```java
-    /**
-    	注释内容
-     */
-    ```
-
-    
+/**
+注释内容
+*/
+```
 
     Javadoc命令可以抽取每个类、方法中的文档注释，生成API手册。
 
@@ -814,7 +760,7 @@ $mdFormatter$61$mdFormatter$
 日期：3月24日
 */
 public class HelloWorld{
-	
+
 	/*
 	多行注释：注释内容可以分很多行编写
 	注意：多行注释不能嵌套，嵌套会导致多行注释提前结束
@@ -822,17 +768,17 @@ public class HelloWorld{
 	main函数的声明格式是固定的
 	每一个类中最多只能有一个main函数*/
 	public static void main(String[] args){
-		
+
 		// 单行注释：在命令行窗口内打印一句话
 		// 单行注释仅对当前行有效
 		System.out.println("彦祖我爱你");
-		
+
 	}
-	
+
 }
 
 class YanZu {
-	
+
 }
 ```
 
@@ -898,8 +844,8 @@ class YanZu {
 
 Java的数据类型分为两大类：
 
-* **基本数据类型**：包括 `整数`、`浮点数`、`字符`、`布尔`。 
-* **引用数据类型**：包括 `类`、`数组`、`接口`。 
+* **基本数据类型**：包括 `整数`、`浮点数`、`字符`、`布尔`。
+* **引用数据类型**：包括 `类`、`数组`、`接口`。
 
 ### 基本数据类型
 
@@ -934,38 +880,37 @@ Java的数据类型分为两大类：
     |  布尔常量  |  true，false   |
     |   空常量   |      null      |
 
-$mdFormatter$61$mdFormatter$
-
 ```java
     public class ConstantDemo {
     	public static void main(String[] args) {
     		//字符串常量
     		System.out.println("HelloWorld");
-    		
+
     		//整数常量
     		System.out.println(12);
     		System.out.println(-23);
-    		
+
     		//小数常量
     		System.out.println(12.34);
-    		
+
     		//字符常量
     		System.out.println('a');
     		System.out.println('0');
             System.out.println('沙');
-    		
+
     		//布尔常量
     		System.out.println(true);
     		System.out.println(false);
     	}
     }
-    ```
+```
 
-    > 注意事项：
-    >
-    > ​	字符常量，单引号里面有且仅有一个字符
-    >
-    > ​	空常量，不可以在输出语句中直接打印
+::: warning 注意
+
+- 字符常量，单引号里面有且仅有一个字符
+- 空常量，不可以在输出语句中直接打印
+
+:::
 
 ## 2.6 变量（*variable*）
 
@@ -1071,7 +1016,7 @@ public class VariableDemo {
         // 定义字符型变量
         char c = 'A';
         System.out.println(c);
-        
+
         // 定义字符串变量
         String s = "HelloWorld";
         System.out.println(s);
@@ -1091,19 +1036,15 @@ public class VariableDemo {
 
 * **换行输出语句**：输出内容，完毕后进行换行，格式如下：
 
-  
-
 ```java
   System.out.println(输出内容);
-  ```
+```
 
 * **直接输出语句**：输出内容，完毕后不做任何处理，格式如下
 
-  
-
 ```java
-  System.out.print(输出内容);
-  ```
+System.out.print(输出内容);
+```
 
 示例代码：
 
@@ -1126,13 +1067,11 @@ System.out.print("name = " + name + ",");
 System.out.println("age = " + age);
 ```
 
->
-> 注意事项：
->
-> ​	换行输出语句，括号内可以什么都不写，只做换行处理
->
-> ​	直接输出语句，括号内什么都不写的话，编译报错
->
-> ​	如果()中有多项内容，那么必须使用 + 连接起来
->
-> ​	如果某些内容想要原样输出，就用""引起来，而要输出变量中的内容，则不要把变量名用""引起来
+::: warning 注意
+
+- 换行输出语句，括号内可以什么都不写，只做换行处理
+- 直接输出语句，括号内什么都不写的话，编译报错
+- 如果()中有多项内容，那么必须使用 + 连接起来
+- 如果某些内容想要原样输出，就用""引起来，而要输出变量中的内容，则不要把变量名用""引起来
+
+:::

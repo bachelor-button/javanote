@@ -67,6 +67,43 @@ module.exports = {
                 "WEBday14_Ajax&Axios&Book-City-Project-Phase-6/",
                 "WEBday15_The-sixth-stage-of-the-book-city-project-&-summary/"
             ],
+            "/note/advance/juc/": [
+                "chapter01/",
+                "chapter02/",
+                "chapter03/",
+                "chapter04/",
+                "chapter05/",
+                "chapter06/",
+                "chapter07/",
+                "chapter08/",
+                "chapter09/"
+            ],
+            "/note/advance/jvm/": [
+                "chapter01/",
+                "chapter02/",
+                "chapter03/",
+                "chapter04/",
+                "chapter05/",
+                "chapter06/",
+                "chapter07/",
+                "chapter08/",
+                "chapter09/",
+                "chapter10/",
+                "chapter11/",
+            ],
+            "/note/advance/mysql/": [
+                "chapter01/",
+                "chapter02/",
+                "chapter03/",
+                "chapter04/",
+                "chapter05/",
+                "chapter06/",
+                "chapter07/",
+                "chapter08/",
+                "chapter09/",
+                "chapter10/",
+                "chapter11/"
+            ],
             "/note/microservice/": [
                 "springboot/",
                 {
@@ -382,6 +419,19 @@ module.exports = {
                     ]
                 }
             ],
+            "/note/project/gmall/": [
+                "day01/",
+                "day02/",
+                "day03/",
+                "day04/",
+                "day05/",
+                "day06/",
+                "day07/",
+                "day08/",
+                "day09/",
+                "day10/",
+                "day11/",
+            ],
             "/note/ssm/": [
                 {
                     title: "mybatis",
@@ -430,10 +480,6 @@ module.exports = {
                 }
             ],
             "/note/tools/": [
-                // {
-                //     title: "git",
-                //     children: [],
-                // },
                 "git/",
                 {
                     title: "maven",
@@ -470,7 +516,23 @@ module.exports = {
                     }
                 ]
             },
-
+            {
+                text: "高级",
+                items: [
+                    {
+                        text: "JUC",
+                        link: "/note/advance/juc/chapter01/"
+                    },
+                    {
+                        text: "JVM",
+                        link: "/note/advance/jvm/chapter01/"
+                    },
+                    {
+                        text: "MYSQL",
+                        link: "/note/advance/mysql/chapter01/"
+                    },
+                ]
+            },
             {
                 text: "中间件",
                 items: [
@@ -513,7 +575,6 @@ module.exports = {
                     }
                 ]
             },
-            // NavbarItem
             {
                 text: "项目",
                 items: [
@@ -525,6 +586,10 @@ module.exports = {
                     {
                         text: "美年旅游",
                         link: "/note/project/meinian/note1/"
+                    },
+                    {
+                        text: "谷粒商城",
+                        link: "/note/project/gmall/day01/"
                     }
                 ]
             },
@@ -569,7 +634,6 @@ module.exports = {
                 ]
             }
 
-            // 字符串 - 页面文件路径
         ]
     },
     plugins: [

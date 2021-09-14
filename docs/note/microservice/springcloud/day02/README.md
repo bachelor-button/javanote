@@ -335,7 +335,7 @@ feign:
 			min-request-size: 2048 # 设置触发压缩的大小下限
 			#以上数据类型，压缩大小下限均为默认值
 		response:
-            enabled: true # 开启响应压缩	
+            enabled: true # 开启响应压缩
 ```
 ![images](./images/94.png)
 
@@ -1003,7 +1003,7 @@ public class MyParamGatewayFilterFactory extends AbstractGatewayFilterFactory {
 
 #### 2.2.6 微服务架构加入Gateway后
 
-![SpringCloud微服务架构–加入Gateway后 (1)](images\SpringCloud微服务架构–加入Gateway后 (1).jpg)
+![SpringCloud微服务架构–加入Gateway后 (1)](./images\SpringCloud微服务架构–加入Gateway后 (1).jpg)
 
 不管是来自客户端的请求，还是服务内部调用。一切对服务的请求都可经过网关。
 

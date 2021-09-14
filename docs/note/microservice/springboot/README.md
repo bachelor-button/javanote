@@ -1,25 +1,5 @@
 # SpringBoot基础
 
-学习目标：
-
-能够理解Spring的优缺点
-
-能够理解SpringBoot的特点
-
-能够理解SpringBoot的核心功能
-
-能够搭建SpringBoot的环境
-
-能够完成application.properties配置文件的配置
-
-能够完成application.yml配置文件的配置
-
-能够使用SpringBoot集成Mybatis
-
-能够使用SpringBoot集成Junit
-
-能够使用SpringBoot集成SpringData JPA
-
 ## 一、SpringBoot简介
 
 ### 1.2 SpringBoot的概述
@@ -32,25 +12,23 @@ Spring Boot 是所有基于 Spring Framework 5.0 开发的项目。Spring Boot �
 
 从最根本上来讲，Spring Boot 就是一些库的集合，它能够被任意项目所使用。它使用 “习惯优于配置” （项目中存在大量的配置，此外还内置一个习惯性的配置）的理念让你的项目快速运行起来。spring boot 其实不是什么新的框架，它默认配置了很多框架的使用方式，就像 maven 整合了所有的 jar 包，spring boot 整合了所有的框架，总结一下及几点：
 
-（1）为所有 Spring 开发提供一个更快更广泛的入门体验。
+- 为所有 Spring 开发提供一个更快更广泛的入门体验。
 
-（2）零配置。无冗余代码生成和XML 强制配置，遵循“约定大于配置” 。
+- 零配置。无冗余代码生成和XML 强制配置，遵循“约定大于配置” 。
 
-（3）集成了大量常用的第三方库的配置， Spring Boot 应用为这些第三方库提供了几乎可以零配置的开箱即用的能力。
+- 集成了大量常用的第三方库的配置， Spring Boot 应用为这些第三方库提供了几乎可以零配置的开箱即用的能力。
 
-（4）提供一系列大型项目常用的非功能性特征，如嵌入服务器等。
+- 提供一系列大型项目常用的非功能性特征，如嵌入服务器等。
+
 
 使用 Spring Boot有什么好处
 
 其实就是简单、快速、方便！平时如果我们需要搭建一个 Spring Web 项目的时候需要怎么做呢？
 
-1）配置 web.xml，加载 Spring 和 Spring mvc
-
-2）配置数据库连接、配置 Spring 事务
-
-3）配置加载配置文件的读取，开启注解
-
-4）配置日志文件
+1. 配置 web.xml，加载 Spring 和 Spring mvc
+2. 配置数据库连接、配置 Spring 事务
+3. 配置加载配置文件的读取，开启注解
+4. 配置日志文件
 
 …
 
@@ -63,10 +41,6 @@ Spring Boot 是所有基于 Spring Framework 5.0 开发的项目。Spring Boot �
 但是如果使用 Spring Boot 呢？
 
 很简单，我仅仅只需要非常少的几个配置就可以迅速方便的搭建起来一套 Web 项目或者是构建一个微服务！
-
-使用 Spring Boot 到底有多爽，用下面这幅图来表达
-
-![images](./images/1.png)
 
 #### 1.2.2 SpringBoot的特点
 
@@ -152,12 +126,6 @@ package com.maweiqi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * MySpringBootApplication
- *
- * @Author: 马伟奇
- * @Description:
- */
 // 声明该类是一个SpringBoot引导类
 @SpringBootApplication
 public class MySpringBootApplication {
@@ -179,12 +147,6 @@ package com.maweiqi.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * QuickStartController
- *
- * @Author: 马伟奇
- * @Description:
- */
 @RestController
 @RequestMapping
 public class QuickStartController {
@@ -268,6 +230,8 @@ SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的�
 
 通过idea快速创建的SpringBoot项目的pom.xml中已经导入了我们选择的web的起步依赖的坐标
 
+::: details 详情
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -319,6 +283,7 @@ SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的�
 
 </project>
 ```
+:::
 
 可以使用快速入门的方式创建Controller进行访问，此处不再赘述
 
@@ -334,6 +299,8 @@ SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的�
 
 按住Ctrl点击pom.xml中的spring-boot-starter-dependencies，跳转到了spring-boot-starter-dependencies的pom.xml，xml配置如下（只摘抄了部分重点配置）：
 
+
+::: details 详情
 ```xml
 
 <properties>
@@ -388,6 +355,8 @@ SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的�
 </build>
 ```
 
+:::
+
 总结：从上面的spring-boot-starter-dependencies的pom.xml中我们可以发现，一部分坐标的版本、依赖管理、插件管理已经定义好，所以我们的SpringBoot工程继承spring-boot-starter-parent后已经具备版本锁定等配置了（不会出现版本冲突的问题）。所以起步依赖的作用就是进行依赖的传递。
 
 #### 3.1.2 分析spring-boot-starter-web
@@ -397,6 +366,8 @@ SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的�
 ![images](./images/17.png)
 
 按住Ctrl点击pom.xml中的spring-boot-starter-web，跳转到了spring-boot-starter-web的pom.xml，xml配置如下（只摘抄了部分重点配置）：
+
+::: details 详情
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -412,7 +383,7 @@ SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的�
   	<artifactId>spring-boot-starter-web</artifactId>
   	<version>2.0.1.RELEASE</version>
   	<name>Spring Boot Web Starter</name>
-  
+
   	<dependencies>
     	<dependency>
       		<groupId>org.springframework.boot</groupId>
@@ -453,10 +424,13 @@ SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的�
   	</dependencies>
 </project>
 ```
+:::
 
 总结：从上面的spring-boot-starter-web的pom.xml中我们可以发现，spring-boot-starter-web就是将web开发要使用的spring-web、spring-webmvc等坐标进行了“打包”，这样我们的工程只要引入spring-boot-starter-web起步依赖的坐标就可以进行web开发了，同样体现了依赖传递的作用，同时加载tomcat，只要启动main方法，就相当于起到tomcat进行开发；同时加载json，支持springmvc的数据请求和响应。
 
 ### 3.2 自动配置原理解析
+
+::: details 详情
 
 ```java
 package com.atguigu;
@@ -478,6 +452,8 @@ public class SpringbootDemo02Application {
 
 }
 ```
+
+:::
 
 运行默认自动配置加载的对象
 
@@ -534,7 +510,7 @@ componentScan 扫描当前包及其子包下被 @Component，@Controller，@Serv
 
 以前在ssm项目中我们需要去配置我们的包扫描
 
-<context:component-scan base-package="com.xxx"></context:component-scan>
+`<context:component-scan base-package="com.xxx"></context:component-scan>`
 
 @SpringBootConfiguration : 表示当前类具有配置类的作用
 
@@ -571,7 +547,7 @@ public String[] selectImports(AnnotationMetadata annotationMetadata) {
 
 protected AutoConfigurationEntry getAutoConfigurationEntry(AutoConfigurationMetadata autoConfigurationMetadata,
         AnnotationMetadata annotationMetadata) {
-    
+
     ....................
     List<String> configurations = getCandidateConfigurations(annotationMetadata, attributes);
     ....................
@@ -622,13 +598,6 @@ public class DispatcherServletAutoConfiguration {
 ```java
 package com.atguigu.domain;
 
-/**
- * User
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-10
- * @Description:
- */
 public class User {
 }
 package com.atguigu;
@@ -691,13 +660,6 @@ package com.atguigu.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * UserController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-11
- * @Description:
- */
 @RestController
 public class UserController {
 
@@ -746,7 +708,7 @@ YML文件的扩展名可以使用.yml或者.yaml。
 
 # 属性的配置
 # 语法： key: value
-name: maweiqi 
+name: maweiqi
 ```
 
 注意：value之前有一个空格
@@ -764,7 +726,7 @@ server:
 
 ```yaml
 
-key: 
+key:
      key1: value1
      key2: value2
 ```
@@ -795,26 +757,15 @@ user类，通过注解 @ConfigurationProperties (prefix=“配置文件中的key
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-    /**
-    
- * User
-       *
+@Component
+@ConfigurationProperties(value = "user")
+public class User implements Serializable{
 
- * @Author: 马伟奇
- 
-  * @CreateTime: 2020-03-10
- 
-  * @Description:
-    */
-    @Component
-    @ConfigurationProperties(value = "user")
-    public class User implements Serializable{
- 
-    private String username;
-    private String password;
- 
-    //生成 set get  tostring
-    }
+	private String username;
+	private String password;
+
+	//生成 set get  tostring
+}
 ```
 
 ![images](./images/27.png)
@@ -864,10 +815,10 @@ public class SpringbootDemo02Application {
 
 ###### 4.1.2.2.2 配置Map数据
 
-# 语法： 
+# 语法：
 
 ```yaml
-map: 
+map:
     key: value1
     key: value2
 ```
@@ -884,21 +835,21 @@ map:
 
 ###### 4.1.2.2.3 配置数组（List、Set）数据
 
-# 语法： 
+# 语法：
 
- 
+
 
 ```yaml
-  key: 
-  
+  key:
+
    - value1
    - value2
      或者：
       key: [value1,value2]
      示例代码：
-  ```
+```
 
-  
+
 
 # 配置数据集合
 
@@ -910,7 +861,7 @@ map:
         - chongqing
 ```
 
-    
+
 
 # 或者行内注入
 
@@ -922,13 +873,6 @@ city: [beijing, tianjin, shanghai, chongqing]
 ```java
 package com.atguigu.pojo;
 
-/**
- * Mobile
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-11
- * @Description:
- */
 public class Mobile {
     private String num;
     private String brand;
@@ -969,13 +913,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/**
- * User
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-10
- * @Description:
- */
 @Component
 @ConfigurationProperties(value = "user")
 public class User {
@@ -1007,7 +944,7 @@ user:
       brand: 华为
     - num: 1002
       brand: 小米
-```      
+```
 注意：value1与之间的 - 之间存在一个空格
 
 运行程序
@@ -1026,7 +963,7 @@ application.yml配置如下：
 person:
   name: zhangsan
   age: 18
-```  
+```
 实体Bean代码如下：
 ```java
 package com.atguigu.controller;
@@ -1041,15 +978,15 @@ public class Quick2Controller {
 
     @Value("${person.name}")
     private String name;
-    
+
     @Value("${person.addr}")
     private String addr;
-    
+
     @RequestMapping("/quick")
     @ResponseBody
     public String quick(){
         //获得配置文件的信息
-    
+
         return "name:"+name+",addr="+addr;
     }
 
@@ -1070,6 +1007,8 @@ public class Quick2Controller {
 
 #### 5.1.1 添加Mybatis的起步依赖
 
+::: details 详情
+
 ```xml
  <parent>
         <groupId>org.springframework.boot</groupId>
@@ -1083,35 +1022,35 @@ public class Quick2Controller {
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-    
+
         <!--SpingBoot集成junit测试的起步依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-    
+
         <!--mybatis起步依赖-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>1.1.1</version>
         </dependency>
-    
+
         <!-- MySQL连接驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-    
+
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -1121,6 +1060,7 @@ public class Quick2Controller {
         </plugins>
     </build>
 ```
+:::
 
 #### 5.1.3 添加数据库连接信息
 在 application.yml 中添加数据量的连接信息
@@ -1195,13 +1135,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-/**
- * UserDao
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-11
- * @Description:
- */
 @Mapper
 public interface UserDao {
     public List<User> findAll();
@@ -1243,13 +1176,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * UserController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-11
- * @Description:
- */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -1274,13 +1200,6 @@ import com.atguigu.domain.User;
 
 import java.util.List;
 
-/**
- * UserService
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-11
- * @Description:
- */
 public interface UserService {
 
     List<User> findAll();
@@ -1296,13 +1215,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * UserServiceImpl
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-11
- * @Description:
- */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -1359,13 +1271,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-/**
- * MapperTest
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-11
- * @Description:
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MapperTest {
@@ -1398,6 +1303,8 @@ public class MapperTest {
 
 #### 5.3.1 添加Spring Data JPA的起步依赖
 
+::: details 详情
+
 ```xml
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -1405,38 +1312,38 @@ public class MapperTest {
         <version>2.0.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-    
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-    
+
         <!-- springBoot JPA的起步依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-    
+
         <!-- MySQL连接驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-​       
+​
 
         <!-- 配置使用redis启动器 -->
         <dependency>
@@ -1446,6 +1353,7 @@ public class MapperTest {
 
     </dependencies>
 ```
+:::
 
 #### 5.3.2 添加数据库驱动依赖
 
@@ -1504,7 +1412,7 @@ public class User{
     private String password;
     @Column(name = "name")
     private String name;
-     
+
     //此处省略setter和getter方法... ...
 }
 ```
@@ -1517,13 +1425,6 @@ package com.atguigu.dao;
 import com.atguigu.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- * UserDao
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-12
- * @Description:
- */
 public interface UserDao extends JpaRepository<User,Integer> {
 }
 ```
@@ -1537,13 +1438,6 @@ import com.atguigu.domain.User;
 
 import java.util.List;
 
-/**
- * UserService
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-12
- * @Description:
- */
 public interface UserService {
     List<User> findUsers();
 
@@ -1568,13 +1462,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * UserServiceImpl
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-12
- * @Description:
- */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -1637,13 +1524,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * UserController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-12
- * @Description:
- */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -1731,24 +1611,17 @@ server:
 在 service 的实现类里面实现业务逻辑
 
 ```java
-package com.atguigu.service.impl; 
+package com.atguigu.service.impl;
 
-import com.atguigu.dao. UserDao; 
-import com.atguigu.domain. User; 
-import com.atguigu.service. UserService; 
-import org.springframework.beans.factory.annotation. Autowired; 
-import org.springframework.data.redis.core. RedisTemplate; 
-import org.springframework.stereotype. Service; 
+import com.atguigu.dao. UserDao;
+import com.atguigu.domain. User;
+import com.atguigu.service. UserService;
+import org.springframework.beans.factory.annotation. Autowired;
+import org.springframework.data.redis.core. RedisTemplate;
+import org.springframework.stereotype. Service;
 
-import java.util. List; 
+import java.util. List;
 
-/**
- * UserServiceImpl
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-03-11
- * @Description:
- */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -1774,7 +1647,7 @@ public class UserServiceImpl implements UserService {
         if (users != null && users.size()>0) {
             redisTemplate.boundValueOps(key).set(users);
         }
-        
+
         return users;
 
     }
@@ -1809,7 +1682,7 @@ public class UserServiceImpl implements UserService {
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-    
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -1830,17 +1703,11 @@ public class UserServiceImpl implements UserService {
 创建 BootApplication
 
 ```java
-package com.maweiqi; 
-import org.springframework.boot. SpringApplication; 
-import org.springframework.boot.autoconfigure. SpringBootApplication; 
-import org.springframework.scheduling.annotation. EnableScheduling; 
-/**
- * BootApplication
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
+package com.maweiqi;
+import org.springframework.boot. SpringApplication;
+import org.springframework.boot.autoconfigure. SpringBootApplication;
+import org.springframework.scheduling.annotation. EnableScheduling;
+
 @SpringBootApplication
 @EnableScheduling
 public class BootApplication {
@@ -1856,22 +1723,16 @@ public class BootApplication {
 创建 TaskController
 
 ```java
-package com.maweiqi.controller; 
-import java.text. SimpleDateFormat; 
-import java.util. Date; 
+package com.maweiqi.controller;
+import java.text. SimpleDateFormat;
+import java.util. Date;
 
-import org.slf4j. Logger; 
-import org.slf4j. LoggerFactory; 
-import org.springframework.scheduling.annotation. Scheduled; 
-import org.springframework.stereotype. Component; 
-import org.springframework.stereotype. Controller; 
-/**
- * TaskController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
+import org.slf4j. Logger;
+import org.slf4j. LoggerFactory;
+import org.springframework.scheduling.annotation. Scheduled;
+import org.springframework.stereotype. Component;
+import org.springframework.stereotype. Controller;
+
 @Component
 public class TaskController {
 
@@ -2000,7 +1861,7 @@ Thymeleaf:==Thymeleaf是一个模板引擎工具，主要用于页面渲染操�
 ==视图:
  prefix: 前缀
   classpath:/templates/
-   suffix: 后缀 
+   suffix: 后缀
    .html==
 
 (1) 创建工程
@@ -2008,6 +1869,8 @@ Thymeleaf:==Thymeleaf是一个模板引擎工具，主要用于页面渲染操�
 创建一个独立的工程 springboot-thymeleaf
 
 pom.xml依赖
+
+::: details 详细信息
 
 ```xml
   <parent>
@@ -2034,7 +1897,7 @@ pom.xml依赖
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-    
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -2042,7 +1905,7 @@ pom.xml依赖
             <scope>test</scope>
         </dependency>
 
-    
+
 
         <!--热部署插件-->
         <dependency>
@@ -2051,11 +1914,11 @@ pom.xml依赖
             <optional>true</optional>
         </dependency>
 
-    
+
 
     </dependencies>
 
-    
+
 
     <build>
         <plugins>
@@ -2066,6 +1929,7 @@ pom.xml依赖
         </plugins>
     </build>
 ```
+:::
 
 (2) 创建html
 
@@ -2084,11 +1948,9 @@ pom.xml依赖
     </head>
 
     <body>
-        <!--
-输出hello数据
-这句使用 th:text="${变量名}" 表示 使用thymeleaf获取文本数据，类似于EL表达式。
-thymeleaf：都是作用于HTML标签之上
--->
+        <!--输出hello数据这句使用 th:text="${变量名}"
+        表示 使用thymeleaf获取文本数据，类似于EL表达式。
+        thymeleaf：都是作用于HTML标签之上-->
         <p th:text="${hello}"></p>
     </body>
 
@@ -2112,19 +1974,12 @@ spring:
 创建 com.maweiqi.controller. TestController，代码如下：
 
 ```java
-package com.maweiqi.controller; 
+package com.maweiqi.controller;
 
-import org.springframework.stereotype. Controller; 
-import org.springframework.ui. Model; 
-import org.springframework.web.bind.annotation. RequestMapping; 
+import org.springframework.stereotype. Controller;
+import org.springframework.ui. Model;
+import org.springframework.web.bind.annotation. RequestMapping;
 
-/**
- * TestController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
 @Controller
 @RequestMapping("/test")
 public class TestController {
@@ -2139,7 +1994,7 @@ public class TestController {
 
         model.addAttribute("hello","hello welcome");
 
-        return "demo1"; 
+        return "demo1";
 
     }
 
@@ -2151,23 +2006,16 @@ public class TestController {
 创建启动类com.maweiqi. ThymeleafApplication，代码如下：
 
 ```java
-package com.maweiqi; 
+package com.maweiqi;
 
-import org.springframework.boot. SpringApplication; 
-import org.springframework.boot.autoconfigure. SpringBootApplication; 
+import org.springframework.boot. SpringApplication;
+import org.springframework.boot.autoconfigure. SpringBootApplication;
 
-/**
- * ThymeleafApplication
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
 @SpringBootApplication
 public class ThymeleafApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ThymeleafApplication.class, args); 
+        SpringApplication.run(ThymeleafApplication.class, args);
 
     }
 
@@ -2211,17 +2059,10 @@ public class ThymeleafApplication {
 创建 com.maweiqi.model. User , 代码如下：
 
 ```java
-package com.maweiqi.domain; 
+package com.maweiqi.domain;
 
-import java.io. Serializable; 
+import java.io. Serializable;
 
-/**
- * User
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
 public class User implements Serializable {
 
     private Integer id;
@@ -2230,9 +2071,9 @@ public class User implements Serializable {
     //..get..set  toString
 
     public User(Integer id, String name, String address) {
-        this.id = id; 
-        this.name = name; 
-        this.address = address; 
+        this.id = id;
+        this.name = name;
+        this.address = address;
 
     }
 
@@ -2244,23 +2085,16 @@ public class User implements Serializable {
 Controller 添加数据
 
 ```java
-package com.maweiqi.controller; 
+package com.maweiqi.controller;
 
-import com.maweiqi.domain. User; 
-import org.springframework.stereotype. Controller; 
-import org.springframework.ui. Model; 
-import org.springframework.web.bind.annotation. RequestMapping; 
+import com.maweiqi.domain. User;
+import org.springframework.stereotype. Controller;
+import org.springframework.ui. Model;
+import org.springframework.web.bind.annotation. RequestMapping;
 
-import java.util. ArrayList; 
-import java.util. List; 
+import java.util. ArrayList;
+import java.util. List;
 
-/**
- * TestController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
 @Controller
 @RequestMapping("/test")
 public class TestController {
@@ -2276,13 +2110,13 @@ public class TestController {
         model.addAttribute("hello","hello welcome");
 
         //集合数据
-        List<User> users = new ArrayList<User>(); 
-        users.add(new User(1, "张三", "深圳")); 
-        users.add(new User(2, "李四", "北京")); 
-        users.add(new User(3, "王五", "武汉")); 
-        model.addAttribute("users", users); 
+        List<User> users = new ArrayList<User>();
+        users.add(new User(1, "张三", "深圳"));
+        users.add(new User(2, "李四", "北京"));
+        users.add(new User(3, "王五", "武汉"));
+        model.addAttribute("users", users);
 
-        return "demo1"; 
+        return "demo1";
 
     }
 
@@ -2342,26 +2176,21 @@ public class TestController {
 
 后台添加Map
 
+::: details 详情
+
 ```java
-package com.maweiqi.controller; 
+package com.maweiqi.controller;
 
-import com.maweiqi.domain. User; 
-import org.springframework.stereotype. Controller; 
-import org.springframework.ui. Model; 
-import org.springframework.web.bind.annotation. RequestMapping; 
+import com.maweiqi.domain. User;
+import org.springframework.stereotype. Controller;
+import org.springframework.ui. Model;
+import org.springframework.web.bind.annotation. RequestMapping;
 
-import java.util. ArrayList; 
-import java.util. HashMap; 
-import java.util. List; 
-import java.util. Map; 
+import java.util. ArrayList;
+import java.util. HashMap;
+import java.util. List;
+import java.util. Map;
 
-/**
- * TestController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
 @Controller
 @RequestMapping("/test")
 public class TestController {
@@ -2374,29 +2203,34 @@ public class TestController {
     @RequestMapping("/hello")
     public String hello(Model model){
 
-//        model.addAttribute("hello", "hello welcome"); 
+//        model.addAttribute("hello", "hello welcome");
 //
 //        //集合数据
-//        List<User> users = new ArrayList<User>(); 
-//        users.add(new User(1, "张三", "深圳")); 
-//        users.add(new User(2, "李四", "北京")); 
-//        users.add(new User(3, "王五", "武汉")); 
-//        model.addAttribute("users", users); 
+//        List<User> users = new ArrayList<User>();
+//        users.add(new User(1, "张三", "深圳"));
+//        users.add(new User(2, "李四", "北京"));
+//        users.add(new User(3, "王五", "武汉"));
+//        model.addAttribute("users", users);
 
         //Map定义
-        Map<String, Object> dataMap = new HashMap<String, Object>(); 
-        dataMap.put("No", "123"); 
-        dataMap.put("address", "深圳"); 
-        model.addAttribute("dataMap", dataMap); 
+        Map<String, Object> dataMap = new HashMap<String, Object>();
+        dataMap.put("No", "123");
+        dataMap.put("address", "深圳");
+        model.addAttribute("dataMap", dataMap);
 
-        return "demo1"; 
+        return "demo1";
 
     }
 
 }
 ```
 
+:::
+
+
 页面输出 修改 demo01.html
+
+::: details 详情
 
 ```html
 <! DOCTYPE html>
@@ -2436,6 +2270,7 @@ public class TestController {
 
     </html>
 ```
+:::
 
 测试请求： http://localhost:8080/test/hello
 
@@ -2445,26 +2280,21 @@ public class TestController {
 
 后台添加数组
 
+::: details 详情
+
 ```java
-package com.maweiqi.controller; 
+package com.maweiqi.controller;
 
-import com.maweiqi.domain. User; 
-import org.springframework.stereotype. Controller; 
-import org.springframework.ui. Model; 
-import org.springframework.web.bind.annotation. RequestMapping; 
+import com.maweiqi.domain. User;
+import org.springframework.stereotype. Controller;
+import org.springframework.ui. Model;
+import org.springframework.web.bind.annotation. RequestMapping;
 
-import java.util. ArrayList; 
-import java.util. HashMap; 
-import java.util. List; 
-import java.util. Map; 
+import java.util. ArrayList;
+import java.util. HashMap;
+import java.util. List;
+import java.util. Map;
 
-/**
- * TestController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
 @Controller
 @RequestMapping("/test")
 public class TestController {
@@ -2478,26 +2308,30 @@ public class TestController {
     public String hello(Model model){
 
          //存储一个数组
-        String[] names = {"张三", "李四", "王五"}; 
-        model.addAttribute("names", names); 
+        String[] names = {"张三", "李四", "王五"};
+        model.addAttribute("names", names);
 
-        return "demo1"; 
+        return "demo1";
 
     }
 
 }
 ```
+:::
 
 页面输出
+
+::: details 详情
 
 ```html
 <div th:each="nm, nmStat:${names}">
 
     <span th:text="${nmStat.count}"></span><span th:text="${nm}"></span>
-    ==============================================
 
 </div>
 ```
+
+:::
 
 测试效果
 
@@ -2507,23 +2341,18 @@ public class TestController {
 
 后台添加日期
 
+::: details 详情
+
 ```java
-package com.maweiqi.controller; 
+package com.maweiqi.controller;
 
-import com.maweiqi.domain. User; 
-import org.springframework.stereotype. Controller; 
-import org.springframework.ui. Model; 
-import org.springframework.web.bind.annotation. RequestMapping; 
+import com.maweiqi.domain. User;
+import org.springframework.stereotype. Controller;
+import org.springframework.ui. Model;
+import org.springframework.web.bind.annotation. RequestMapping;
 
-import java.util.*; 
+import java.util.*;
 
-/**
- * TestController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
 @Controller
 @RequestMapping("/test")
 public class TestController {
@@ -2537,16 +2366,19 @@ public class TestController {
     public String hello(Model model){
 
         //日期
-        model.addAttribute("now", new Date()); 
+        model.addAttribute("now", new Date());
 
-        return "demo1"; 
+        return "demo1";
 
     }
 
 }
 ```
+:::
 
 页面输出
+
+::: details 详情
 
 ```html
 <! DOCTYPE html>
@@ -2572,6 +2404,8 @@ public class TestController {
 </html>
 ```
 
+:::
+
 测试效果
 
 ![images](./images/55.png)
@@ -2580,23 +2414,17 @@ public class TestController {
 
 后台添加年龄
 
+::: details 详情
 ```java
-package com.maweiqi.controller; 
+package com.maweiqi.controller;
 
-import com.maweiqi.domain. User; 
-import org.springframework.stereotype. Controller; 
-import org.springframework.ui. Model; 
-import org.springframework.web.bind.annotation. RequestMapping; 
+import com.maweiqi.domain. User;
+import org.springframework.stereotype. Controller;
+import org.springframework.ui. Model;
+import org.springframework.web.bind.annotation. RequestMapping;
 
-import java.util.*; 
+import java.util.*;
 
-/**
- * TestController
- *
- * @Author: 马伟奇
- * @CreateTime: 2020-04-09
- * @Description:
- */
 @Controller
 @RequestMapping("/test")
 public class TestController {
@@ -2610,16 +2438,19 @@ public class TestController {
     public String hello(Model model){
 
         //if条件
-        model.addAttribute("age", 22); 
+        model.addAttribute("age", 22);
 
-        return "demo1"; 
+        return "demo1";
 
     }
 
 }
 ```
+:::
 
 页面输出
+
+::: details 详情
 
 ```html
 <! DOCTYPE html>
@@ -2635,9 +2466,7 @@ public class TestController {
 
     <body>
 
-        <!--
-if:th：unless表示条件不成立 ，输出数据
--->
+        <!--if:th：unless表示条件不成立 ，输出数据-->
         <div>
 
             <span th:if="${(age>=18)}">终于长大了！</span>
@@ -2649,6 +2478,7 @@ if:th：unless表示条件不成立 ，输出数据
 
     </html>
 ```
+:::
 
 测试效果
 
@@ -2657,6 +2487,8 @@ if:th：unless表示条件不成立 ，输出数据
 (7) th:fragment 定义一个模块
 
 可以定义一个独立的模块，在 templates 文件夹下面，创建一个 footer.html 代码如下：
+
+::: details 详情
 
 ```html
 <! DOCTYPE html>
@@ -2677,11 +2509,13 @@ if:th：unless表示条件不成立 ，输出数据
         </div>
     </body>
 ```
+:::
 
 (8) th:include
 
 可以直接引入th:fragment, 在 demo1.html 中引入如下代码：
 
+::: details 详情
 ```html
 <! DOCTYPE html>
     <!--这句声明使用thymeleaf标签-->
@@ -2701,7 +2535,7 @@ if:th：unless表示条件不成立 ，输出数据
 
     </html>
 ```
-
+:::
 运行测试
 
 ![images](./images/57.png)

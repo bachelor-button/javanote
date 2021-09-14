@@ -85,33 +85,37 @@ System.out.println(n);
 
 这个问题需要借助字节码文件的分析：
 
-> D:\record-video-original\day03\code>javap -c Demo07GiveOperatorExercise.class
-> Compiled from "Demo07GiveOperatorExercise.java"
-> public class Demo07GiveOperatorExercise {
->   public Demo07GiveOperatorExercise();
->     Code:
->        0: aload_0
->        1: invokespecial #1                  // Method `java/lang/Object."<init>":()V`
->        4: return
->
->   public static void main(java.lang.String[]);
->     Code:
->        0: bipush        10
->        2: istore_1
->        3: iload_1
->        4: iload_1
->        5: iinc          1, 1
->        8: iinc          1, 1
->       11: iload_1
->       12: iadd
->       13: iadd
->       14: istore_1
->       15: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
->       18: iload_1
->       19: invokevirtual #3                  // Method java/io/PrintStream.println:(I)V
->       22: return
-> }
+命令：`javap -c Demo07GiveOperatorExercise.class`
 
+```java
+Compiled from "Demo07GiveOperatorExercise.java"
+
+
+public class Demo07GiveOperatorExercise {
+public Demo07GiveOperatorExercise();
+Code:
+    0: aload_0
+    1: invokespecial #1          // Method `java/lang/Object."<init>":()V`
+    4: return
+
+public static void main(java.lang.String[]);
+Code:
+    0: bipush        10
+    2: istore_1
+    3: iload_1
+    4: iload_1
+    5: iinc          1, 1
+    8: iinc          1, 1
+11: iload_1
+12: iadd
+13: iadd
+14: istore_1
+15: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+18: iload_1
+19: invokevirtual #3                  // Method java/io/PrintStream.println:(I)V
+22: return
+}
+```
 分析的步骤：
 
 ```java
@@ -213,54 +217,57 @@ System.out.println(n);
 
 使用Scanner对象从控制台读取数据（暂时的）。具体用法参见下面的代码：
 
+::: details 点击查看代码
 ```java
 // 导入Scanner类
 import java.util.Scanner;
 
 public class Demo16Scanner {
-	
+
 	public static void main(String[] args){
-		
+
 		// 1.创建Scanner对象
 		Scanner scanner = new Scanner(System.in);
-		
+
 		// 2.读取int类型数据
 		System.out.print("请输入一个整数：");
-		
+
 		// 调用scanner对象的nextInt()方法
 		int age = scanner.nextInt();
-		
+
 		System.out.println("age="+age);
-		
+
 		// 3.读取boolean类型数据
 		System.out.print("请输入一个布尔值：");
 		boolean flag = scanner.nextBoolean();
-		
+
 		System.out.println("flag="+flag);
-		
+
 		// 4.读取字符串
 		System.out.print("请输入一个字符串：");
-		
+
 		// next()方法会因为空格而终止读取
 		String strValue = scanner.next();
 		System.out.println("strValue="+strValue);
-		
+
 		// 建议使用：
 		// nextLine()方法不会因为空格而终止读取
 		strValue = scanner.nextLine();
 		System.out.println("strValue="+strValue);
-		
+
 	}
-	
+
 }
 ```
-
+:::
 
 ### ②分支结构
 
 #### [1]if语句
 
 ![images](./images/77.png)
+
+::: details 点击查看代码
 
 ```java
 // 创建Scanner对象
@@ -293,14 +300,14 @@ boolean flag = scanner.nextBoolean();
 if (flag) {
 	System.out.println("flag是真的");
 }
-
 ```
-
+:::
 
 #### [2]if...else
 
 ![images](./images/78.png)
 
+::: details 点击查看代码
 ```java
 // 创建Scanner对象
 Scanner scanner = new Scanner(System.in);
@@ -316,14 +323,13 @@ if (i > j){
 } else {
 	System.out.println("i 小于 或 等于 j");
 }
-
 ```
-
+:::
 
 #### [3]if...else if...else语句
 
 ![images](./images/79.png)
-
+::: details 点击查看代码
 ```java
 // 创建Scanner对象
 Scanner scanner = new Scanner(System.in);
@@ -338,23 +344,22 @@ if (i > j){								// 执行条件判断①
 	System.out.println("i 比 j 大");	// ①为true时执行
 } else if (i < j) {						// ①为false继续执行下一个条件判断②
 	System.out.println("i 比 j 小");	// ②为true时执行
-} else {								
+} else {
 	System.out.println("i 和 j 相等");	// ②为false时执行
 }
-
 ```
-
+:::
 
 #### [4]if...else嵌套
-
+::: details 点击查看代码
 ```java
 if (i > j){								// 执行条件判断①
 	System.out.println("i 比 j 大");	// ①为true时执行
 } else if (i < j) {						// ①为false继续执行下一个条件判断②
 	System.out.println("i 比 j 小");	// ②为true时执行
-} else {								
+} else {
 	System.out.println("i 和 j 相等");	// ②为false时执行
-	
+
 	// 嵌套在其他if...else结构内的if
 	if (m > n){
 		System.out.println("m 比 n 大");
@@ -362,6 +367,7 @@ if (i > j){								// 执行条件判断①
 }
 
 ```
+:::
 
 
 #### [5]switch...case语句
@@ -370,47 +376,49 @@ if (i > j){								// 执行条件判断①
 
 ![images](./images/80.png)
 
+::: details 点击查看代码
 ```java
 import java.util.Scanner;
 
 public class Demo18SwitchCase {
-	
+
 	public static void main(String[] args){
-		
+
 		// 创建Scanner对象
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.print("请输入季节：");
 		String season = scanner.nextLine();
-		
+
 		// 使用season变量的值和后面的case依次进行比较
 		// 遇到一个满足条件的case，那么后面的都会被执行，包括default分支
 		// 除非在某个case中使用了break关键字，停止了case的执行。
 		switch(season){
 			case "spring":
 				System.out.println("我喜欢春天");
-				
+
 				// break ;
 			case "summer":
 				System.out.println("我喜欢夏天");
-				
+
 				// break ;
 			case "autumn":
 				System.out.println("我喜欢秋天");
-				
+
 				// break ;
 			case "winter":
 				System.out.println("我喜欢冬天");
-				
+
 				// break ;
-				
+
 			// 当前面每一个case都不匹配时执行default分支（默认分支）
 			default:
 				System.out.println("我喜欢梅雨季节");
 		}
-		
+
 	}
-	
+
 }
 ```
+:::
 
