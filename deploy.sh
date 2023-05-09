@@ -12,9 +12,7 @@ git add -A
 
 git commit -m "deploy"
 
-# git push -f https://e.coding.net/bromeliad/bromeliad/bromeliad.git master
+git push -f git@github.com:bachelor-button/javanote.git deploy
 
-# git push -f git@gitee.com:bromeliad/javanote.git master
-
-# rm -rf *
+rm -rf *
 
