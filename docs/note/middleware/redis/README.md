@@ -4,7 +4,13 @@
 
 ### 1.高并发、大流量
 
-大型网站系统需要面对高并发用户，大流量访问。Google日均PV数35亿，日均IP访问数3亿；腾讯QQ的最大在线用户数1.4亿（2011年数据）；微信用户量已超11亿；2019年天猫双十一交易额突破2500亿。
+大型网站系统需要面对高并发
+
+
+
+
+
+用户，大流量访问。Google日均PV数35亿，日均IP访问数3亿；腾讯QQ的最大在线用户数1.4亿（2011年数据）；微信用户量已超11亿；2019年天猫双十一交易额突破2500亿。
 
 ### 2.高可用
 
@@ -28,7 +34,7 @@
 
 ### 7.渐进式发展
 
-与传统软件产品或企业应用系统一开始就规划好全部的功能和非功能需求不同，几乎所有的大型互联网站都是从一个小网站开始，渐进地发展起来的。 
+与传统软件产品或企业应用系统一开始就规划好全部的功能和非功能需求不同，几乎所有的大型互联网站都是从一个小网站开始，渐进地发展起来的。
 
 Facebook是伯克扎克同学在哈佛大学的宿舍里开发的；Google的第一台服务器部署在斯坦福大学的实验室里；
 
@@ -56,7 +62,7 @@ Facebook是伯克扎克同学在哈佛大学的宿舍里开发的；Google的第
 
 ## 三、从NoSQL说起
 
-NoSQL是Not only SQL的缩写，大意为“不只是SQL”，说明这项技术是<b><font color="red">传统关系型数据库的补充</font></b>而非替代。在整个NoSQL技术栈中<b><font color="blue">MemCache</font></b>、<b><font color="blue">Redis</font></b>、<b><font color="blue">MongoDB</font></b>被称为NoSQL三剑客。那么时代为什么需要NoSQL数据库呢？我们来做个对比：
+NoSQL是Not only SQL的缩写，大意为“不只是SQL”，说明这项技术是<b<font color="red"传统关系型数据库的补充</font</b而非替代。在整个NoSQL技术栈中<b<font color="blue"MemCache</font</b、<b<font color="blue"Redis</font</b、<b<font color="blue"MongoDB</font</b被称为NoSQL三剑客。那么时代为什么需要NoSQL数据库呢？我们来做个对比：
 
 |              | 关系型数据库             | NoSQL数据库                            |
 | ------------ | ------------------------ | -------------------------------------- |
@@ -95,10 +101,10 @@ Redis是一个开源（BSD许可）的，内存中的数据结构存储系统，
   - GET: 110000/s:读的速度每秒11万次
   - SET: 81000/s: 写的速度每秒8万次
 
-中文官网http://www.redis.cn<br/>
-英文官网http://redis.io<br/>
+中文官网http://www.redis.cn<br/
+英文官网http://redis.io<br/
 
-Redis命令参考文档网址：http://redisdoc.com<br/>
+Redis命令参考文档网址：http://redisdoc.com<br/
 
 ### 2、Redis的应用场景
 
@@ -142,19 +148,27 @@ redis-4.0.2.tar.gz
 
 ### 2.安装C语言编译环境
 
-[建议先拍快照]<br/>
+[建议先拍快照]<br/
 
+```shell
 yum install -y gcc-c++
+```
 
-> 如果不能联网，可以使用下面步骤安装：
->
-> 1.上传gcc-c++.rpm.packages目录到Linux系统
-> 2.拍摄快照
-> 3.进入rpm包所在目录
-> 4.执行安装
-> rpm -Uvh *.rpm --nodeps --force
-> 5.验证安装效果
-> gcc -v
+ 如果不能联网，可以使用下面步骤安装：
+
+ 1.上传gcc-c++.rpm.packages目录到Linux系统
+
+ 2.拍摄快照
+
+ 3.进入rpm包所在目录
+
+ 4.执行安装
+
+ `rpm -Uvh *.rpm --nodeps --force`
+
+ 5.验证安装效果
+
+`gcc -v`
 
 ### 3.修改安装位置
 
@@ -168,9 +182,9 @@ PREFIX?=/usr/local/redis
 
 ### 4.编译安装
 
-编译：进入Redis解压目录执行make命令<br/>
+编译：进入Redis解压目录执行make命令<br/
 
-[建议先拍快照]<br/>
+[建议先拍快照]<br/
 
 安装：make install
 
@@ -184,28 +198,28 @@ PREFIX?=/usr/local/redis
 7239:C 07 Oct 18:59:12.144 # Redis version=4.0.2, bits=64, commit=00000000, modified=0, pid=7239, just started
 7239:C 07 Oct 18:59:12.144 # Warning: no config file specified, using the default config. In order to specify a config file use /usr/local/redis/bin/redis-server /path/to/redis.conf
 7239:M 07 Oct 18:59:12.145 * Increased maximum number of open files to 10032 (it was originally set to 1024).
-                _._                                                  
-           _.-``__ ''-._                                             
+                _._
+           _.-``__ ''-._
       _.-``    `.  `_.  ''-._           Redis 4.0.2 (00000000/0) 64 bit
-  .-`` .-```.  ```\/    _.,_ ''-._                                   
+  .-`` .-```.  ```\/    _.,_ ''-._
  (    '      ,       .-`  | `,    )     Running in standalone mode
  |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
  |    `-._   `._    /     _.-'    |     PID: 7239
-  `-._    `-._  `-./  _.-'    _.-'                                   
- |`-._`-._    `-.__.-'    _.-'_.-'|                                  
- |    `-._`-._        _.-'_.-'    |           http://redis.io        
-  `-._    `-._`-.__.-'_.-'    _.-'                                   
- |`-._`-._    `-.__.-'    _.-'_.-'|                                  
- |    `-._`-._        _.-'_.-'    |                                  
-  `-._    `-._`-.__.-'_.-'    _.-'                                   
-      `-._    `-.__.-'    _.-'                                       
-          `-._        _.-'                                           
-              `-.__.-'                                               
+  `-._    `-._  `-./  _.-'    _.-'
+ |`-._`-._    `-.__.-'    _.-'_.-'|
+ |    `-._`-._        _.-'_.-'    |           http://redis.io
+  `-._    `-._`-.__.-'_.-'    _.-'
+ |`-._`-._    `-.__.-'    _.-'_.-'|
+ |    `-._`-._        _.-'_.-'    |
+  `-._    `-._`-.__.-'_.-'    _.-'
+      `-._    `-.__.-'    _.-'
+          `-._        _.-'
+              `-.__.-'
 
 7239:M 07 Oct 18:59:12.148 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
 7239:M 07 Oct 18:59:12.148 # Server initialized
 7239:M 07 Oct 18:59:12.148 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
-7239:M 07 Oct 18:59:12.148 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+7239:M 07 Oct 18:59:12.148 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never  /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
 7239:M 07 Oct 18:59:12.148 * Ready to accept connections
 ```
 
@@ -259,36 +273,36 @@ redis-server文件路径 redis.conf文件路径
 /usr/local/redis/bin/redis-cli
 
 ``` html
-	127.0.0.1:6379> ping
+	127.0.0.1:6379 ping
 	PONG
-	127.0.0.1:6379> exit
+	127.0.0.1:6379 exit
 ```
 
 ## 六、Redis常用数据结构
 
 ### 1.总体结构
 
-<table>
-    <tr>
-    	<td rowspan="6">KEY</td>
-        <td>VALUE</td>
-    </tr>
-    <tr>
-    	<td>string</td>
-    </tr>
-    <tr>
-    	<td>list</td>
-    </tr>
-    <tr>
-    	<td>set</td>
-    </tr>
-    <tr>
-    	<td>hash</td>
-    </tr>
-    <tr>
-    	<td>zset</td>
-    </tr>
-</table>
+<table
+    <tr
+    	<td rowspan="6"KEY</td
+        <tdVALUE</td
+    </tr
+    <tr
+    	<tdstring</td
+    </tr
+    <tr
+    	<tdlist</td
+    </tr
+    <tr
+    	<tdset</td
+    </tr
+    <tr
+    	<tdhash</td
+    </tr
+    <tr
+    	<tdzset</td
+    </tr
+</table
 
 
 Redis中的数据，总体上是键值对，不同数据类型指的是键值对中值的类型。
@@ -299,9 +313,9 @@ Redis中最基本的类型，它是key对应的一个单一值。二进制安全
 
 ### 3.list类型
 
-Redis 列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）。它的底层是双向链表，所以它操作时头尾效率高，中间效率低（额外花费查找插入位置的时间）。<br/>
+Redis 列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）。它的底层是双向链表，所以它操作时头尾效率高，中间效率低（额外花费查找插入位置的时间）。<br/
 
-在Redis中list类型是按照插入顺序排序的字符串链表。和数据结构中的普通链表一样，我们可以在其头部(left)和尾部(right)添加新的元素。在插入时，如果该键并不存在，Redis将为该键创建一个新的链表。与此相反，如果链表中所有的元素均被移除，那么该键也将会被从数据库中删除。List中可以包含的最大元素数量是2^32-1个。<br/>
+在Redis中list类型是按照插入顺序排序的字符串链表。和数据结构中的普通链表一样，我们可以在其头部(left)和尾部(right)添加新的元素。在插入时，如果该键并不存在，Redis将为该键创建一个新的链表。与此相反，如果链表中所有的元素均被移除，那么该键也将会被从数据库中删除。List中可以包含的最大元素数量是2^32-1个。<br/
 
 list是一个有序可以重复的数据类型。
 
@@ -315,7 +329,7 @@ Redis的set是string类型的无序集合。它是基于哈希表实现的。set
 
 ### 5.hash类型
 
-本身就是一个键值对集合。可以当做Java中的Map<String,String>对待。每一个hash可以存储2^32-1个键值对。
+本身就是一个键值对集合。可以当做Java中的Map<String,String对待。每一个hash可以存储2^32-1个键值对。
 
 ![p05](./images/p05.png)
 
@@ -343,12 +357,12 @@ Redis 在 3.2 推出 Geo 类型，该功能可以推算出地理位置信息，�
 
 | 数据类型     | 应用场景                                                     |
 | ------------ | ------------------------------------------------------------ |
-| string       | 分布式Session存储<br />分布式数据库ID<br />计数器：统计网站访问量 |
-| hash         | 存储对象信息（购物车中的商品信息）<br />存储表的信息         |
-| list         | 实现队列、栈操作<br />汇总日志<br />粉丝列表<br />关注的人列表 |
-| set          | 签到<br />打卡<br />点赞                                     |
-| zset         | 排行榜<br />百度热点搜索                                     |
-| geospatial   | 获取地理位置信息<br />两地之间的距离                         |
+| string       | 分布式Session存储<br /分布式数据库ID<br /计数器：统计网站访问量 |
+| hash         | 存储对象信息（购物车中的商品信息）<br /存储表的信息         |
+| list         | 实现队列、栈操作<br /汇总日志<br /粉丝列表<br /关注的人列表 |
+| set          | 签到<br /打卡<br /点赞                                     |
+| zset         | 排行榜<br /百度热点搜索                                     |
+| geospatial   | 获取地理位置信息<br /两地之间的距离                         |
 | hyperloglogs | 基数统计                                                     |
 | bitmaps      | 统计用户访问次数                                             |
 
@@ -368,15 +382,15 @@ Redis 在 3.2 推出 Geo 类型，该功能可以推算出地理位置信息，�
 ``` html
 	Redis默认有16个数据库。
 	115 # Set the number of databases. The default database is DB 0, you can select
-	116 # a different one on a per-connection basis using SELECT <dbid> where
+	116 # a different one on a per-connection basis using SELECT <dbid where
 	117 # dbid is a number between 0 and 'databases'-1
 	118 databases 16
 	使用select进行切换，数据库索引从0开始
-	127.0.0.1:6379> select 2
+	127.0.0.1:6379 select 2
 	OK
-	127.0.0.1:6379[2]> select 0
+	127.0.0.1:6379[2] select 0
 	OK
-	127.0.0.1:6379> 
+	127.0.0.1:6379
 ```
 
 查看数据库长度
@@ -384,14 +398,14 @@ Redis 在 3.2 推出 Geo 类型，该功能可以推算出地理位置信息，�
 数据库长度就是这个数据库中存储了多少条数据
 
 ``` html
-	127.0.0.1:6379> dbsize
+	127.0.0.1:6379 dbsize
 	(integer) 3
 ```
 
 清空全库
 
 ```html
-	127.0.0.1:6379> flushall
+	127.0.0.1:6379 flushall
 ```
 
 
@@ -615,24 +629,24 @@ SADD testset a b c d e f g h i j k l m n o p q r s t u v w x y z aa bb cc dd ee 
 GEOADD key longitude latitude member [longitude latitude member ...]
 ```
 
-> 规则：
->
-> 1.两极无法直接添加，一般会下载城市数据，直接通过 Java 程序一次性导入。
->
-> 2.取值范围
->
-> ​	有效的经度从 -180 度到 180 度。
->
-> ​	有效的纬度从 -85.05112878 度到 85.05112878 度。
->
-> ​	当坐标位置超出指定范围时，该命令将会返回一个错误。
->
-> 3.已经添加的数据，是无法再次往里面添加的。
+ 规则：
+
+ 1.两极无法直接添加，一般会下载城市数据，直接通过 Java 程序一次性导入。
+
+ 2.取值范围
+
+ ​	有效的经度从 -180 度到 180 度。
+
+ ​	有效的纬度从 -85.05112878 度到 85.05112878 度。
+
+ ​	当坐标位置超出指定范围时，该命令将会返回一个错误。
+
+ 3.已经添加的数据，是无法再次往里面添加的。
 
 ```html
-192.168.109.100:6379> GEOADD "china:city" 114.085947 22.547 shenzhen
+192.168.109.100:6379 GEOADD "china:city" 114.085947 22.547 shenzhen
 (integer) 1
-192.168.109.100:6379> GEOADD "china:city" 113.280637 23.125178 guangzhou
+192.168.109.100:6379 GEOADD "china:city" 113.280637 23.125178 guangzhou
 (integer) 1
 ```
 
@@ -642,10 +656,10 @@ GEOADD key longitude latitude member [longitude latitude member ...]
 Geo类型在Redis内部其实是使用zset类型存储的，所以可以使用zset的命令进行常规操作。
 
 ```shell
-192.168.109.100:6379> ZRANGE china:city 0 -1 
+192.168.109.100:6379 ZRANGE china:city 0 -1
 1) "shenzhen"
 2) "guangzhou"
-192.168.109.100:6379> ZRANGE china:city 0 -1 WITHSCORES
+192.168.109.100:6379 ZRANGE china:city 0 -1 WITHSCORES
 1) "shenzhen"
 2) "4046433733682118"
 3) "guangzhou"
@@ -656,7 +670,7 @@ Geo类型在Redis内部其实是使用zset类型存储的，所以可以使用zs
 删除已添加的地理位置
 
 ```shell
-192.168.109.100:6379> ZREM china:city guangzhou
+192.168.109.100:6379 ZREM china:city guangzhou
 (integer) 1
 ```
 
@@ -664,7 +678,7 @@ Geo类型在Redis内部其实是使用zset类型存储的，所以可以使用zs
 获取指定地区的坐标值
 
 ```shell
-192.168.109.100:6379> GEOPOS china:city shenzhen
+192.168.109.100:6379 GEOPOS china:city shenzhen
 1) 1) "114.08594459295272827"
    2) "22.54699993773966327"
 ```
@@ -673,27 +687,27 @@ Geo类型在Redis内部其实是使用zset类型存储的，所以可以使用zs
 计算两地之间的直线距离
 
 ```shell
-192.168.109.100:6379> GEODIST china:city guangzhou shenzhen km
+192.168.109.100:6379 GEODIST china:city guangzhou shenzhen km
 "104.6426"
 ```
 
-> 单位：
->
-> m 表示单位为米[默认值]。
->
-> km 表示单位为千米。
->
-> mi 表示单位为英里。
->
-> ft 表示单位为英尺。
->
-> 如果用户没有显式地指定单位参数， 那么 GEODIST 默认使用米作为单位。
+ 单位：
+
+ m 表示单位为米[默认值]。
+
+ km 表示单位为千米。
+
+ mi 表示单位为英里。
+
+ ft 表示单位为英尺。
+
+ 如果用户没有显式地指定单位参数， 那么 GEODIST 默认使用米作为单位。
 
 
 以给定坐标为中心，在指定半径内查找元素
 
 ```shell
-192.168.109.100:6379> GEORADIUS china:city 110 20 1000 km WITHCOORD WITHDIST
+192.168.109.100:6379 GEORADIUS china:city 110 20 1000 km WITHCOORD WITHDIST
 1) 1) "shenzhen"
    2) "509.4622"
    3) 1) "114.08594459295272827"
@@ -704,7 +718,7 @@ Geo类型在Redis内部其实是使用zset类型存储的，所以可以使用zs
       2) "23.12517743834835215"
 ```
 
-WITHCOORD表示显示经纬度<br/>
+WITHCOORD表示显示经纬度<br/
 
 WITHDIST表示显示到中心的距离
 
@@ -712,7 +726,7 @@ WITHDIST表示显示到中心的距离
 在指定元素周围查找其他元素
 
 ```shell
-192.168.109.100:6379> GEORADIUSBYMEMBER china:city shenzhen 300 km WITHCOORD WITHDIST
+192.168.109.100:6379 GEORADIUSBYMEMBER china:city shenzhen 300 km WITHCOORD WITHDIST
 1) 1) "shenzhen"
    2) "0.0000"
    3) 1) "114.08594459295272827"
@@ -734,27 +748,27 @@ hyperloglogs命令
 [1]添加
 
 ```shell
-192.168.109.100:6379> PFADD user:access:1 tom jerry andy jim andy jerry tom
+192.168.109.100:6379 PFADD user:access:1 tom jerry andy jim andy jerry tom
 (integer) 1
-192.168.109.100:6379> PFADD user:access:2 andy jerry tom bob kate
+192.168.109.100:6379 PFADD user:access:2 andy jerry tom bob kate
 (integer) 1
-192.168.109.100:6379> PFADD user:access:3 mary harry tom jerry
+192.168.109.100:6379 PFADD user:access:3 mary harry tom jerry
 (integer) 1
 ```
 
 [2]统计
 
 ```shell
-192.168.109.100:6379> PFCOUNT user:access:1 user:access:2 user:access:3
+192.168.109.100:6379 PFCOUNT user:access:1 user:access:2 user:access:3
 (integer) 8
 ```
 
 [3]合并
 
 ```shell
-192.168.109.100:6379> PFMERGE user:access:merge user:access:1 user:access:2 user:access:3
+192.168.109.100:6379 PFMERGE user:access:merge user:access:1 user:access:2 user:access:3
 OK
-192.168.109.100:6379> PFCOUNT user:access:merge
+192.168.109.100:6379 PFCOUNT user:access:merge
 (integer) 8
 ```
 
@@ -763,30 +777,30 @@ OK
 直接对数据的二进制位进行操作
 
 ```shell
-192.168.109.100:6379[5]> set a hello
+192.168.109.100:6379[5] set a hello
 OK
-192.168.109.100:6379[5]> GETBIT a 0
+192.168.109.100:6379[5] GETBIT a 0
 (integer) 0
-192.168.109.100:6379[5]> GETBIT a 1
+192.168.109.100:6379[5] GETBIT a 1
 (integer) 1
-192.168.109.100:6379[5]> GETBIT a 2
+192.168.109.100:6379[5] GETBIT a 2
 (integer) 1
-192.168.109.100:6379[5]> GETBIT a 3
+192.168.109.100:6379[5] GETBIT a 3
 (integer) 0
-192.168.109.100:6379[5]> GETBIT a 4
+192.168.109.100:6379[5] GETBIT a 4
 (integer) 1
-192.168.109.100:6379[5]> GETBIT a 5
+192.168.109.100:6379[5] GETBIT a 5
 (integer) 0
-192.168.109.100:6379[5]> SETBIT a 5 1
+192.168.109.100:6379[5] SETBIT a 5 1
 (integer) 0
-192.168.109.100:6379[5]> get a
+192.168.109.100:6379[5] get a
 "lello"
-192.168.109.100:6379[5]> BITCOUNT a
+192.168.109.100:6379[5] BITCOUNT a
 (integer) 22
 ```
 
-setbit设置指定比特位<br/>
-getbit获取指定比特位<br/>
+setbit设置指定比特位<br/
+getbit获取指定比特位<br/
 bitcount统计所有比特位中1的数量
 
 ## 八、Redis持久化机制
@@ -917,7 +931,7 @@ AOF重写
 
 | AOF重写前                                                   | AOF重写后   |
 | ----------------------------------------------------------- | ----------- |
-| set count 1<br />incr count<br />incr count<br />incr count | set count 4 |
+| set count 1<br /incr count<br /incr count<br /incr count | set count 4 |
 
 
 两组命令执行后对于count来说最终的值是一致的，但是进行AOF重写后省略了中间过程，可以让AOF文件体积更小，缩短数据恢复时间。而Redis会根据AOF文件的体积来决定是否进行AOF重写。参考的配置项如下：
@@ -1001,15 +1015,15 @@ RDB文件只用作后备用途，建议只在Slave上持久化RDB文件，而且
 加入队列时失败
 
 ``` html
-127.0.0.1:6379> multi
+127.0.0.1:6379 multi
 OK
-127.0.0.1:6379> set age 20
+127.0.0.1:6379 set age 20
 QUEUED
-127.0.0.1:6379> incr age
+127.0.0.1:6379 incr age
 QUEUED
-127.0.0.1:6379> incr age www
+127.0.0.1:6379 incr age www
 (error) ERR wrong number of arguments for 'incr' command
-127.0.0.1:6379> exec
+127.0.0.1:6379 exec
 (error) EXECABORT Transaction discarded because of previous errors.
 ```
 
@@ -1018,25 +1032,25 @@ QUEUED
 执行队列时失败
 
 ``` html
-127.0.0.1:6379> multi
+127.0.0.1:6379 multi
 OK
-127.0.0.1:6379> set age 30
+127.0.0.1:6379 set age 30
 QUEUED
-127.0.0.1:6379> incrby age 5
+127.0.0.1:6379 incrby age 5
 QUEUED
-127.0.0.1:6379> incrby age 5
+127.0.0.1:6379 incrby age 5
 QUEUED
-127.0.0.1:6379> incrby age ww
+127.0.0.1:6379 incrby age ww
 QUEUED
-127.0.0.1:6379> incrby age 5
+127.0.0.1:6379 incrby age 5
 QUEUED
-127.0.0.1:6379> EXEC
+127.0.0.1:6379 EXEC
 1) OK
 2) (integer) 35
 3) (integer) 40
 4) (error) ERR value is not an integer or out of range
 5) (integer) 45
-127.0.0.1:6379> get age
+127.0.0.1:6379 get age
 "45"
 ```
 
@@ -1046,10 +1060,10 @@ Redis为什么不支持回滚
 
 官方解释如下：
 
-> 	如果你有使用关系式数据库的经验， 那么 “Redis 在事务失败时不进行回滚，而是继续执行余下的命令”这种做法可能会让你觉得有点奇怪。以下是这种做法的优点：
-> 	1.Redis 命令只会因为错误的语法而失败（并且这些问题不能在入队时发现），或是命令用在了错误类型的键上面：这也就是说，从实用性的角度来说，失败的命令是由编程错误造成的，而这些错误应该在开发的过程中被发现，而不应该出现在生产环境中。
->    	2.因为不需要对回滚进行支持，所以 Redis 的内部可以保持简单且快速。
-> 	有种观点认为 Redis 处理事务的做法会产生 bug ， 然而需要注意的是， 在通常情况下， 回滚并不能解决编程错误带来的问题。 举个例子， 如果你本来想通过 INCR 命令将键的值加上 1 ， 却不小心加上了 2 ， 又或者对错误类型的键执行了 INCR ， 回滚是没有办法处理这些情况的。
+ 	如果你有使用关系式数据库的经验， 那么 “Redis 在事务失败时不进行回滚，而是继续执行余下的命令”这种做法可能会让你觉得有点奇怪。以下是这种做法的优点：
+ 	1.Redis 命令只会因为错误的语法而失败（并且这些问题不能在入队时发现），或是命令用在了错误类型的键上面：这也就是说，从实用性的角度来说，失败的命令是由编程错误造成的，而这些错误应该在开发的过程中被发现，而不应该出现在生产环境中。
+    	2.因为不需要对回滚进行支持，所以 Redis 的内部可以保持简单且快速。
+ 	有种观点认为 Redis 处理事务的做法会产生 bug ， 然而需要注意的是， 在通常情况下， 回滚并不能解决编程错误带来的问题。 举个例子， 如果你本来想通过 INCR 命令将键的值加上 1 ， 却不小心加上了 2 ， 又或者对错误类型的键执行了 INCR ， 回滚是没有办法处理这些情况的。
 
 ### 3.悲观锁和乐观锁
 
@@ -1062,7 +1076,7 @@ Redis为什么不支持回滚
 - 乐观锁
 
   认为当前环境不容易发生碰撞，所以执行操作前不锁定数据，万一碰撞真的发生了，那么检查版本号：
-  
+
   - 如果是基于最新的版本所做的修改：服务器接受，修改成功
   - 如果是基于旧的版本号所做的修改：服务器不接受，修改失败，整个MULTI队列中的操作都被丢弃
 
@@ -1074,7 +1088,7 @@ Redis为什么不支持回滚
 ### 1.读写分离的好处：
 
 - 性能优化：主服务器专注于写操作，可以用更适合写入数据的模式工作；同样，从服务器专注于读操作，可以用更适合读取数据的模式工作。
-- 强化数据安全，避免单点故障：由于数据同步机制的存在，各个服务器之间数据保持一致，所以其中某个服务器宕机不会导致数据丢失或无法访问。从这个角度说参与主从复制的Redis服务器构成了一个<b><font color="blue">集群</font></b>。
+- 强化数据安全，避免单点故障：由于数据同步机制的存在，各个服务器之间数据保持一致，所以其中某个服务器宕机不会导致数据丢失或无法访问。从这个角度说参与主从复制的Redis服务器构成了一个<b<font color="blue"集群</font</b。
 
 ### 2.搭建步骤
 
@@ -1095,10 +1109,10 @@ dir /usr/local/cluster-redis
 
 | 配置项名称 | 作用                          | 取值                                                         |
 | ---------- | ----------------------------- | ------------------------------------------------------------ |
-| port       | Redis服务器启动后监听的端口号 | 6000<br />7000<br />8000                                     |
-| dbfilename | RDB文件存储位置               | dump6000.rdb<br />dump7000.rdb<br />dump8000.rdb             |
-| logfile    | 日志文件位置                  | /var/logs/redis6000.log<br />/var/logs/redis7000.log<br />/var/logs/redis8000.log |
-| pidfile    | pid文件位置                   | /var/run/redis6000.pid<br />/var/run/redis7000.pid<br />/var/run/redis8000.pid |
+| port       | Redis服务器启动后监听的端口号 | 6000<br /7000<br /8000                                     |
+| dbfilename | RDB文件存储位置               | dump6000.rdb<br /dump7000.rdb<br /dump8000.rdb             |
+| logfile    | 日志文件位置                  | /var/logs/redis6000.log<br //var/logs/redis7000.log<br //var/logs/redis8000.log |
+| pidfile    | pid文件位置                   | /var/run/redis6000.pid<br //var/run/redis7000.pid<br //var/run/redis8000.pid |
 
 步骤
 
@@ -1133,7 +1147,7 @@ dir /usr/local/cluster-redis
 /usr/local/redis/bin/redis-server /usr/local/cluster-redis/redis8000.conf
 ```
 
-使用redis-cli停止指定服务器的命令格式如下：<br/>
+使用redis-cli停止指定服务器的命令格式如下：<br/
 /usr/local/bin/redis-cli -h IP地址 -p 端口号 shutdown
 
 ### 3.主从关系
@@ -1141,7 +1155,7 @@ dir /usr/local/cluster-redis
 查看主从关系
 
 ``` html
-127.0.0.1:6000> info replication
+127.0.0.1:6000 info replication
 ## Replication
 role:master
 connected_slaves:0
@@ -1252,7 +1266,7 @@ vim /usr/local/cluster-redis/sentinel.conf
 ### 1.订阅一个频道
 
 ``` html
-127.0.0.1:6379> SUBSCRIBE cctv
+127.0.0.1:6379 SUBSCRIBE cctv
 Reading messages... (press Ctrl-C to quit)
 1) "subscribe"
 2) "cctv"
@@ -1264,13 +1278,13 @@ Reading messages... (press Ctrl-C to quit)
 ### 2.在一个频道上发布信息
 
 ```html
-127.0.0.1:6379> PUBLISH cctv hai
+127.0.0.1:6379 PUBLISH cctv hai
 (integer) 1
 ```
 
 
 ```html
-127.0.0.1:6379> SUBSCRIBE cctv
+127.0.0.1:6379 SUBSCRIBE cctv
 Reading messages... (press Ctrl-C to quit)
 1) "subscribe"
 2) "cctv"
@@ -1324,11 +1338,11 @@ bind 192.168.200.100
 ### 3.Jedis
 
 ```xml
-	<dependency>
-		<groupId>redis.clients</groupId>
-		<artifactId>jedis</artifactId>
-		<version>2.9.0</version>
-	</dependency>
+	<dependency
+		<groupIdredis.clients</groupId
+		<artifactIdjedis</artifactId
+		<version2.9.0</version
+	</dependency
 ```
 
 ``` java

@@ -26,10 +26,6 @@
 
 ## [密码学](./note/others/cryptography/)
 
-## [美年旅游](./note/project/meinian/note1/)
-
-## [尚融宝](./note/project/ShangRongbao/The-first-part/Part01-Project-Introduction/01-introduction/)
-
 ## [mybatis](./note/ssm/mybatis/preface/)
 
 ## [spring](./note/ssm/spring/AOP-aspect-oriented-programming/agency-model/)
