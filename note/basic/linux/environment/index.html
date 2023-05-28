@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>服务器端应用程序安装 | Java全栈</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="Java 基础, Java 部分源码, JVM, Spring, Spring Boot, Spring Cloud, 数据库原理, MySQL, ElasticSearch, Docker, Linux, 分布式, 中间件, Git">
+    
+    <link rel="preload" href="/javanote/assets/css/0.styles.1d83b9a0.css" as="style"><link rel="preload" href="/javanote/assets/js/app.4d8a0605.js" as="script"><link rel="preload" href="/javanote/assets/js/11.31b4bfe5.js" as="script"><link rel="preload" href="/javanote/assets/js/77.b5e7728c.js" as="script"><link rel="prefetch" href="/javanote/assets/js/10.c191a387.js"><link rel="prefetch" href="/javanote/assets/js/100.f858324b.js"><link rel="prefetch" href="/javanote/assets/js/101.cf545769.js"><link rel="prefetch" href="/javanote/assets/js/102.70c05b3a.js"><link rel="prefetch" href="/javanote/assets/js/103.f1004525.js"><link rel="prefetch" href="/javanote/assets/js/104.0d76607f.js"><link rel="prefetch" href="/javanote/assets/js/105.1706f100.js"><link rel="prefetch" href="/javanote/assets/js/106.c2ff977c.js"><link rel="prefetch" href="/javanote/assets/js/107.5aede27e.js"><link rel="prefetch" href="/javanote/assets/js/108.8ceb754f.js"><link rel="prefetch" href="/javanote/assets/js/109.0921def7.js"><link rel="prefetch" href="/javanote/assets/js/110.1b5f3a78.js"><link rel="prefetch" href="/javanote/assets/js/111.60c4a726.js"><link rel="prefetch" href="/javanote/assets/js/112.a779216c.js"><link rel="prefetch" href="/javanote/assets/js/113.b5d94b79.js"><link rel="prefetch" href="/javanote/assets/js/114.c6f877f7.js"><link rel="prefetch" href="/javanote/assets/js/115.47ecb381.js"><link rel="prefetch" href="/javanote/assets/js/116.92ec84e7.js"><link rel="prefetch" href="/javanote/assets/js/117.e4829b5a.js"><link rel="prefetch" href="/javanote/assets/js/118.b23c1a98.js"><link rel="prefetch" href="/javanote/assets/js/119.b43f94dd.js"><link rel="prefetch" href="/javanote/assets/js/12.fa4003f9.js"><link rel="prefetch" href="/javanote/assets/js/120.f30ed6c6.js"><link rel="prefetch" href="/javanote/assets/js/121.b0022ef6.js"><link rel="prefetch" href="/javanote/assets/js/122.8fffcc78.js"><link rel="prefetch" href="/javanote/assets/js/123.e3fa7a42.js"><link rel="prefetch" href="/javanote/assets/js/124.58e10cb2.js"><link rel="prefetch" href="/javanote/assets/js/125.1b49d5f0.js"><link rel="prefetch" href="/javanote/assets/js/126.7f8e276b.js"><link rel="prefetch" href="/javanote/assets/js/127.000a6e84.js"><link rel="prefetch" href="/javanote/assets/js/128.18177328.js"><link rel="prefetch" href="/javanote/assets/js/129.0a2b7f4e.js"><link rel="prefetch" href="/javanote/assets/js/13.c51f2bed.js"><link rel="prefetch" href="/javanote/assets/js/130.31bfbbdd.js"><link rel="prefetch" href="/javanote/assets/js/131.dab5fd7f.js"><link rel="prefetch" href="/javanote/assets/js/132.34fb1d32.js"><link rel="prefetch" href="/javanote/assets/js/133.3cc3cb6c.js"><link rel="prefetch" href="/javanote/assets/js/134.8b0d230c.js"><link rel="prefetch" href="/javanote/assets/js/135.905e9937.js"><link rel="prefetch" href="/javanote/assets/js/136.23e19c54.js"><link rel="prefetch" href="/javanote/assets/js/137.3c091787.js"><link rel="prefetch" href="/javanote/assets/js/138.83313b98.js"><link rel="prefetch" href="/javanote/assets/js/139.c8e9d90b.js"><link rel="prefetch" href="/javanote/assets/js/14.8fe80835.js"><link rel="prefetch" href="/javanote/assets/js/140.de3bddcd.js"><link rel="prefetch" href="/javanote/assets/js/141.1575c6e3.js"><link rel="prefetch" href="/javanote/assets/js/142.a6471307.js"><link rel="prefetch" href="/javanote/assets/js/143.ad7eb666.js"><link rel="prefetch" href="/javanote/assets/js/144.c43ced04.js"><link rel="prefetch" href="/javanote/assets/js/145.633601ea.js"><link rel="prefetch" href="/javanote/assets/js/146.b65b7a43.js"><link rel="prefetch" href="/javanote/assets/js/147.f6ba557e.js"><link rel="prefetch" href="/javanote/assets/js/148.046226ae.js"><link rel="prefetch" href="/javanote/assets/js/149.0ad83751.js"><link rel="prefetch" href="/javanote/assets/js/15.414ac078.js"><link rel="prefetch" href="/javanote/assets/js/150.230e4d1c.js"><link rel="prefetch" href="/javanote/assets/js/151.905804f3.js"><link rel="prefetch" href="/javanote/assets/js/152.154b514a.js"><link rel="prefetch" href="/javanote/assets/js/153.37aa1b21.js"><link rel="prefetch" href="/javanote/assets/js/154.76fcd840.js"><link rel="prefetch" href="/javanote/assets/js/155.684e2d46.js"><link rel="prefetch" href="/javanote/assets/js/156.2288654a.js"><link rel="prefetch" href="/javanote/assets/js/157.9550ddf7.js"><link rel="prefetch" href="/javanote/assets/js/158.6f176501.js"><link rel="prefetch" href="/javanote/assets/js/159.38b45246.js"><link rel="prefetch" href="/javanote/assets/js/16.f6bcfda9.js"><link rel="prefetch" href="/javanote/assets/js/160.24484228.js"><link rel="prefetch" href="/javanote/assets/js/161.f8a53ea7.js"><link rel="prefetch" href="/javanote/assets/js/162.91a5d72d.js"><link rel="prefetch" href="/javanote/assets/js/163.2ad88c09.js"><link rel="prefetch" href="/javanote/assets/js/164.4cefc831.js"><link rel="prefetch" href="/javanote/assets/js/165.96d54d27.js"><link rel="prefetch" href="/javanote/assets/js/166.3ced3f05.js"><link rel="prefetch" href="/javanote/assets/js/167.9fd4dada.js"><link rel="prefetch" href="/javanote/assets/js/168.64063340.js"><link rel="prefetch" href="/javanote/assets/js/169.49eefc79.js"><link rel="prefetch" href="/javanote/assets/js/17.5ebaaa3f.js"><link rel="prefetch" href="/javanote/assets/js/170.3938afd5.js"><link rel="prefetch" href="/javanote/assets/js/171.5eb5c5a0.js"><link rel="prefetch" href="/javanote/assets/js/172.a9e33ea2.js"><link rel="prefetch" href="/javanote/assets/js/173.98e6d831.js"><link rel="prefetch" href="/javanote/assets/js/174.03448352.js"><link rel="prefetch" href="/javanote/assets/js/175.64340ac0.js"><link rel="prefetch" href="/javanote/assets/js/176.2dc52060.js"><link rel="prefetch" href="/javanote/assets/js/177.bd69843e.js"><link rel="prefetch" href="/javanote/assets/js/178.59341490.js"><link rel="prefetch" href="/javanote/assets/js/179.cc35c0a6.js"><link rel="prefetch" href="/javanote/assets/js/18.62d03701.js"><link rel="prefetch" href="/javanote/assets/js/180.11ae1e52.js"><link rel="prefetch" href="/javanote/assets/js/181.3e438e5d.js"><link rel="prefetch" href="/javanote/assets/js/182.c53a8efc.js"><link rel="prefetch" href="/javanote/assets/js/183.8b441dfb.js"><link rel="prefetch" href="/javanote/assets/js/184.d7f6c4f5.js"><link rel="prefetch" href="/javanote/assets/js/185.b439d0f4.js"><link rel="prefetch" href="/javanote/assets/js/186.b68e5585.js"><link rel="prefetch" href="/javanote/assets/js/187.56de8200.js"><link rel="prefetch" href="/javanote/assets/js/188.841fcdf2.js"><link rel="prefetch" href="/javanote/assets/js/189.be2262c2.js"><link rel="prefetch" href="/javanote/assets/js/19.0efb6573.js"><link rel="prefetch" href="/javanote/assets/js/190.40a63f47.js"><link rel="prefetch" href="/javanote/assets/js/191.a61a7c80.js"><link rel="prefetch" href="/javanote/assets/js/192.88507421.js"><link rel="prefetch" href="/javanote/assets/js/193.d0a95520.js"><link rel="prefetch" href="/javanote/assets/js/194.c66644e0.js"><link rel="prefetch" href="/javanote/assets/js/195.fdaceef8.js"><link rel="prefetch" href="/javanote/assets/js/196.85a1da29.js"><link rel="prefetch" href="/javanote/assets/js/197.a0b73b7e.js"><link rel="prefetch" href="/javanote/assets/js/198.c46de3af.js"><link rel="prefetch" href="/javanote/assets/js/199.86ad5ea9.js"><link rel="prefetch" href="/javanote/assets/js/2.8a34de3e.js"><link rel="prefetch" href="/javanote/assets/js/20.25232ae5.js"><link rel="prefetch" href="/javanote/assets/js/200.3d524295.js"><link rel="prefetch" href="/javanote/assets/js/201.2352b044.js"><link rel="prefetch" href="/javanote/assets/js/202.c96b8ae2.js"><link rel="prefetch" href="/javanote/assets/js/203.344e4887.js"><link rel="prefetch" href="/javanote/assets/js/204.cedde8a4.js"><link rel="prefetch" href="/javanote/assets/js/205.76202206.js"><link rel="prefetch" href="/javanote/assets/js/206.c4406aa6.js"><link rel="prefetch" href="/javanote/assets/js/207.8a27b698.js"><link rel="prefetch" href="/javanote/assets/js/208.59f5b615.js"><link rel="prefetch" href="/javanote/assets/js/209.fd4a6c64.js"><link rel="prefetch" href="/javanote/assets/js/21.d432caaa.js"><link rel="prefetch" href="/javanote/assets/js/210.b0e3a8d1.js"><link rel="prefetch" href="/javanote/assets/js/211.7cb84367.js"><link rel="prefetch" href="/javanote/assets/js/212.e743f232.js"><link rel="prefetch" href="/javanote/assets/js/213.d50db884.js"><link rel="prefetch" href="/javanote/assets/js/214.6da86c20.js"><link rel="prefetch" href="/javanote/assets/js/215.fd5aa565.js"><link rel="prefetch" href="/javanote/assets/js/216.e95bcc55.js"><link rel="prefetch" href="/javanote/assets/js/217.2231449c.js"><link rel="prefetch" href="/javanote/assets/js/218.b8330003.js"><link rel="prefetch" href="/javanote/assets/js/219.aa7e9cf0.js"><link rel="prefetch" href="/javanote/assets/js/22.53113347.js"><link rel="prefetch" href="/javanote/assets/js/220.9ff6e0e6.js"><link rel="prefetch" href="/javanote/assets/js/23.2238c07a.js"><link rel="prefetch" href="/javanote/assets/js/24.cb7d3039.js"><link rel="prefetch" href="/javanote/assets/js/25.b4eaea24.js"><link rel="prefetch" href="/javanote/assets/js/26.e42a49f7.js"><link rel="prefetch" href="/javanote/assets/js/27.e7587f1f.js"><link rel="prefetch" href="/javanote/assets/js/28.19eae749.js"><link rel="prefetch" href="/javanote/assets/js/29.9ddf7186.js"><link rel="prefetch" href="/javanote/assets/js/3.e91a84a2.js"><link rel="prefetch" href="/javanote/assets/js/30.a380d83f.js"><link rel="prefetch" href="/javanote/assets/js/31.02c44506.js"><link rel="prefetch" href="/javanote/assets/js/32.e4bff71a.js"><link rel="prefetch" href="/javanote/assets/js/33.e26b4f6b.js"><link rel="prefetch" href="/javanote/assets/js/34.187f65f5.js"><link rel="prefetch" href="/javanote/assets/js/35.6cd623a3.js"><link rel="prefetch" href="/javanote/assets/js/36.c018db78.js"><link rel="prefetch" href="/javanote/assets/js/37.fd665c05.js"><link rel="prefetch" href="/javanote/assets/js/38.123aa35e.js"><link rel="prefetch" href="/javanote/assets/js/39.58271e1f.js"><link rel="prefetch" href="/javanote/assets/js/4.953d09eb.js"><link rel="prefetch" href="/javanote/assets/js/40.d588f7b4.js"><link rel="prefetch" href="/javanote/assets/js/41.330ac4ba.js"><link rel="prefetch" href="/javanote/assets/js/42.4d2bcc61.js"><link rel="prefetch" href="/javanote/assets/js/43.e446c0f3.js"><link rel="prefetch" href="/javanote/assets/js/44.77abc34b.js"><link rel="prefetch" href="/javanote/assets/js/45.910e4aa5.js"><link rel="prefetch" href="/javanote/assets/js/46.7f8fd6bb.js"><link rel="prefetch" href="/javanote/assets/js/47.9e340085.js"><link rel="prefetch" href="/javanote/assets/js/48.b4c35e1e.js"><link rel="prefetch" href="/javanote/assets/js/49.807495b7.js"><link rel="prefetch" href="/javanote/assets/js/5.fe579469.js"><link rel="prefetch" href="/javanote/assets/js/50.71cfb288.js"><link rel="prefetch" href="/javanote/assets/js/51.8da13592.js"><link rel="prefetch" href="/javanote/assets/js/52.cf90a64f.js"><link rel="prefetch" href="/javanote/assets/js/53.c685fb7a.js"><link rel="prefetch" href="/javanote/assets/js/54.7d73666a.js"><link rel="prefetch" href="/javanote/assets/js/55.59497bd7.js"><link rel="prefetch" href="/javanote/assets/js/56.22cdda6e.js"><link rel="prefetch" href="/javanote/assets/js/57.36f6ee91.js"><link rel="prefetch" href="/javanote/assets/js/58.6655543d.js"><link rel="prefetch" href="/javanote/assets/js/59.1d073e32.js"><link rel="prefetch" href="/javanote/assets/js/6.1af208a0.js"><link rel="prefetch" href="/javanote/assets/js/60.f782c216.js"><link rel="prefetch" href="/javanote/assets/js/61.4f05bcba.js"><link rel="prefetch" href="/javanote/assets/js/62.d607ed0e.js"><link rel="prefetch" href="/javanote/assets/js/63.0d7a42e8.js"><link rel="prefetch" href="/javanote/assets/js/64.ce15498e.js"><link rel="prefetch" href="/javanote/assets/js/65.b9f31598.js"><link rel="prefetch" href="/javanote/assets/js/66.aeff3690.js"><link rel="prefetch" href="/javanote/assets/js/67.f6f59ffa.js"><link rel="prefetch" href="/javanote/assets/js/68.f875e4ca.js"><link rel="prefetch" href="/javanote/assets/js/69.d6512b6b.js"><link rel="prefetch" href="/javanote/assets/js/7.5739f4db.js"><link rel="prefetch" href="/javanote/assets/js/70.881dc1cf.js"><link rel="prefetch" href="/javanote/assets/js/71.263db750.js"><link rel="prefetch" href="/javanote/assets/js/72.58f08a97.js"><link rel="prefetch" href="/javanote/assets/js/73.df9399d4.js"><link rel="prefetch" href="/javanote/assets/js/74.1d6ddc56.js"><link rel="prefetch" href="/javanote/assets/js/75.fcb30922.js"><link rel="prefetch" href="/javanote/assets/js/76.46a74eb4.js"><link rel="prefetch" href="/javanote/assets/js/78.fcc34355.js"><link rel="prefetch" href="/javanote/assets/js/79.9d5204da.js"><link rel="prefetch" href="/javanote/assets/js/8.26c83b6c.js"><link rel="prefetch" href="/javanote/assets/js/80.672a4f74.js"><link rel="prefetch" href="/javanote/assets/js/81.78acaf25.js"><link rel="prefetch" href="/javanote/assets/js/82.7755c8c3.js"><link rel="prefetch" href="/javanote/assets/js/83.9b495285.js"><link rel="prefetch" href="/javanote/assets/js/84.a1270bb3.js"><link rel="prefetch" href="/javanote/assets/js/85.64d4eb9a.js"><link rel="prefetch" href="/javanote/assets/js/86.9cd6604e.js"><link rel="prefetch" href="/javanote/assets/js/87.588e06ac.js"><link rel="prefetch" href="/javanote/assets/js/88.8dad582a.js"><link rel="prefetch" href="/javanote/assets/js/89.b19689ac.js"><link rel="prefetch" href="/javanote/assets/js/9.51e5d2e7.js"><link rel="prefetch" href="/javanote/assets/js/90.586b9559.js"><link rel="prefetch" href="/javanote/assets/js/91.c9188033.js"><link rel="prefetch" href="/javanote/assets/js/92.69a38839.js"><link rel="prefetch" href="/javanote/assets/js/93.f0c9bdcd.js"><link rel="prefetch" href="/javanote/assets/js/94.f8f6b855.js"><link rel="prefetch" href="/javanote/assets/js/95.a92c2c02.js"><link rel="prefetch" href="/javanote/assets/js/96.ab442531.js"><link rel="prefetch" href="/javanote/assets/js/97.8a60e627.js"><link rel="prefetch" href="/javanote/assets/js/98.3eed55eb.js"><link rel="prefetch" href="/javanote/assets/js/99.b9c138ea.js">
+    <link rel="stylesheet" href="/javanote/assets/css/0.styles.1d83b9a0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/javanote/" class="home-link router-link-active"><!----> <span class="site-name">Java全栈</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/basic/java/day01/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/linux/background/" class="nav-link">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/mysql/mysql-basic/" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/web/WEBday01_HTML-CSS/" class="nav-link">
+  web
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级" class="dropdown-title"><span class="title">高级</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级" class="mobile-dropdown-title"><span class="title">高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/advance/juc/chapter01/" class="nav-link">
+  JUC
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/jvm/chapter01/" class="nav-link">
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/mysql/chapter01/" class="nav-link">
+  MYSQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="中间件" class="dropdown-title"><span class="title">中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="中间件" class="mobile-dropdown-title"><span class="title">中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/rabbitmq/day01/" class="nav-link">
+  rabbitmq
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/elasticsearch/day01/" class="nav-link">
+  elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/nginx/" class="nav-link">
+  nginx
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springboot/" class="nav-link">
+  springboot
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springcloud/day01/" class="nav-link">
+  springcloud
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/distributed-transaction/" class="nav-link">
+  分布式事务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/tools/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/tools/maven/maven-overview/" class="nav-link">
+  maven
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="ssm" class="dropdown-title"><span class="title">ssm</span> <span class="arrow down"></span></button> <button type="button" aria-label="ssm" class="mobile-dropdown-title"><span class="title">ssm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/mybatis/preface/" class="nav-link">
+  mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/spring/AOP-aspect-oriented-programming/agency-model/" class="nav-link">
+  spring
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/springmvc/basic-function/" class="nav-link">
+  springmvc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/others/cryptography/" class="nav-link">
+  密码学
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/basic/java/day01/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/linux/background/" class="nav-link">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/mysql/mysql-basic/" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/web/WEBday01_HTML-CSS/" class="nav-link">
+  web
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级" class="dropdown-title"><span class="title">高级</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级" class="mobile-dropdown-title"><span class="title">高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/advance/juc/chapter01/" class="nav-link">
+  JUC
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/jvm/chapter01/" class="nav-link">
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/mysql/chapter01/" class="nav-link">
+  MYSQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="中间件" class="dropdown-title"><span class="title">中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="中间件" class="mobile-dropdown-title"><span class="title">中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/rabbitmq/day01/" class="nav-link">
+  rabbitmq
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/elasticsearch/day01/" class="nav-link">
+  elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/nginx/" class="nav-link">
+  nginx
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springboot/" class="nav-link">
+  springboot
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springcloud/day01/" class="nav-link">
+  springcloud
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/distributed-transaction/" class="nav-link">
+  分布式事务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/tools/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/tools/maven/maven-overview/" class="nav-link">
+  maven
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="ssm" class="dropdown-title"><span class="title">ssm</span> <span class="arrow down"></span></button> <button type="button" aria-label="ssm" class="mobile-dropdown-title"><span class="title">ssm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/mybatis/preface/" class="nav-link">
+  mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/spring/AOP-aspect-oriented-programming/agency-model/" class="nav-link">
+  spring
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/springmvc/basic-function/" class="nav-link">
+  springmvc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/others/cryptography/" class="nav-link">
+  密码学
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/javanote/note/basic/linux/background/" class="sidebar-link">背景知识</a></li><li><a href="/javanote/note/basic/linux/authority/" class="sidebar-link">Linux系统的权限控制</a></li><li><a href="/javanote/note/basic/linux/commands/auxiliary-command/" class="sidebar-link">常用辅助命令</a></li><li><a href="/javanote/note/basic/linux/environment/" aria-current="page" class="active sidebar-link">服务器端应用程序安装</a></li><li><a href="/javanote/note/basic/linux/service/" class="sidebar-link">Linux系统的服务管理</a></li><li><a href="/javanote/note/basic/linux/shell/" class="sidebar-link">Shell脚本开发</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="服务器端应用程序安装"><a href="#服务器端应用程序安装" class="header-anchor">#</a> 服务器端应用程序安装</h1> <p>1、安装JDK</p> <p>①rpm命令</p> <p>rpm是Redhat package management缩写，实质上来说，通过rpm可以管理Linux环境下的安装包。</p> <table><thead><tr><th>参数名</th> <th>作用</th></tr></thead> <tbody><tr><td>-qa</td> <td>查询系统中已经安装的程序，通常配合管道，使用grep精确匹配想要查询的包</td></tr> <tr><td>-ivh</td> <td>执行rpm包安装操作</td></tr> <tr><td>-e</td> <td>卸载rpm包</td></tr> <tr><td>--nodeps</td> <td>在卸载过程中忽略依赖关系</td></tr></tbody></table> <p>②卸载系统预装的JDK</p> <p>查询系统中已经安装的JDK</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@apple ~<span class="token punctuation">]</span> <span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> openjdk
+java-1.8.0-openjdk-headless-1.8.0.161-2.b14.el7.x86_64
+java-1.7.0-openjdk-1.7.0.171-2.6.13.2.el7.x86_64
+java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64
+java-1.7.0-openjdk-headless-1.7.0.171-2.6.13.2.el7.x86_64
+</code></pre></div><p>执行卸载，卸载过程中使用--nodeps忽略依赖关系</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@apple ~<span class="token punctuation">]</span> <span class="token function">rpm</span> -e --nodeps java-1.8.0-openjdk-headless-1.8.0.161-2.b14.el7.x86_64
+<span class="token punctuation">[</span>root@apple ~<span class="token punctuation">]</span> <span class="token function">rpm</span> -e --nodeps java-1.7.0-openjdk-1.7.0.171-2.6.13.2.el7.x86_64
+<span class="token punctuation">[</span>root@apple ~<span class="token punctuation">]</span> <span class="token function">rpm</span> -e --nodeps java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64
+<span class="token punctuation">[</span>root@apple ~<span class="token punctuation">]</span> <span class="token function">rpm</span> -e --nodeps java-1.7.0-openjdk-headless-1.7.0.171-2.6.13.2.el7.x86_64
+</code></pre></div><p>重启系统生效</p> <p>③解压JDK的tar包配置环境变量</p> <p>[1]解压JDK的tar包</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">cd</span> /opt
+<span class="token function">tar</span> -zxvf /opt/jdk-8u121-linux-x64.tar.gz
+</code></pre></div><p>[2]配置JDK相关环境变量</p> <p>配置环境变量的配置文件：/etc/profile<br></p> <p>为了避免配置错误导致运行失败，提前复制一份/etc/profile</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">cp</span> /etc/profile /etc/profile.bak
+</code></pre></div><p>编辑/etc/profile文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code> 声明JAVA_HOME环境变量，等号两边不能有空格
+<span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/opt/jdk1.8.0_121
+
+ 在<span class="token environment constant">PATH</span>环境变量原有的值基础上附加JDK的path值，<span class="token variable">$JAVA_HOME</span>是对JAVA_HOME环境变量的引用
+<span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span>/bin:<span class="token environment constant">$PATH</span>
+
+ 将JAVA_HOME和<span class="token environment constant">PATH</span>发布为全局变量
+<span class="token builtin class-name">export</span> JAVA_HOME <span class="token environment constant">PATH</span>
+</code></pre></div><p>保存退出vim后，使用source命令执行/etc/profile脚本，让脚本中发布的环境变量生效。但是仅限于当前进程，如果想让新环境变量全局生效，可以reboot。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">source</span> /etc/profile
+</code></pre></div><p>验证一下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@apple jdk1.8.0_121<span class="token punctuation">]</span> <span class="token builtin class-name">echo</span> <span class="token variable">$JAVA_HOME</span>
+/opt/jdk1.8.0_121
+
+<span class="token punctuation">[</span>root@apple jdk1.8.0_121<span class="token punctuation">]</span> <span class="token builtin class-name">echo</span> <span class="token environment constant">$PATH</span>
+/opt/jdk1.8.0_121/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+
+<span class="token punctuation">[</span>root@apple jdk1.8.0_121<span class="token punctuation">]</span> java -version
+java version <span class="token string">&quot;1.8.0_121&quot;</span>
+Java<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> SE Runtime Environment <span class="token punctuation">(</span>build <span class="token number">1.8</span>.0_121-b13<span class="token punctuation">)</span>
+Java HotSpot<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">25.121</span>-b13, mixed mode<span class="token punctuation">)</span>
+</code></pre></div><p>2、安装Tomcat</p> <p>①解压</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">tar</span> -zxvf /opt/apache-tomcat-7.0.75.tar.gz
+</code></pre></div><p>②操控</p> <p>启动Tomcat</p> <div class="language-shell extra-class"><pre class="language-shell"><code>/opt/apache-tomcat-7.0.75/bin/startup.sh
+</code></pre></div><p>停止Tomcat</p> <div class="language-shell extra-class"><pre class="language-shell"><code>/opt/apache-tomcat-7.0.75/bin/shutdown.sh
+</code></pre></div><p>查看日志</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">tail</span> -f /opt/apache-tomcat-7.0.75/logs/catalina.out
+</code></pre></div><p>部署war包放在webapps目录下</p> <div class="language-shell extra-class"><pre class="language-shell"><code>/opt/apache-tomcat-7.0.75/webapps
+</code></pre></div><p>③访问</p> <p><img alt="images" data-src="/javanote/assets/img/1.e63805da.jpg" loading="lazy" class="lazy"></p> <p>3、MySQL安装步骤</p> <p>①卸载系统预装mariadb</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">rpm</span> -e --nodeps mariadb-libs-1:5.5.56-2.el7.x86_64
+</code></pre></div><p>②安装服务器端程序</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">rpm</span> -ivh /opt/MySQL-server-5.5.52-1.el6.x86_64.rpm
+</code></pre></div><p>验证</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@apple opt<span class="token punctuation">]</span> <span class="token function">id</span> mysql
+<span class="token assign-left variable">uid</span><span class="token operator">=</span><span class="token number">988</span><span class="token punctuation">(</span>mysql<span class="token punctuation">)</span> <span class="token assign-left variable">gid</span><span class="token operator">=</span><span class="token number">982</span><span class="token punctuation">(</span>mysql<span class="token punctuation">)</span> 组<span class="token operator">=</span><span class="token number">982</span><span class="token punctuation">(</span>mysql<span class="token punctuation">)</span>
+</code></pre></div><p>③安装客户端程序</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">rpm</span> -ivh /opt/MySQL-client-5.5.52-1.el6.x86_64.rpm
+</code></pre></div><p>④启动MySQL服务</p> <div class="language-shell extra-class"><pre class="language-shell"><code>systemctl start mysql.service
+</code></pre></div><p>⑤设置root用户密码</p> <p>注意：这里的root用户是MySQL的root用户，不是Linux的root用户</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@apple opt<span class="token punctuation">]</span> mysqladmin -u root password
+New password:
+Confirm new password:
+</code></pre></div><p>⑥登录MySQL</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@apple opt<span class="token punctuation">]</span> mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  commands end with <span class="token punctuation">;</span> or <span class="token punctuation">\</span>g.
+Your MySQL connection <span class="token function">id</span> is <span class="token number">2</span>
+Server version: <span class="token number">5.5</span>.52 MySQL Community Server <span class="token punctuation">(</span>GPL<span class="token punctuation">)</span>
+
+Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2000</span>, <span class="token number">2016</span>, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type <span class="token string">'help;'</span> or <span class="token string">'\h'</span> <span class="token keyword">for</span> help. Type <span class="token string">'\c'</span> to <span class="token function">clear</span> the current input statement.
+
+mysql<span class="token operator">&gt;</span> show databases<span class="token punctuation">;</span>
++--------------------+
+<span class="token operator">|</span> Database           <span class="token operator">|</span>
++--------------------+
+<span class="token operator">|</span> information_schema <span class="token operator">|</span>
+<span class="token operator">|</span> mysql              <span class="token operator">|</span>
+<span class="token operator">|</span> performance_schema <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token builtin class-name">test</span>               <span class="token operator">|</span>
++--------------------+
+<span class="token number">4</span> rows <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre></div><p>⑦客户端登录MySQL服务器</p> <p>[1]被防火墙拦截的错误提示</p> <p><img alt="images" data-src="/javanote/assets/img/3.e898ef4d.jpg" loading="lazy" class="lazy"></p> <p>通过关闭防火墙服务器解决</p> <div class="language-shell extra-class"><pre class="language-shell"><code>systemctl stop firewalld.service
+systemctl disable firewalld.service
+</code></pre></div><p>[2]被MySQL自己拒绝连接</p> <p><img alt="images" data-src="/javanote/assets/img/2.00172c5c.jpg" loading="lazy" class="lazy"></p> <p>[3]在MySQL服务器端设置允许任何主机地址访问</p> <p>执行SQL语句</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'root'</span><span class="token variable">@'%'</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'atguigu'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+</code></pre></div><p><img alt="images" data-src="/javanote/assets/img/4.ab1d7352.jpg" loading="lazy" class="lazy"></p> <p>重启MySQL服务</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>root@apple opt<span class="token punctuation">]</span> mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  commands end with <span class="token punctuation">;</span> or <span class="token punctuation">\</span>g.
+Your MySQL connection <span class="token function">id</span> is <span class="token number">5</span>
+Server version: <span class="token number">5.5</span>.52 MySQL Community Server <span class="token punctuation">(</span>GPL<span class="token punctuation">)</span>
+
+Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2000</span>, <span class="token number">2016</span>, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type <span class="token string">'help;'</span> or <span class="token string">'\h'</span> <span class="token keyword">for</span> help. Type <span class="token string">'\c'</span> to <span class="token function">clear</span> the current input statement.
+
+mysql<span class="token operator">&gt;</span>
+mysql<span class="token operator">&gt;</span> use mysql<span class="token punctuation">;</span>
+Reading table information <span class="token keyword">for</span> completion of table and <span class="token function">column</span> names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> host,user,password from user<span class="token punctuation">;</span>
++-----------+------+-------------------------------------------+
+<span class="token operator">|</span> <span class="token function">host</span>      <span class="token operator">|</span> user <span class="token operator">|</span> password                                  <span class="token operator">|</span>
++-----------+------+-------------------------------------------+
+<span class="token operator">|</span> localhost <span class="token operator">|</span> root <span class="token operator">|</span> *453FDE92DF58E2DE1A51D27869CF3F1A69984B1B <span class="token operator">|</span>
+<span class="token operator">|</span> apple     <span class="token operator">|</span> root <span class="token operator">|</span>                                           <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">127.0</span>.0.1 <span class="token operator">|</span> root <span class="token operator">|</span>                                           <span class="token operator">|</span>
+<span class="token operator">|</span> ::1       <span class="token operator">|</span> root <span class="token operator">|</span>                                           <span class="token operator">|</span>
+<span class="token operator">|</span> localhost <span class="token operator">|</span>      <span class="token operator">|</span>                                           <span class="token operator">|</span>
+<span class="token operator">|</span> apple     <span class="token operator">|</span>      <span class="token operator">|</span>                                           <span class="token operator">|</span>
++-----------+------+-------------------------------------------+
+<span class="token number">6</span> rows <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
+
+mysql<span class="token operator">&gt;</span> GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED BY <span class="token string">'atguigu'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+Query OK, <span class="token number">0</span> rows affected <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+
+mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> host,user,password,select_priv,update_priv from user<span class="token punctuation">;</span>
++-----------+------+-------------------------------------------+-------------+-------------+
+<span class="token operator">|</span> <span class="token function">host</span>      <span class="token operator">|</span> user <span class="token operator">|</span> password                                  <span class="token operator">|</span> select_priv <span class="token operator">|</span> update_priv <span class="token operator">|</span>
++-----------+------+-------------------------------------------+-------------+-------------+
+<span class="token operator">|</span> localhost <span class="token operator">|</span> root <span class="token operator">|</span> *453FDE92DF58E2DE1A51D27869CF3F1A69984B1B <span class="token operator">|</span> Y           <span class="token operator">|</span> Y           <span class="token operator">|</span>
+<span class="token operator">|</span> apple     <span class="token operator">|</span> root <span class="token operator">|</span>                                           <span class="token operator">|</span> Y           <span class="token operator">|</span> Y           <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">127.0</span>.0.1 <span class="token operator">|</span> root <span class="token operator">|</span>                                           <span class="token operator">|</span> Y           <span class="token operator">|</span> Y           <span class="token operator">|</span>
+<span class="token operator">|</span> ::1       <span class="token operator">|</span> root <span class="token operator">|</span>                                           <span class="token operator">|</span> Y           <span class="token operator">|</span> Y           <span class="token operator">|</span>
+<span class="token operator">|</span> localhost <span class="token operator">|</span>      <span class="token operator">|</span>                                           <span class="token operator">|</span> N           <span class="token operator">|</span> N           <span class="token operator">|</span>
+<span class="token operator">|</span> apple     <span class="token operator">|</span>      <span class="token operator">|</span>                                           <span class="token operator">|</span> N           <span class="token operator">|</span> N           <span class="token operator">|</span>
+<span class="token operator">|</span> %         <span class="token operator">|</span> root <span class="token operator">|</span> *453FDE92DF58E2DE1A51D27869CF3F1A69984B1B <span class="token operator">|</span> Y           <span class="token operator">|</span> Y           <span class="token operator">|</span>
++-----------+------+-------------------------------------------+-------------+-------------+
+<span class="token number">7</span> rows <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre></div><p>重启MySQL服务</p> <div class="language-shell extra-class"><pre class="language-shell"><code>systemctl restart mysql.service
+</code></pre></div><p><img alt="images" data-src="/javanote/assets/img/5.565ccc91.jpg" loading="lazy" class="lazy"></p> <p>⑧解决字符乱码问题</p> <p>[1]查看字符相关变量</p> <div class="language-sql extra-class"><pre class="language-sql"><code>mysql<span class="token operator">&gt;</span> <span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">&quot;%char%&quot;</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------------------------+----------------------------+</span>
+<span class="token operator">|</span> Variable_name            <span class="token operator">|</span> <span class="token keyword">Value</span>                      <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------------------------+----------------------------+</span>
+<span class="token operator">|</span> character_set_client     <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_connection <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_database   <span class="token operator">|</span> latin1                     <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_filesystem <span class="token operator">|</span> <span class="token keyword">binary</span>                     <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_results    <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_server     <span class="token operator">|</span> latin1                     <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_system     <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_sets_dir       <span class="token operator">|</span> <span class="token operator">/</span>usr<span class="token operator">/</span><span class="token keyword">share</span><span class="token operator">/</span>mysql<span class="token operator">/</span>charsets<span class="token operator">/</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------------------------+----------------------------+</span>
+<span class="token number">8</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre></div><p>[2]准备MySQL配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">cp</span> /usr/share/mysql/my-small.cnf /etc/my.cnf
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>[mysqld]
+port            = 3306
+socket          = /var/lib/mysql/mysql.sock
+skip-external-locking
+key_buffer_size = 16K
+max_allowed_packet = 1M
+table_open_cache = 4
+sort_buffer_size = 64K
+read_buffer_size = 256K
+read_rnd_buffer_size = 256K
+net_buffer_length = 2K
+thread_stack = 128K
+character-set-server=utf8
+</code></pre></div><p>在[mysqld]部分的配置的最后添加character-set-server=utf8</p> <p>重启MySQL服务</p> <div class="language-shell extra-class"><pre class="language-shell"><code>systemctl restart mysql.service
+</code></pre></div><p>查看字符集相关变量</p> <div class="language-sql extra-class"><pre class="language-sql"><code>mysql<span class="token operator">&gt;</span> <span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">&quot;%char%&quot;</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------------------------+----------------------------+</span>
+<span class="token operator">|</span> Variable_name            <span class="token operator">|</span> <span class="token keyword">Value</span>                      <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------------------------+----------------------------+</span>
+<span class="token operator">|</span> character_set_client     <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_connection <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_database   <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_filesystem <span class="token operator">|</span> <span class="token keyword">binary</span>                     <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_results    <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_server     <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_set_system     <span class="token operator">|</span> utf8                       <span class="token operator">|</span>
+<span class="token operator">|</span> character_sets_dir       <span class="token operator">|</span> <span class="token operator">/</span>usr<span class="token operator">/</span><span class="token keyword">share</span><span class="token operator">/</span>mysql<span class="token operator">/</span>charsets<span class="token operator">/</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------------------------+----------------------------+</span>
+<span class="token number">8</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre></div><p>重新创建数据库、创建数据库表、插入中文字符数据验证。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/javanote/note/basic/linux/commands/auxiliary-command/" class="prev">
+        常用辅助命令
+      </a></span> <span class="next"><a href="/javanote/note/basic/linux/service/">
+        Linux系统的服务管理
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/javanote/assets/js/app.4d8a0605.js" defer></script><script src="/javanote/assets/js/11.31b4bfe5.js" defer></script><script src="/javanote/assets/js/77.b5e7728c.js" defer></script>
+  </body>
+</html>

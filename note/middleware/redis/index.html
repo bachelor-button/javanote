@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Redis | Java全栈</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="Java 基础, Java 部分源码, JVM, Spring, Spring Boot, Spring Cloud, 数据库原理, MySQL, ElasticSearch, Docker, Linux, 分布式, 中间件, Git">
+    
+    <link rel="preload" href="/javanote/assets/css/0.styles.1d83b9a0.css" as="style"><link rel="preload" href="/javanote/assets/js/app.4d8a0605.js" as="script"><link rel="preload" href="/javanote/assets/js/11.31b4bfe5.js" as="script"><link rel="preload" href="/javanote/assets/js/53.c685fb7a.js" as="script"><link rel="prefetch" href="/javanote/assets/js/10.c191a387.js"><link rel="prefetch" href="/javanote/assets/js/100.f858324b.js"><link rel="prefetch" href="/javanote/assets/js/101.cf545769.js"><link rel="prefetch" href="/javanote/assets/js/102.70c05b3a.js"><link rel="prefetch" href="/javanote/assets/js/103.f1004525.js"><link rel="prefetch" href="/javanote/assets/js/104.0d76607f.js"><link rel="prefetch" href="/javanote/assets/js/105.1706f100.js"><link rel="prefetch" href="/javanote/assets/js/106.c2ff977c.js"><link rel="prefetch" href="/javanote/assets/js/107.5aede27e.js"><link rel="prefetch" href="/javanote/assets/js/108.8ceb754f.js"><link rel="prefetch" href="/javanote/assets/js/109.0921def7.js"><link rel="prefetch" href="/javanote/assets/js/110.1b5f3a78.js"><link rel="prefetch" href="/javanote/assets/js/111.60c4a726.js"><link rel="prefetch" href="/javanote/assets/js/112.a779216c.js"><link rel="prefetch" href="/javanote/assets/js/113.b5d94b79.js"><link rel="prefetch" href="/javanote/assets/js/114.c6f877f7.js"><link rel="prefetch" href="/javanote/assets/js/115.47ecb381.js"><link rel="prefetch" href="/javanote/assets/js/116.92ec84e7.js"><link rel="prefetch" href="/javanote/assets/js/117.e4829b5a.js"><link rel="prefetch" href="/javanote/assets/js/118.b23c1a98.js"><link rel="prefetch" href="/javanote/assets/js/119.b43f94dd.js"><link rel="prefetch" href="/javanote/assets/js/12.fa4003f9.js"><link rel="prefetch" href="/javanote/assets/js/120.f30ed6c6.js"><link rel="prefetch" href="/javanote/assets/js/121.b0022ef6.js"><link rel="prefetch" href="/javanote/assets/js/122.8fffcc78.js"><link rel="prefetch" href="/javanote/assets/js/123.e3fa7a42.js"><link rel="prefetch" href="/javanote/assets/js/124.58e10cb2.js"><link rel="prefetch" href="/javanote/assets/js/125.1b49d5f0.js"><link rel="prefetch" href="/javanote/assets/js/126.7f8e276b.js"><link rel="prefetch" href="/javanote/assets/js/127.000a6e84.js"><link rel="prefetch" href="/javanote/assets/js/128.18177328.js"><link rel="prefetch" href="/javanote/assets/js/129.0a2b7f4e.js"><link rel="prefetch" href="/javanote/assets/js/13.c51f2bed.js"><link rel="prefetch" href="/javanote/assets/js/130.31bfbbdd.js"><link rel="prefetch" href="/javanote/assets/js/131.dab5fd7f.js"><link rel="prefetch" href="/javanote/assets/js/132.34fb1d32.js"><link rel="prefetch" href="/javanote/assets/js/133.3cc3cb6c.js"><link rel="prefetch" href="/javanote/assets/js/134.8b0d230c.js"><link rel="prefetch" href="/javanote/assets/js/135.905e9937.js"><link rel="prefetch" href="/javanote/assets/js/136.23e19c54.js"><link rel="prefetch" href="/javanote/assets/js/137.3c091787.js"><link rel="prefetch" href="/javanote/assets/js/138.83313b98.js"><link rel="prefetch" href="/javanote/assets/js/139.c8e9d90b.js"><link rel="prefetch" href="/javanote/assets/js/14.8fe80835.js"><link rel="prefetch" href="/javanote/assets/js/140.de3bddcd.js"><link rel="prefetch" href="/javanote/assets/js/141.1575c6e3.js"><link rel="prefetch" href="/javanote/assets/js/142.a6471307.js"><link rel="prefetch" href="/javanote/assets/js/143.ad7eb666.js"><link rel="prefetch" href="/javanote/assets/js/144.c43ced04.js"><link rel="prefetch" href="/javanote/assets/js/145.633601ea.js"><link rel="prefetch" href="/javanote/assets/js/146.b65b7a43.js"><link rel="prefetch" href="/javanote/assets/js/147.f6ba557e.js"><link rel="prefetch" href="/javanote/assets/js/148.046226ae.js"><link rel="prefetch" href="/javanote/assets/js/149.0ad83751.js"><link rel="prefetch" href="/javanote/assets/js/15.414ac078.js"><link rel="prefetch" href="/javanote/assets/js/150.230e4d1c.js"><link rel="prefetch" href="/javanote/assets/js/151.905804f3.js"><link rel="prefetch" href="/javanote/assets/js/152.154b514a.js"><link rel="prefetch" href="/javanote/assets/js/153.37aa1b21.js"><link rel="prefetch" href="/javanote/assets/js/154.76fcd840.js"><link rel="prefetch" href="/javanote/assets/js/155.684e2d46.js"><link rel="prefetch" href="/javanote/assets/js/156.2288654a.js"><link rel="prefetch" href="/javanote/assets/js/157.9550ddf7.js"><link rel="prefetch" href="/javanote/assets/js/158.6f176501.js"><link rel="prefetch" href="/javanote/assets/js/159.38b45246.js"><link rel="prefetch" href="/javanote/assets/js/16.f6bcfda9.js"><link rel="prefetch" href="/javanote/assets/js/160.24484228.js"><link rel="prefetch" href="/javanote/assets/js/161.f8a53ea7.js"><link rel="prefetch" href="/javanote/assets/js/162.91a5d72d.js"><link rel="prefetch" href="/javanote/assets/js/163.2ad88c09.js"><link rel="prefetch" href="/javanote/assets/js/164.4cefc831.js"><link rel="prefetch" href="/javanote/assets/js/165.96d54d27.js"><link rel="prefetch" href="/javanote/assets/js/166.3ced3f05.js"><link rel="prefetch" href="/javanote/assets/js/167.9fd4dada.js"><link rel="prefetch" href="/javanote/assets/js/168.64063340.js"><link rel="prefetch" href="/javanote/assets/js/169.49eefc79.js"><link rel="prefetch" href="/javanote/assets/js/17.5ebaaa3f.js"><link rel="prefetch" href="/javanote/assets/js/170.3938afd5.js"><link rel="prefetch" href="/javanote/assets/js/171.5eb5c5a0.js"><link rel="prefetch" href="/javanote/assets/js/172.a9e33ea2.js"><link rel="prefetch" href="/javanote/assets/js/173.98e6d831.js"><link rel="prefetch" href="/javanote/assets/js/174.03448352.js"><link rel="prefetch" href="/javanote/assets/js/175.64340ac0.js"><link rel="prefetch" href="/javanote/assets/js/176.2dc52060.js"><link rel="prefetch" href="/javanote/assets/js/177.bd69843e.js"><link rel="prefetch" href="/javanote/assets/js/178.59341490.js"><link rel="prefetch" href="/javanote/assets/js/179.cc35c0a6.js"><link rel="prefetch" href="/javanote/assets/js/18.62d03701.js"><link rel="prefetch" href="/javanote/assets/js/180.11ae1e52.js"><link rel="prefetch" href="/javanote/assets/js/181.3e438e5d.js"><link rel="prefetch" href="/javanote/assets/js/182.c53a8efc.js"><link rel="prefetch" href="/javanote/assets/js/183.8b441dfb.js"><link rel="prefetch" href="/javanote/assets/js/184.d7f6c4f5.js"><link rel="prefetch" href="/javanote/assets/js/185.b439d0f4.js"><link rel="prefetch" href="/javanote/assets/js/186.b68e5585.js"><link rel="prefetch" href="/javanote/assets/js/187.56de8200.js"><link rel="prefetch" href="/javanote/assets/js/188.841fcdf2.js"><link rel="prefetch" href="/javanote/assets/js/189.be2262c2.js"><link rel="prefetch" href="/javanote/assets/js/19.0efb6573.js"><link rel="prefetch" href="/javanote/assets/js/190.40a63f47.js"><link rel="prefetch" href="/javanote/assets/js/191.a61a7c80.js"><link rel="prefetch" href="/javanote/assets/js/192.88507421.js"><link rel="prefetch" href="/javanote/assets/js/193.d0a95520.js"><link rel="prefetch" href="/javanote/assets/js/194.c66644e0.js"><link rel="prefetch" href="/javanote/assets/js/195.fdaceef8.js"><link rel="prefetch" href="/javanote/assets/js/196.85a1da29.js"><link rel="prefetch" href="/javanote/assets/js/197.a0b73b7e.js"><link rel="prefetch" href="/javanote/assets/js/198.c46de3af.js"><link rel="prefetch" href="/javanote/assets/js/199.86ad5ea9.js"><link rel="prefetch" href="/javanote/assets/js/2.8a34de3e.js"><link rel="prefetch" href="/javanote/assets/js/20.25232ae5.js"><link rel="prefetch" href="/javanote/assets/js/200.3d524295.js"><link rel="prefetch" href="/javanote/assets/js/201.2352b044.js"><link rel="prefetch" href="/javanote/assets/js/202.c96b8ae2.js"><link rel="prefetch" href="/javanote/assets/js/203.344e4887.js"><link rel="prefetch" href="/javanote/assets/js/204.cedde8a4.js"><link rel="prefetch" href="/javanote/assets/js/205.76202206.js"><link rel="prefetch" href="/javanote/assets/js/206.c4406aa6.js"><link rel="prefetch" href="/javanote/assets/js/207.8a27b698.js"><link rel="prefetch" href="/javanote/assets/js/208.59f5b615.js"><link rel="prefetch" href="/javanote/assets/js/209.fd4a6c64.js"><link rel="prefetch" href="/javanote/assets/js/21.d432caaa.js"><link rel="prefetch" href="/javanote/assets/js/210.b0e3a8d1.js"><link rel="prefetch" href="/javanote/assets/js/211.7cb84367.js"><link rel="prefetch" href="/javanote/assets/js/212.e743f232.js"><link rel="prefetch" href="/javanote/assets/js/213.d50db884.js"><link rel="prefetch" href="/javanote/assets/js/214.6da86c20.js"><link rel="prefetch" href="/javanote/assets/js/215.fd5aa565.js"><link rel="prefetch" href="/javanote/assets/js/216.e95bcc55.js"><link rel="prefetch" href="/javanote/assets/js/217.2231449c.js"><link rel="prefetch" href="/javanote/assets/js/218.b8330003.js"><link rel="prefetch" href="/javanote/assets/js/219.aa7e9cf0.js"><link rel="prefetch" href="/javanote/assets/js/22.53113347.js"><link rel="prefetch" href="/javanote/assets/js/220.9ff6e0e6.js"><link rel="prefetch" href="/javanote/assets/js/23.2238c07a.js"><link rel="prefetch" href="/javanote/assets/js/24.cb7d3039.js"><link rel="prefetch" href="/javanote/assets/js/25.b4eaea24.js"><link rel="prefetch" href="/javanote/assets/js/26.e42a49f7.js"><link rel="prefetch" href="/javanote/assets/js/27.e7587f1f.js"><link rel="prefetch" href="/javanote/assets/js/28.19eae749.js"><link rel="prefetch" href="/javanote/assets/js/29.9ddf7186.js"><link rel="prefetch" href="/javanote/assets/js/3.e91a84a2.js"><link rel="prefetch" href="/javanote/assets/js/30.a380d83f.js"><link rel="prefetch" href="/javanote/assets/js/31.02c44506.js"><link rel="prefetch" href="/javanote/assets/js/32.e4bff71a.js"><link rel="prefetch" href="/javanote/assets/js/33.e26b4f6b.js"><link rel="prefetch" href="/javanote/assets/js/34.187f65f5.js"><link rel="prefetch" href="/javanote/assets/js/35.6cd623a3.js"><link rel="prefetch" href="/javanote/assets/js/36.c018db78.js"><link rel="prefetch" href="/javanote/assets/js/37.fd665c05.js"><link rel="prefetch" href="/javanote/assets/js/38.123aa35e.js"><link rel="prefetch" href="/javanote/assets/js/39.58271e1f.js"><link rel="prefetch" href="/javanote/assets/js/4.953d09eb.js"><link rel="prefetch" href="/javanote/assets/js/40.d588f7b4.js"><link rel="prefetch" href="/javanote/assets/js/41.330ac4ba.js"><link rel="prefetch" href="/javanote/assets/js/42.4d2bcc61.js"><link rel="prefetch" href="/javanote/assets/js/43.e446c0f3.js"><link rel="prefetch" href="/javanote/assets/js/44.77abc34b.js"><link rel="prefetch" href="/javanote/assets/js/45.910e4aa5.js"><link rel="prefetch" href="/javanote/assets/js/46.7f8fd6bb.js"><link rel="prefetch" href="/javanote/assets/js/47.9e340085.js"><link rel="prefetch" href="/javanote/assets/js/48.b4c35e1e.js"><link rel="prefetch" href="/javanote/assets/js/49.807495b7.js"><link rel="prefetch" href="/javanote/assets/js/5.fe579469.js"><link rel="prefetch" href="/javanote/assets/js/50.71cfb288.js"><link rel="prefetch" href="/javanote/assets/js/51.8da13592.js"><link rel="prefetch" href="/javanote/assets/js/52.cf90a64f.js"><link rel="prefetch" href="/javanote/assets/js/54.7d73666a.js"><link rel="prefetch" href="/javanote/assets/js/55.59497bd7.js"><link rel="prefetch" href="/javanote/assets/js/56.22cdda6e.js"><link rel="prefetch" href="/javanote/assets/js/57.36f6ee91.js"><link rel="prefetch" href="/javanote/assets/js/58.6655543d.js"><link rel="prefetch" href="/javanote/assets/js/59.1d073e32.js"><link rel="prefetch" href="/javanote/assets/js/6.1af208a0.js"><link rel="prefetch" href="/javanote/assets/js/60.f782c216.js"><link rel="prefetch" href="/javanote/assets/js/61.4f05bcba.js"><link rel="prefetch" href="/javanote/assets/js/62.d607ed0e.js"><link rel="prefetch" href="/javanote/assets/js/63.0d7a42e8.js"><link rel="prefetch" href="/javanote/assets/js/64.ce15498e.js"><link rel="prefetch" href="/javanote/assets/js/65.b9f31598.js"><link rel="prefetch" href="/javanote/assets/js/66.aeff3690.js"><link rel="prefetch" href="/javanote/assets/js/67.f6f59ffa.js"><link rel="prefetch" href="/javanote/assets/js/68.f875e4ca.js"><link rel="prefetch" href="/javanote/assets/js/69.d6512b6b.js"><link rel="prefetch" href="/javanote/assets/js/7.5739f4db.js"><link rel="prefetch" href="/javanote/assets/js/70.881dc1cf.js"><link rel="prefetch" href="/javanote/assets/js/71.263db750.js"><link rel="prefetch" href="/javanote/assets/js/72.58f08a97.js"><link rel="prefetch" href="/javanote/assets/js/73.df9399d4.js"><link rel="prefetch" href="/javanote/assets/js/74.1d6ddc56.js"><link rel="prefetch" href="/javanote/assets/js/75.fcb30922.js"><link rel="prefetch" href="/javanote/assets/js/76.46a74eb4.js"><link rel="prefetch" href="/javanote/assets/js/77.b5e7728c.js"><link rel="prefetch" href="/javanote/assets/js/78.fcc34355.js"><link rel="prefetch" href="/javanote/assets/js/79.9d5204da.js"><link rel="prefetch" href="/javanote/assets/js/8.26c83b6c.js"><link rel="prefetch" href="/javanote/assets/js/80.672a4f74.js"><link rel="prefetch" href="/javanote/assets/js/81.78acaf25.js"><link rel="prefetch" href="/javanote/assets/js/82.7755c8c3.js"><link rel="prefetch" href="/javanote/assets/js/83.9b495285.js"><link rel="prefetch" href="/javanote/assets/js/84.a1270bb3.js"><link rel="prefetch" href="/javanote/assets/js/85.64d4eb9a.js"><link rel="prefetch" href="/javanote/assets/js/86.9cd6604e.js"><link rel="prefetch" href="/javanote/assets/js/87.588e06ac.js"><link rel="prefetch" href="/javanote/assets/js/88.8dad582a.js"><link rel="prefetch" href="/javanote/assets/js/89.b19689ac.js"><link rel="prefetch" href="/javanote/assets/js/9.51e5d2e7.js"><link rel="prefetch" href="/javanote/assets/js/90.586b9559.js"><link rel="prefetch" href="/javanote/assets/js/91.c9188033.js"><link rel="prefetch" href="/javanote/assets/js/92.69a38839.js"><link rel="prefetch" href="/javanote/assets/js/93.f0c9bdcd.js"><link rel="prefetch" href="/javanote/assets/js/94.f8f6b855.js"><link rel="prefetch" href="/javanote/assets/js/95.a92c2c02.js"><link rel="prefetch" href="/javanote/assets/js/96.ab442531.js"><link rel="prefetch" href="/javanote/assets/js/97.8a60e627.js"><link rel="prefetch" href="/javanote/assets/js/98.3eed55eb.js"><link rel="prefetch" href="/javanote/assets/js/99.b9c138ea.js">
+    <link rel="stylesheet" href="/javanote/assets/css/0.styles.1d83b9a0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/javanote/" class="home-link router-link-active"><!----> <span class="site-name">Java全栈</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/basic/java/day01/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/linux/background/" class="nav-link">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/mysql/mysql-basic/" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/web/WEBday01_HTML-CSS/" class="nav-link">
+  web
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级" class="dropdown-title"><span class="title">高级</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级" class="mobile-dropdown-title"><span class="title">高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/advance/juc/chapter01/" class="nav-link">
+  JUC
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/jvm/chapter01/" class="nav-link">
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/mysql/chapter01/" class="nav-link">
+  MYSQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="中间件" class="dropdown-title"><span class="title">中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="中间件" class="mobile-dropdown-title"><span class="title">中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/rabbitmq/day01/" class="nav-link">
+  rabbitmq
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/elasticsearch/day01/" class="nav-link">
+  elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/redis/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/nginx/" class="nav-link">
+  nginx
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springboot/" class="nav-link">
+  springboot
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springcloud/day01/" class="nav-link">
+  springcloud
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/distributed-transaction/" class="nav-link">
+  分布式事务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/tools/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/tools/maven/maven-overview/" class="nav-link">
+  maven
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="ssm" class="dropdown-title"><span class="title">ssm</span> <span class="arrow down"></span></button> <button type="button" aria-label="ssm" class="mobile-dropdown-title"><span class="title">ssm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/mybatis/preface/" class="nav-link">
+  mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/spring/AOP-aspect-oriented-programming/agency-model/" class="nav-link">
+  spring
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/springmvc/basic-function/" class="nav-link">
+  springmvc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/others/cryptography/" class="nav-link">
+  密码学
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/basic/java/day01/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/linux/background/" class="nav-link">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/mysql/mysql-basic/" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/web/WEBday01_HTML-CSS/" class="nav-link">
+  web
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级" class="dropdown-title"><span class="title">高级</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级" class="mobile-dropdown-title"><span class="title">高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/advance/juc/chapter01/" class="nav-link">
+  JUC
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/jvm/chapter01/" class="nav-link">
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/mysql/chapter01/" class="nav-link">
+  MYSQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="中间件" class="dropdown-title"><span class="title">中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="中间件" class="mobile-dropdown-title"><span class="title">中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/rabbitmq/day01/" class="nav-link">
+  rabbitmq
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/elasticsearch/day01/" class="nav-link">
+  elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/redis/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/nginx/" class="nav-link">
+  nginx
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springboot/" class="nav-link">
+  springboot
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springcloud/day01/" class="nav-link">
+  springcloud
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/distributed-transaction/" class="nav-link">
+  分布式事务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/tools/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/tools/maven/maven-overview/" class="nav-link">
+  maven
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="ssm" class="dropdown-title"><span class="title">ssm</span> <span class="arrow down"></span></button> <button type="button" aria-label="ssm" class="mobile-dropdown-title"><span class="title">ssm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/mybatis/preface/" class="nav-link">
+  mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/spring/AOP-aspect-oriented-programming/agency-model/" class="nav-link">
+  spring
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/springmvc/basic-function/" class="nav-link">
+  springmvc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/others/cryptography/" class="nav-link">
+  密码学
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>elasticsearch</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javanote/note/middleware/elasticsearch/day01/" class="sidebar-link">ElasticSearch第一天</a></li><li><a href="/javanote/note/middleware/elasticsearch/day02/" class="sidebar-link">ElasticSearch第二天</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>rabbitmq</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/javanote/note/middleware/nginx/" class="sidebar-link">Nginx</a></li><li><a href="/javanote/note/middleware/redis/" aria-current="page" class="active sidebar-link">Redis</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#一、大型网站的系统特点" class="sidebar-link">一、大型网站的系统特点</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#二、大型网站架构发展历程" class="sidebar-link">二、大型网站架构发展历程</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#三、从nosql说起" class="sidebar-link">三、从NoSQL说起</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#四、redis简介" class="sidebar-link">四、Redis简介</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#五、redis安装" class="sidebar-link">五、Redis安装</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#六、redis常用数据结构" class="sidebar-link">六、Redis常用数据结构</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#七、redis命令行操作" class="sidebar-link">七、Redis命令行操作</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#八、redis持久化机制" class="sidebar-link">八、Redis持久化机制</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#九、redis事务控制" class="sidebar-link">九、Redis事务控制</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#十、redis主从复制机制" class="sidebar-link">十、Redis主从复制机制</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#十一、发布订阅" class="sidebar-link">十一、发布订阅</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#十二、jedis" class="sidebar-link">十二、Jedis</a></li><li class="sidebar-sub-header"><a href="/javanote/note/middleware/redis/#十三、总结" class="sidebar-link">十三、总结</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="redis"><a href="#redis" class="header-anchor">#</a> Redis</h1> <h2 id="一、大型网站的系统特点"><a href="#一、大型网站的系统特点" class="header-anchor">#</a> 一、大型网站的系统特点</h2> <h3 id="_1-高并发、大流量"><a href="#_1-高并发、大流量" class="header-anchor">#</a> 1.高并发、大流量</h3> <p>大型网站系统需要面对高并发</p> <p>用户，大流量访问。Google日均PV数35亿，日均IP访问数3亿；腾讯QQ的最大在线用户数1.4亿（2011年数据）；微信用户量已超11亿；2019年天猫双十一交易额突破2500亿。</p> <h3 id="_2-高可用"><a href="#_2-高可用" class="header-anchor">#</a> 2.高可用</h3> <p>系统7×24小时不间断服务。大型互联网站的宕机事件通常会成为新闻焦点，例如2010年百度域名被黑客劫持导致不能访问，成为重大新闻热点。</p> <h3 id="_3-海量数据"><a href="#_3-海量数据" class="header-anchor">#</a> 3.海量数据</h3> <p>需要存储、管理海量数据，需要使用大量服务器。Facebook每周上传的照片数目接近10亿，百度收录的网页数目有数百亿，Google有近百万台服务器为全球用户提供服务。</p> <h3 id="_4-用户分布广泛-网络情况复杂"><a href="#_4-用户分布广泛-网络情况复杂" class="header-anchor">#</a> 4.用户分布广泛，网络情况复杂</h3> <p>许多大型互联网都是为全球用户提供服务的，用户分布范围广，各地网络情况千差万别。在国内，还有各个运营商网络互通难的问题。而中美光缆的数次故障，也让一些对国外用户依赖较大的网站不得不考虑在海外建立数据中心。</p> <h3 id="_5-安全环境恶劣"><a href="#_5-安全环境恶劣" class="header-anchor">#</a> 5.安全环境恶劣</h3> <p>由于互联网的开放性，使得互联网站更容易受到攻击，大型网站几 乎每天都会被黑客攻击。任何系统漏洞都会被攻击者利用，造成重大损失。</p> <h3 id="_6-需求快速变更-发布频繁"><a href="#_6-需求快速变更-发布频繁" class="header-anchor">#</a> 6.需求快速变更，发布频繁</h3> <p>和传统软件的版本发布频率不同，互联网产品为快速适应市场，满足用户需求，其产品发布频率是极高的。Office的产品版本以年为单位发布，而一般大型网站的产品每周都有新版本发布上线，至于中小型网站的发布就更频繁了，有时候一天会发布几十次。</p> <h3 id="_7-渐进式发展"><a href="#_7-渐进式发展" class="header-anchor">#</a> 7.渐进式发展</h3> <p>与传统软件产品或企业应用系统一开始就规划好全部的功能和非功能需求不同，几乎所有的大型互联网站都是从一个小网站开始，渐进地发展起来的。</p> <p>Facebook是伯克扎克同学在哈佛大学的宿舍里开发的；Google的第一台服务器部署在斯坦福大学的实验室里；</p> <p>阿里巴巴则是在马云家的客厅里诞生的。好的互联网产品都是慢慢运营出来的，不是一开始就开发好的，这也正好与网站架构的发展演化过程对应。</p> <h2 id="二、大型网站架构发展历程"><a href="#二、大型网站架构发展历程" class="header-anchor">#</a> 二、大型网站架构发展历程</h2> <p><img alt="architecture" data-src="/javanote/assets/img/dubbo-architecture-roadmap.23791576.jpg" loading="lazy" class="lazy"></p> <h3 id="_1-单一应用架构"><a href="#_1-单一应用架构" class="header-anchor">#</a> 1.单一应用架构</h3> <p>当网站流量很小时，只需一个应用，将所有功能都部署在一起，以减少部署节点和成本。此时，用于简化增删改查工作量的数据访问框架(ORM)是关键。</p> <h3 id="_2-垂直应用架构"><a href="#_2-垂直应用架构" class="header-anchor">#</a> 2.垂直应用架构</h3> <p>当访问量逐渐增大，单一应用增加机器带来的加速度越来越小，提升效率的方法之一是将应用拆成互不相干的几个应用，以提升效率。此时，用于加速前端页面开发的Web框架(MVC)是关键。</p> <h3 id="_3-分布式服务架构"><a href="#_3-分布式服务架构" class="header-anchor">#</a> 3.分布式服务架构</h3> <p>当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。此时，用于提高业务复用及整合的分布式服务框架(RPC)是关键。</p> <h3 id="_4-流动计算架构"><a href="#_4-流动计算架构" class="header-anchor">#</a> 4.流动计算架构</h3> <p>当服务越来越多，容量的评估，小服务资源的浪费等问题逐渐显现，此时需增加一个调度中心基于访问压力实时管理集群容量，提高集群利用率。此时，用于提高机器利用率的资源调度和治理中心(SOA)是关键。</p> <h2 id="三、从nosql说起"><a href="#三、从nosql说起" class="header-anchor">#</a> 三、从NoSQL说起</h2> <p>NoSQL是Not only SQL的缩写，大意为“不只是SQL”，说明这项技术是&lt;b&lt;font color=&quot;red&quot;传统关系型数据库的补充&lt;/font&lt;/b而非替代。在整个NoSQL技术栈中&lt;b&lt;font color=&quot;blue&quot;MemCache&lt;/font&lt;/b、&lt;b&lt;font color=&quot;blue&quot;Redis&lt;/font&lt;/b、&lt;b&lt;font color=&quot;blue&quot;MongoDB&lt;/font&lt;/b被称为NoSQL三剑客。那么时代为什么需要NoSQL数据库呢？我们来做个对比：</p> <table><thead><tr><th></th> <th>关系型数据库</th> <th>NoSQL数据库</th></tr></thead> <tbody><tr><td>数据存储位置</td> <td>硬盘</td> <td>内存</td></tr> <tr><td>数据结构</td> <td>高度组织化结构化数据</td> <td>没有预定义的模式</td></tr> <tr><td>数据操作方式</td> <td>SQL</td> <td>所有数据都是键值对，没有声明性查询语言</td></tr> <tr><td>事务控制</td> <td>严格的基础事务ACID原则</td> <td>基于乐观锁的松散事务控制</td></tr> <tr><td>访问控制</td> <td>细粒度的用户访问权限控制</td> <td>简单的基于IP绑定或密码的访问控制</td></tr> <tr><td>外键</td> <td>支持</td> <td>不支持</td></tr> <tr><td>索引</td> <td>支持</td> <td>不支持</td></tr></tbody></table> <p>所以NoSQL数据库的最大优势体现为：高性能、高可用性和可伸缩性。</p> <h2 id="四、redis简介"><a href="#四、redis简介" class="header-anchor">#</a> 四、Redis简介</h2> <h3 id="_1、基本信息"><a href="#_1、基本信息" class="header-anchor">#</a> 1、基本信息</h3> <p>Redis英文官网介绍：</p> <div class="language-html extra-class"><pre class="language-html"><code>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs and geospatial indexes with radius queries. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+</code></pre></div><p>Redis中文官网介绍：</p> <div class="language-html extra-class"><pre class="language-html"><code>Redis是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 它支持多种类型的数据结构，如字符串（strings），散列（hashes），列表（lists），集合（sets），有序集合（sorted sets） 与范围查询，bitmaps，hyperloglogs和地理空间（geospatial） 索引半径查询。 Redis 内置了复制（replication），LUA脚本（Lua scripting）， LRU驱动事件（LRU eviction），事务（transactions）和不同级别的 磁盘持久化（persistence）， 并通过Redis哨兵（Sentinel）和自动分区（Cluster）提供高可用性（high availability）。
+</code></pre></div><p>下面是几点补充：</p> <ul><li>Redis的名字是Remote Dictionary Server的缩写。</li> <li>开发语言是ANSI C。</li> <li>支持多种不同语言的客户端。</li> <li>官方给出的性能参考（在并发量50的情况下）：
+<ul><li>GET: 110000/s:读的速度每秒11万次</li> <li>SET: 81000/s: 写的速度每秒8万次</li></ul></li></ul> <p>中文官网http://www.redis.cn&lt;br/
+英文官网http://redis.io&lt;br/</p> <p>Redis命令参考文档网址：http://redisdoc.com&lt;br/</p> <h3 id="_2、redis的应用场景"><a href="#_2、redis的应用场景" class="header-anchor">#</a> 2、Redis的应用场景</h3> <p>Redis的典型应用场景：</p> <p>[1]缓存</p> <p>使用Redis可以建立性能非常出色的缓存服务器，查询请求先在Redis中查找所需要的数据，如果能够查询到（命中）则直接返回，大大减轻关系型数据库的压力。</p> <p>[2]数据临时存储位置</p> <p>使用token（令牌）作为用户登录系统时的身份标识，这个token就可以在Redis中临时存储。</p> <p>[3]分布式环境下解决Session不一致问题时的Session库</p> <p>Spring提供了一种技术解决分布式环境下Session不一致问题，叫SpringSession。而Redis就可以为SpringSession提供一个数据存储空间。</p> <p>[4]流式数据去重</p> <p>在Redis中有一种数据类型是set，和Java中的Set集合很像，不允许存储重复数据。借助这个特性我们可以在Redis中使用set类型存储流式数据达到去重的目的。</p> <h3 id="_3、redis不适用的场景"><a href="#_3、redis不适用的场景" class="header-anchor">#</a> 3、Redis不适用的场景</h3> <p>[1]直接查询value</p> <p>Redis是一个严格的Key-value数据库，所有数据都必须通过key去找到value，Redis没有提供直接根据查询条件匹配value的方法。</p> <p>[2]用多键一值表示特定关系</p> <p>Redis中一个key对应一个value，没有多个key对应同一个value的情况。</p> <p>[3]事务中回滚</p> <p>Redis不支持回滚。如果一个命令在加入队列时没有检测出问题，那么队列执行时不会因为某一条命令失败而回滚。</p> <h2 id="五、redis安装"><a href="#五、redis安装" class="header-anchor">#</a> 五、Redis安装</h2> <h3 id="_1-上传并解压"><a href="#_1-上传并解压" class="header-anchor">#</a> 1.上传并解压</h3> <p>redis-4.0.2.tar.gz</p> <h3 id="_2-安装c语言编译环境"><a href="#_2-安装c语言编译环境" class="header-anchor">#</a> 2.安装C语言编译环境</h3> <p>[建议先拍快照]&lt;br/</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y gcc-c++
+</code></pre></div><p>如果不能联网，可以使用下面步骤安装：</p> <p>1.上传gcc-c++.rpm.packages目录到Linux系统</p> <p>2.拍摄快照</p> <p>3.进入rpm包所在目录</p> <p>4.执行安装</p> <p><code>rpm -Uvh *.rpm --nodeps --force</code></p> <p>5.验证安装效果</p> <p><code>gcc -v</code></p> <h3 id="_3-修改安装位置"><a href="#_3-修改安装位置" class="header-anchor">#</a> 3.修改安装位置</h3> <p>vim redis解压目录/src/Makefile</p> <div class="language-html extra-class"><pre class="language-html"><code>PREFIX?=/usr/local/redis
+</code></pre></div><p>就Redis自身而言是不需要修改的，这里修改的目的是让Redis的运行程序不要和其他文件混杂在一起。</p> <h3 id="_4-编译安装"><a href="#_4-编译安装" class="header-anchor">#</a> 4.编译安装</h3> <p>编译：进入Redis解压目录执行make命令&lt;br/</p> <p>[建议先拍快照]&lt;br/</p> <p>安装：make install</p> <h3 id="_5-启动redis服务器"><a href="#_5-启动redis服务器" class="header-anchor">#</a> 5.启动Redis服务器</h3> <p>默认启动</p> <div class="language-html extra-class"><pre class="language-html"><code>[root@rich ~]# /usr/local/redis/bin/redis-server
+7239:C 07 Oct 18:59:12.144 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+7239:C 07 Oct 18:59:12.144 # Redis version=4.0.2, bits=64, commit=00000000, modified=0, pid=7239, just started
+7239:C 07 Oct 18:59:12.144 # Warning: no config file specified, using the default config. In order to specify a config file use /usr/local/redis/bin/redis-server /path/to/redis.conf
+7239:M 07 Oct 18:59:12.145 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+                _._
+           _.-``__ ''-._
+      _.-``    `.  `_.  ''-._           Redis 4.0.2 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 7239
+  `-._    `-._  `-./  _.-'    _.-'
+ |`-._`-._    `-.__.-'    _.-'_.-'|
+ |    `-._`-._        _.-'_.-'    |           http://redis.io
+  `-._    `-._`-.__.-'_.-'    _.-'
+ |`-._`-._    `-.__.-'    _.-'_.-'|
+ |    `-._`-._        _.-'_.-'    |
+  `-._    `-._`-.__.-'_.-'    _.-'
+      `-._    `-.__.-'    _.-'
+          `-._        _.-'
+              `-.__.-'
+
+7239:M 07 Oct 18:59:12.148 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+7239:M 07 Oct 18:59:12.148 # Server initialized
+7239:M 07 Oct 18:59:12.148 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+7239:M 07 Oct 18:59:12.148 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never  /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+7239:M 07 Oct 18:59:12.148 * Ready to accept connections
+</code></pre></div><p>停止Redis服务器可以在另外一个命令行窗口执行下面命令：</p> <div class="language-html extra-class"><pre class="language-html"><code>/usr/local/redis/bin/redis-cli shutdown
+</code></pre></div><div class="language-html extra-class"><pre class="language-html"><code>7239:M 07 Oct 19:00:53.208 # User requested shutdown...
+7239:M 07 Oct 19:00:53.208 * Saving the final RDB snapshot before exiting.
+7239:M 07 Oct 19:00:53.214 * DB saved on disk
+7239:M 07 Oct 19:00:53.214 # Redis is now ready to exit, bye bye...
+</code></pre></div><p>定制配置项启动</p> <p>[1]准备配置文件</p> <p>cp redis解压目录/redis.conf /usr/local/redis/</p> <p>[2]修改配置项</p> <table><thead><tr><th>配置项名称</th> <th>作用</th> <th>取值</th></tr></thead> <tbody><tr><td>daemonize</td> <td>控制是否以守护进程形式运行Redis服务器</td> <td>yes</td></tr> <tr><td>logfile</td> <td>指定日志文件位置</td> <td>&quot;/var/logs/redis.log&quot;</td></tr> <tr><td>dir</td> <td>Redis工作目录</td> <td>/usr/local/redis</td></tr></tbody></table> <p><strong>注意：/var/logs目录需要我们提前创建好</strong></p> <p>[3]让Redis根据指定的配置文件启动</p> <p>格式</p> <div class="language-html extra-class"><pre class="language-html"><code>redis-server文件路径 redis.conf文件路径
+</code></pre></div><p>举例</p> <div class="language-html extra-class"><pre class="language-html"><code>/usr/local/redis/bin/redis-server /usr/local/redis/redis.conf
+</code></pre></div><h3 id="_6-客户端登录"><a href="#_6-客户端登录" class="header-anchor">#</a> 6.客户端登录</h3> <p>/usr/local/redis/bin/redis-cli</p> <div class="language-html extra-class"><pre class="language-html"><code>	127.0.0.1:6379 ping
+	PONG
+	127.0.0.1:6379 exit
+</code></pre></div><h2 id="六、redis常用数据结构"><a href="#六、redis常用数据结构" class="header-anchor">#</a> 六、Redis常用数据结构</h2> <h3 id="_1-总体结构"><a href="#_1-总体结构" class="header-anchor">#</a> 1.总体结构</h3> Redis中的数据，总体上是键值对，不同数据类型指的是键值对中值的类型。<p></p> <h3 id="_2-string类型"><a href="#_2-string类型" class="header-anchor">#</a> 2.string类型</h3> <p>Redis中最基本的类型，它是key对应的一个单一值。二进制安全，不必担心由于编码等问题导致二进制数据变化。所以redis的string可以包含任何数据，比如jpg图片或者序列化的对象。Redis中一个字符串值的最大容量是512M。</p> <h3 id="_3-list类型"><a href="#_3-list类型" class="header-anchor">#</a> 3.list类型</h3> <p>Redis 列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）。它的底层是双向链表，所以它操作时头尾效率高，中间效率低（额外花费查找插入位置的时间）。&lt;br/</p> <p>在Redis中list类型是按照插入顺序排序的字符串链表。和数据结构中的普通链表一样，我们可以在其头部(left)和尾部(right)添加新的元素。在插入时，如果该键并不存在，Redis将为该键创建一个新的链表。与此相反，如果链表中所有的元素均被移除，那么该键也将会被从数据库中删除。List中可以包含的最大元素数量是2^32-1个。&lt;br/</p> <p>list是一个有序可以重复的数据类型。</p> <p><img alt="p01" data-src="/javanote/assets/img/p01.e932268e.png" loading="lazy" class="lazy"></p> <h3 id="_4-set类型"><a href="#_4-set类型" class="header-anchor">#</a> 4.set类型</h3> <p>Redis的set是string类型的无序集合。它是基于哈希表实现的。set类型插入数据时会自动去重。最大可以包含2^32-1个元素。</p> <p><img alt="p05" data-src="/javanote/assets/img/p06.92cc4890.png" loading="lazy" class="lazy"></p> <h3 id="_5-hash类型"><a href="#_5-hash类型" class="header-anchor">#</a> 5.hash类型</h3> <p>本身就是一个键值对集合。可以当做Java中的Map&lt;String,String对待。每一个hash可以存储2^32-1个键值对。</p> <p><img alt="p05" data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAABuCAYAAAAdzE6cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAg+SURBVHhe7ZqNcusoDEa7+/7vvHu/pHJVXX4dY2N8zgwTA0ICCYGT9p+vr6///hQAuC/KYxK5Av6BWdn25r/fnwBwY0hkgAUgkQEWgESGs9D3OStwMCQytBCTMNZb0C+rr19X4XhIZGjBEjD3CRdDIgMsAIkMR7LnlVukxpTaUn2PB4eUwT8/mC9SPoltOb/1tPu2Wv8T2dbPjQxH4b8vPz3BTodEhiNRAquM+hHM9FuBb0hkOApL4JG/ZJt+X+APJDL0oMSxhC1xxG3ZooNb+ZvWwDwZ/PObkj8ssWxfCZO1uifq8TItOuL4pyF/bD5IORh+wD8wK9ve5NUaYAHs9eXprygluJFhdl75y0Ytg3/mg5i82fzAqzXAApDIAAtAIgMsAIk8Bn132fs9zsa2jv/EFrzp9fl0kMh9+ID7ciT6BbLnrwhP/4tDjEOst9Dr8ynpWfATif5J+WuED3t0Pi2GtZjs9cfd/LjNlxv5M8yRT78V4WJI5ONRclvJ4WVKcjk+Hf9E9vorNabUluo7hUuM3ojoHx+sku9yfan21jbRI7sqJR+0+Cfnr55231brH8Vmgxt5H0v8OPIgfKzOSLDTIZGvQZvJFxiP+XrUAezjqXIqJPJn7N0UdqP7AuOwBB7pZx/L0bb+gkSeg09O8NNP/0lR4ljCljjCXy06To1L6+KfjPePD07OZ6kARtko4/t7x6vP6rk5rYbWm1prrl14H0V/Wd0T9XiZFh1x/Ahkc7OTWgT8gH/mg5i82fzAqzXAAtgrwhmvAXeF0x9m55W/bNQy+Gc+iMmbzQ+8WgMsAIkMsAAkMsACkMgAC0AiAywAiTwOflk9n8f6nEQGWAD+IaROyj/x5Pf9qVvB+q0vJd8SAy/r7cSxuT7fbqTsRrmWuZ2J5vfJuvaMnZFffkgtBH6I/qnVjZ52a9NnrhixLmK/J1ePn0asi1TbleTmU5qn74tyVo+fs7PNk1frzzny9JauXPHEusf33WVDjkZ+8H7R81K+IZH7sU1gZUZsbqWEL+HXpwKTQyLvQwliZbaNrvnY3Pbi1/epLjgBErmfPYlbGjPyIDhK98g5jsLPWQeRr+t5qcPJFjh6USWnzu7Q6B8/d1Gav8lGmZw/ar6I40SpLeqOz7HNsDbD982AzT1Faj1Gaa1qM70lHTNh831hkx5NtHOW3U+5yzyfBDF5s/nhqldrTWD20w7gNvjXidGYnZK97YT5xuR8e6ltBHFOALPx2v9nbVTZsZIi1e7bav2jOMMG9EFM3mx+OPvV+pObU2N9APU88iYGuA1XfEeOCelRuy8A0MhZCePtpGy2zkNyZ81ZnGkL2iAmbzY/XPWrdelW9hAwgAbOSmRLyNynsOT2JfcdmO/GsApxz6co9W1UBSbj7PnutXc3v96JVXybWkds8/Vs31Wv1nvQpFW4jeEpxP1ub61/cadE1iJmSWI7VKx4fFvsj3WRaqthY3LjfH9KrtQH53HofiaQZaJ/anWjp93a9Jkrhn8Wn9ZFqm1m7jbfVnpjtT3f6UaelSNPVXvrSBXDP6+6oZ+IYulj2wWJ3I+cLadbuQKznQp8nF9KxverwLXk4tQFgSxT80+uv6e9JwZRtlaP9NialRXWYJTWkurzbdszN3I/ezZRb7BaSY2NN3KL/hYZOB75Pd7EPhYWSyMl/8IEk53wIvrHO1aUfGeyUcbrsBiI1jh4+ThW9ZQ932ZjjFa7s5Ba4x2JcTBS8RPFuOaUwZu7+Sc139VizJ59s/mBV+v10AmtAPuywu0FBSzoBDqP/AMwM6/8ZaOWwT/zQUzebH7g1RpgAUhkgAUgkQEWgER+FvpO1fP9slf+Su4018MhkZ8Ff51YFBJ5HCvcDkr8Ucl/tH9a5rrsjU0iAyyATjCdUqNO3RVI+See7L4/depbv/Wl5HtikLPfol91PXsdKdulft8nesbHsSI1voR05HTW5mL02pyRX35ILRJ+iP6p1Y2edmvTZ64Y/lnU6iKObxljtMjWZFrG9JAbW9P5ic0Z2dbDq/XnHHmyS1eu5Cj15dgzphVtrqh/pD34A4ncjzalNquVs7navvD2r5oDOEjkfSiZrFyxkWeybwUuhETuZ0/ilMb06hstvwdvQ0kdbdbmcMYcI1fYHIY5nRM1T/RP3AAl35lslPE6LAaiJQ4t9kv643hRsiv52L9nDin8vHqIc4rzEUfbnJFffkg5AX54mn/iemdcP3v2zeYHXq0hhTaIlRVuruVRkAhWme3UA5iUV/6yUcvgn/kgJm82P/BqDbAAJDLAApDIAAtAIj8Lfaca/f3SbIy2MxuXrplEfhZn/HVCNvgryMmQyON42o10B0bG5NIDjEQGWACdIDqleBXKk/JPPNl9f+rUt37rS8n3xKBk3/Ay0Z7quX6jNq+W/lzfp6R0l9bj+4xWGWv38rGtZNv4RH8OyW0yKQPwQ/RPrW70tFubPnPF8M8i1kVJRs81HVE+UusXufYjiLprdaO1vUVfa5s4Sn9kk+HV+nNqp2YP0pUrOWKfghvbanVPHK9nv6lq/Vfg53P1XC6BRO7HNq6Vs7na/qyYP3xStxJ9ukdHidH6SeSdKBBWFJizudr+bFhyqOzBj9+ro8Ro/STyDvYkTmlMr76avDZKlOmxEcfr2W++Wv/VtK7Vy9mafClR64+M1r8ZmCkQsxH9E51c8p3JRhmvw2IgWuLQaj/aEK1tojanXL/XZ+R07EU2cnbVXpp7qi+nL8oY0YbvM47Un+OXDq8A/gb/zMfRMUnpO9LGKP2bDp/5AHBPXrcyiVwG/8wHMXmDHwDW4evrf4Yw8jwh1vKlAAAAAElFTkSuQmCC" loading="lazy" class="lazy"></p> <h3 id="_6-zset类型"><a href="#_6-zset类型" class="header-anchor">#</a> 6.zset类型</h3> <p>Redis zset 和 set 一样也是string类型元素的集合,且不允许重复的成员。不同的是每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。zset的成员是唯一的,但分数(score)却可以重复。</p> <p><img alt="p05" data-src="/javanote/assets/img/p07.d66bbc50.png" loading="lazy" class="lazy"></p> <h3 id="_7-geospatial"><a href="#_7-geospatial" class="header-anchor">#</a> 7.Geospatial</h3> <p>Redis 在 3.2 推出 Geo 类型，该功能可以推算出地理位置信息，两地之间的距离。</p> <p><img alt="./images" data-src="/javanote/assets/img/p08.05762916.png" loading="lazy" class="lazy"></p> <h3 id="_8-hyperloglogs"><a href="#_8-hyperloglogs" class="header-anchor">#</a> 8.HyperLogLogs</h3> <p>用于大数据量基数统计，速度非常快，占用内存非常小。每个HyperLogLog键只需要花费12KB内存，就可以计算接近 2^64个不同元素的基数。比如计算网站UV（User view，用户访问数量，一个用户一天访问同一个URL地址多次合并为一次）。</p> <h3 id="_9-bitmap"><a href="#_9-bitmap" class="header-anchor">#</a> 9.bitmap</h3> <p>直接对string的二进制位进行操作的一组命令</p> <h3 id="_10-常用数据类型应用场景"><a href="#_10-常用数据类型应用场景" class="header-anchor">#</a> 10.常用数据类型应用场景</h3> <table><thead><tr><th>数据类型</th> <th>应用场景</th></tr></thead> <tbody><tr><td>string</td> <td>分布式Session存储&lt;br /分布式数据库ID&lt;br /计数器：统计网站访问量</td></tr> <tr><td>hash</td> <td>存储对象信息（购物车中的商品信息）&lt;br /存储表的信息</td></tr> <tr><td>list</td> <td>实现队列、栈操作&lt;br /汇总日志&lt;br /粉丝列表&lt;br /关注的人列表</td></tr> <tr><td>set</td> <td>签到&lt;br /打卡&lt;br /点赞</td></tr> <tr><td>zset</td> <td>排行榜&lt;br /百度热点搜索</td></tr> <tr><td>geospatial</td> <td>获取地理位置信息&lt;br /两地之间的距离</td></tr> <tr><td>hyperloglogs</td> <td>基数统计</td></tr> <tr><td>bitmaps</td> <td>统计用户访问次数</td></tr></tbody></table> <h2 id="七、redis命令行操作"><a href="#七、redis命令行操作" class="header-anchor">#</a> 七、Redis命令行操作</h2> <h3 id="_1-redis命令的小套路"><a href="#_1-redis命令的小套路" class="header-anchor">#</a> 1.Redis命令的小套路</h3> <ul><li>NX：not exist</li> <li>EX：expire</li> <li>M：multi</li></ul> <h3 id="_2-基本操作"><a href="#_2-基本操作" class="header-anchor">#</a> 2.基本操作</h3> <p>切换数据库</p> <div class="language-html extra-class"><pre class="language-html"><code>	Redis默认有16个数据库。
+	115 # Set the number of databases. The default database is DB 0, you can select
+	116 # a different one on a per-connection basis using SELECT &lt;dbid where
+	117 # dbid is a number between 0 and 'databases'-1
+	118 databases 16
+	使用select进行切换，数据库索引从0开始
+	127.0.0.1:6379 select 2
+	OK
+	127.0.0.1:6379[2] select 0
+	OK
+	127.0.0.1:6379
+</code></pre></div><p>查看数据库长度</p> <p>数据库长度就是这个数据库中存储了多少条数据</p> <div class="language-html extra-class"><pre class="language-html"><code>	127.0.0.1:6379 dbsize
+	(integer) 3
+</code></pre></div><p>清空全库</p> <div class="language-html extra-class"><pre class="language-html"><code>	127.0.0.1:6379 flushall
+</code></pre></div><h3 id="_3-key操作"><a href="#_3-key操作" class="header-anchor">#</a> 3.KEY操作</h3> <p>在实际操作中对于Key的定义大家注意下面几点：</p> <ul><li>Key不要太长，超过1024字节将消耗过多内存，降低查询效率。尽管Redis支持的Key最大长度为512MB。</li> <li>Key仍然要做到见名知意。</li> <li>在同一个项目中遵循同一个命名规范，习惯上多个单词用“:”分开。例如：“user:token:session:id”</li> <li>Redis命令不区分大小写，Key区分大小写</li></ul> <div class="language-html extra-class"><pre class="language-html"><code>●KEYS PATTERN
+	把匹配PATTERN的key返回。PATTERN中可以使用“*”匹配多个字符，使用“?”匹配单个字符
+●TYPE KEY
+	返回KEY对应的值的类型
+●MOVE KEY DB
+	把一组键值对数据移动到另一个数据库中
+●DEL KEY [KEY ...]
+	根据KEY进行删除，至少要指定一个KEY
+●EXISTS KEY [KEY ...]
+	检查指定的KEY是否存在。指定一个KEY时，存在返回1，不存在返回0。可以指定多个，返回存在的KEY的数量。
+●RENAME KEY NEWKEY
+	重命名一个KEY，NEWKEY不管是否是已经存在的都会执行，如果NEWKEY已经存在则会被覆盖。
+●RENAMENX KEY NEWKEY
+	只有在NEWKEY不存在时能够执行成功，否则失败
+●TTL KEY
+	以秒为单位查看KEY还能存在多长时间
+	正数：剩余的存活时间（单位：秒）
+	-1：永不过期
+	-2：不存在的Key
+●EXPIRE KEY SECONDS
+	给一个KEY设置在SECONDS秒后过期，过期会被Redis移除。
+●PERSIST KEY
+	移除过期时间，变成永久key
+</code></pre></div><h3 id="_4-string操作"><a href="#_4-string操作" class="header-anchor">#</a> 4.string操作</h3> <div class="language-html extra-class"><pre class="language-html"><code>●SET KEY VALUE [EX SECONDS] [PX MILLISECONDS] [NX|XX]
+	给KEY设置一个string类型的值。
+	EX参数用于设置存活的秒数。
+	PX参数用于设置存活的毫秒数。
+	NX参数表示当前命令中指定的KEY不存在才行。
+	XX参数表示当前命令中指定的KEY存在才行。
+●GET KEY
+	根据key得到值，只能用于string类型。
+●APPEND KEY VALUE
+	把指定的value追加到KEY对应的原来的值后面，返回值是追加后字符串长度
+●STRLEN KEY
+	直接返回字符串长度
+●INCR KEY
+	自增1（要求：参与运算的数据必须是整数且不能超过整数Integer范围）
+●DECR KEY
+	自减1（要求：参与运算的数据必须是整数且不能超过整数Integer范围）
+●INCRBY KEY INCREMENT
+	原值+INCREMENT（要求：参与运算的数据必须是整数且不能超过整数Integer范围）
+●DECRBY KEY DECREMENT
+	原值-DECREMENT（要求：参与运算的数据必须是整数且不能超过整数Integer范围）
+●GETRANGE KEY START END
+	从字符串中取指定的一段，索引从0开始
+	START是开始取值的索引
+	END是结束取值的索引
+●SETRANGE KEY OFFSET VALUE
+	从offset（从0开始的索引）开始使用VALUE进行替换
+	包含offset位置
+●SETEX KEY SECONDS VALUE
+	设置KEY,VALUE时指定存在秒数
+●SETNX KEY VALUE
+	新建字符串类型的键值对
+●MSET KEY VALUE [KEY VALUE ...]
+	一次性设置一组多个键值对
+●MGET KEY [KEY ...]
+	一次性指定多个KEY，返回它们对应的值，没有值的KEY返回值是(nil)
+●MSETNX KEY VALUE [KEY VALUE ...]
+	一次性新建多个值
+●GETSET KEY VALUE
+	设置新值，同时能够将旧值返回
+
+</code></pre></div><h3 id="_5-list操作"><a href="#_5-list操作" class="header-anchor">#</a> 5.list操作</h3> <div class="language-html extra-class"><pre class="language-html"><code>●LPUSH key value [value ...]
+	针对key指定的list，从左边放入元素
+●RPUSH key value [value ...]
+	针对key指定的list，从右边放入元素
+●LRANGE key start stop
+	根据list集合的索引打印元素数据
+	正着数：0,1,2,3,...
+	倒着数：-1,-2,-3,...
+●LLEN key
+	返回list集合的长度
+●LPOP key
+	从左边弹出一个元素。
+	弹出=返回+删除。
+●RPOP key
+	从右边弹出一个元素。
+●RPOPLPUSH source destination
+	从source中RPOP一个元素，LPUSH到destination中
+●LINDEX key index
+	根据索引从集合中取值
+●LINSERT key BEFORE|AFTER pivot value
+	在pivot指定的值前面或后面插入value
+	如果pivot值有重复的，那么就从左往右数，以第一个遇到的pivot为基准
+	BEFORE表示放在pivot前面
+	AFTER表示放在pivot后面
+●LPUSHX key value
+	只能针对存在的list执行LPUSH
+●LREM key count value
+	根据count指定的数量从key对应的list中删除value
+	具体执行时从左往右删除，遇到一个删一个，删完为止
+●LSET key index value
+	把指定索引位置的元素替换为另一个值
+●LTRIM key start stop
+	仅保留指定区间的数据，两边的数据被删除
+
+</code></pre></div><h3 id="_6-set操作"><a href="#_6-set操作" class="header-anchor">#</a> 6.set操作</h3> <div class="language-html extra-class"><pre class="language-html"><code>●SADD key member [member ...]
+	给key指定的set集合中存入数据，set会自动去重
+●SMEMBERS key
+	返回可以指定的set集合中所有的元素
+●SCARD key
+	返回集合中元素的数量
+●SISMEMBER key member
+	检查当前指定member是否是集合中的元素
+	返回1：表示是集合中的元素
+	返回2：表示不是集合中的元素
+●SREM key member [member ...]
+	从集合中删除元素
+●SINTER key [key ...]
+	将指定的集合进行“交集”操作
+	集合A：a,b,c
+	集合B：b,c,d
+	交集：b,c
+●SINTERSTORE destination key [key ...]
+	取交集后存入destination
+●SDIFF key [key ...]
+	将指定的集合执行“差集”操作
+	集合A：a,b,c
+	集合B：b,c,d
+	A对B执行diff：a
+	相当于：A-交集部分
+●SDIFFSTORE destination key [key ...]
+●SUNION key [key ...]
+	将指定的集合执行“并集”操作
+	集合A：a,b,c
+	集合B：b,c,d
+	并集：a,b,c,d
+●SUNIONSTORE destination key [key ...]
+●SMOVE source destination member
+	把member从source移动到destination
+
+【测试数据
+SADD testset a b c d e f g h i j k l m n o p q r s t u v w x y z aa bb cc dd ee ff gg hh ii jj kk ll mm nn oo pp qq rr ss tt uu vv ww xx yy zz
+】
+
+●SSCAN key cursor [MATCH pattern] [COUNT count]
+	基于游标的遍历。cursor是游标值，第一次显示第一块内容时，游标取值为0；根据后续返回的新的游标值获取下一块数据。直到游标值变成0，说明数据遍历完成。
+●SRANDMEMBER key [count]
+	从集合中随机返回count个数量的元素，count不指定就返回1个（数据有可能重复出现）
+●SPOP key [count]
+	从集合中随机弹出count个数量的元素，count不指定就弹出1个（保证不会有重复数据出现）
+
+</code></pre></div><h3 id="_7-hash操作"><a href="#_7-hash操作" class="header-anchor">#</a> 7.hash操作</h3> <div class="language-html extra-class"><pre class="language-html"><code>●HSET key field value
+	插入新数据返回1
+	修改旧数据返回0
+●HGETALL key
+●HGET key field
+●HLEN key
+●HKEYS key
+●HVALS key
+●HEXISTS key field
+●HDEL key field [field ...]
+●HINCRBY key field increment
+●HMGET key field [field ...]
+●HMSET key field value [field value ...]
+●HSETNX key field value
+	要求field是新建的
+</code></pre></div><h3 id="_8-zset操作"><a href="#_8-zset操作" class="header-anchor">#</a> 8.zset操作</h3> <div class="language-html extra-class"><pre class="language-html"><code>●ZADD key [NX|XX] [CH] [INCR] score member [score member ...]
+●ZRANGE key start stop [WITHSCORES]
+●ZCARD key
+●ZSCORE key member
+●ZINCRBY key increment member
+●ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
+	在分数的指定区间内返回数据
+	min参数可以通过 -inf 表示负无穷
+	max参数可以通过 +inf 表示正无穷
+
+	默认是闭区间
+	可以通过 (min (max 形式指定开区间，例如：(50 (80
+●ZRANK key member
+	先对分数进行升序排序，返回member的排名。排名从0开始
+●ZREM key member [member ...]
+</code></pre></div><h3 id="_9-geospatial"><a href="#_9-geospatial" class="header-anchor">#</a> 9.Geospatial</h3> <p>查询经纬度数据：http://www.jsons.cn/lngcode</p> <p>添加地理位置</p> <div class="language-shell extra-class"><pre class="language-shell"><code>GEOADD key longitude latitude member <span class="token punctuation">[</span>longitude latitude member <span class="token punctuation">..</span>.<span class="token punctuation">]</span>
+</code></pre></div><p>规则：</p> <p>1.两极无法直接添加，一般会下载城市数据，直接通过 Java 程序一次性导入。</p> <p>2.取值范围</p> <p>​	有效的经度从 -180 度到 180 度。</p> <p>​	有效的纬度从 -85.05112878 度到 85.05112878 度。</p> <p>​	当坐标位置超出指定范围时，该命令将会返回一个错误。</p> <p>3.已经添加的数据，是无法再次往里面添加的。</p> <div class="language-html extra-class"><pre class="language-html"><code>192.168.109.100:6379 GEOADD &quot;china:city&quot; 114.085947 22.547 shenzhen
+(integer) 1
+192.168.109.100:6379 GEOADD &quot;china:city&quot; 113.280637 23.125178 guangzhou
+(integer) 1
+</code></pre></div><p>查询已添加的地理位置</p> <p>Geo类型在Redis内部其实是使用zset类型存储的，所以可以使用zset的命令进行常规操作。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379 ZRANGE china:city <span class="token number">0</span> -1
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;shenzhen&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;guangzhou&quot;</span>
+<span class="token number">192.168</span>.109.100:6379 ZRANGE china:city <span class="token number">0</span> -1 WITHSCORES
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;shenzhen&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;4046433733682118&quot;</span>
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;guangzhou&quot;</span>
+<span class="token number">4</span><span class="token punctuation">)</span> <span class="token string">&quot;4046533764066819&quot;</span>
+</code></pre></div><p>删除已添加的地理位置</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379 ZREM china:city guangzhou
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+</code></pre></div><p>获取指定地区的坐标值</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379 GEOPOS china:city shenzhen
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;114.08594459295272827&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;22.54699993773966327&quot;</span>
+</code></pre></div><p>计算两地之间的直线距离</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379 GEODIST china:city guangzhou shenzhen km
+<span class="token string">&quot;104.6426&quot;</span>
+</code></pre></div><p>单位：</p> <p>m 表示单位为米[默认值]。</p> <p>km 表示单位为千米。</p> <p>mi 表示单位为英里。</p> <p>ft 表示单位为英尺。</p> <p>如果用户没有显式地指定单位参数， 那么 GEODIST 默认使用米作为单位。</p> <p>以给定坐标为中心，在指定半径内查找元素</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379 GEORADIUS china:city <span class="token number">110</span> <span class="token number">20</span> <span class="token number">1000</span> km WITHCOORD WITHDIST
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;shenzhen&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;509.4622&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;114.08594459295272827&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;22.54699993773966327&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;guangzhou&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;485.7406&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;113.28063815832138062&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;23.12517743834835215&quot;</span>
+</code></pre></div><p>WITHCOORD表示显示经纬度&lt;br/</p> <p>WITHDIST表示显示到中心的距离</p> <p>在指定元素周围查找其他元素</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379 GEORADIUSBYMEMBER china:city shenzhen <span class="token number">300</span> km WITHCOORD WITHDIST
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;shenzhen&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;0.0000&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;114.08594459295272827&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;22.54699993773966327&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;guangzhou&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;104.6426&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;113.28063815832138062&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;23.12517743834835215&quot;</span>
+</code></pre></div><h3 id="_10-hyperloglogs"><a href="#_10-hyperloglogs" class="header-anchor">#</a> 10.hyperloglogs</h3> <p>基数概念</p> <p>一个集合中不重复元素的个数。例如：集合{1,2,5,1,7,2,5}中元素个数是7，但是基数是4。而hyperloglogs的主要功能就是进行基数统计。</p> <p>hyperloglogs命令</p> <p>[1]添加</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379 PFADD user:access:1 tom jerry andy jim andy jerry tom
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">192.168</span>.109.100:6379 PFADD user:access:2 andy jerry tom bob kate
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">192.168</span>.109.100:6379 PFADD user:access:3 mary harry tom jerry
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+</code></pre></div><p>[2]统计</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379 PFCOUNT user:access:1 user:access:2 user:access:3
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">8</span>
+</code></pre></div><p>[3]合并</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379 PFMERGE user:access:merge user:access:1 user:access:2 user:access:3
+OK
+<span class="token number">192.168</span>.109.100:6379 PFCOUNT user:access:merge
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">8</span>
+</code></pre></div><h3 id="_11-bitmap位图"><a href="#_11-bitmap位图" class="header-anchor">#</a> 11.bitmap位图</h3> <p>直接对数据的二进制位进行操作</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token builtin class-name">set</span> a hello
+OK
+<span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> GETBIT a <span class="token number">0</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+<span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> GETBIT a <span class="token number">1</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> GETBIT a <span class="token number">2</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> GETBIT a <span class="token number">3</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+<span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> GETBIT a <span class="token number">4</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> GETBIT a <span class="token number">5</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+<span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> SETBIT a <span class="token number">5</span> <span class="token number">1</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+<span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> get a
+<span class="token string">&quot;lello&quot;</span>
+<span class="token number">192.168</span>.109.100:6379<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> BITCOUNT a
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">22</span>
+</code></pre></div><p>setbit设置指定比特位&lt;br/
+getbit获取指定比特位&lt;br/
+bitcount统计所有比特位中1的数量</p> <h2 id="八、redis持久化机制"><a href="#八、redis持久化机制" class="header-anchor">#</a> 八、Redis持久化机制</h2> <p><a href="https://redis.io/topics/persistence#snapshotting" target="_blank" rel="noopener noreferrer">官网描述<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>Redis工作时数据都存储在内存中，万一服务器断电，则所有数据都会丢失。针对这种情况，Redis采用持久化机制来增强数据安全性。说白了就是把内存里的数据保存到硬盘上。</p> <h3 id="_1-rdb"><a href="#_1-rdb" class="header-anchor">#</a> 1.RDB</h3> <p>机制描述</p> <p>在满足特定触发条件时把内存中的快照保存到硬盘上的文件中。Redis默认开启RDB机制。</p> <p>触发时机</p> <p>[1]基于默认配置</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token attr-name">save</span> <span class="token attr-value">900 1</span>
+<span class="token attr-name">save</span> <span class="token attr-value">300 10</span>
+<span class="token attr-name">save</span> <span class="token attr-value">60 10000</span>
+</code></pre></div><p>含义</p> <table><thead><tr><th>配置</th> <th>含义</th></tr></thead> <tbody><tr><td>save 900 1</td> <td>900秒内至少有一次修改则触发保存操作</td></tr> <tr><td>save 300 10</td> <td>300秒内至少有10次修改则触发保存操作</td></tr> <tr><td>save 60 10000</td> <td>60秒内至少有1万次修改则触发保存操作</td></tr></tbody></table> <p>[2]使用保存命令</p> <p>save或bgsave</p> <p>[3]使用flushall命令</p> <p>这个命令也会产生dump.rdb文件，但里面是空的，没有意义</p> <p>[4]服务器关闭</p> <p>如果执行SHUTDOWN命令让Redis正常退出，那么此前Redis就会执行一次持久化保存。</p> <p>相关配置</p> <table><thead><tr><th>配置项</th> <th>取值</th> <th>作用</th></tr></thead> <tbody><tr><td>save</td> <td>&quot;&quot;</td> <td>禁用RDB机制</td></tr> <tr><td>dbfilename</td> <td>文件名，例如：dump.rdb</td> <td>设置RDB机制下，数据存储文件的文件名</td></tr> <tr><td>dir</td> <td>Redis工作目录路径</td> <td>指定存放持久化文件的目录的路径。注意：这里指定的必须是目录不能是文件名</td></tr></tbody></table> <p>思考</p> <p>RDB 机制能够保证数据的绝对安全吗？</p> <ul><li>机制本身并不能保证绝对安全</li> <li>但是作为总体机制的一部分，RDB（或AOF）机制能够起到它独特的作用；整体机制综合来看是可靠的</li></ul> <h3 id="_2-aof"><a href="#_2-aof" class="header-anchor">#</a> 2.AOF</h3> <p>机制描述</p> <p>根据配置文件中指定的策略，把生成数据的命令保存到硬盘上的文件中。一个AOF文件的内容可以参照下面的例子：</p> <div class="language-properties extra-class"><pre class="language-properties"><code>*2
+$6
+SELECT
+$1
+0
+*3
+$3
+set
+$3
+num
+$2
+10
+*2
+$4
+incr
+$3
+num
+*2
+$4
+incr
+$3
+num
+*2
+$4
+incr
+$3
+num
+</code></pre></div><p>生成上面文件内容的Redis命令是：</p> <div class="language-html extra-class"><pre class="language-html"><code>set num 10
+incr num
+incr num
+incr num
+</code></pre></div><p>AOF基本配置</p> <table><thead><tr><th>配置项</th> <th>取值</th> <th>作用</th></tr></thead> <tbody><tr><td>appendonly</td> <td>yes</td> <td>启用AOF持久化机制</td></tr> <tr><td></td> <td>no</td> <td>禁用AOF持久化机制[默认值]</td></tr> <tr><td>appendfilename</td> <td>&quot;文件名&quot;</td> <td>AOF持久化文件名</td></tr> <tr><td>dir</td> <td>Redis工作目录路径</td> <td>指定存放持久化文件的目录的路径。注意：这里指定的必须是目录不能是文件名</td></tr> <tr><td>appendfsync</td> <td>always</td> <td>每一次数据修改后都将执行文件写入操作，是最安全的方式但是速度缓慢。</td></tr> <tr><td></td> <td>everysec</td> <td>每秒执行一次写入操作。折中。</td></tr> <tr><td></td> <td>no</td> <td>由操作系统在适当的时候执行写入操作，Redis性能最好，数据保存次数最少。</td></tr></tbody></table> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>当 AOF 和 RDB 机制并存时，Redis 会优先采纳 AOF 机制。使用 AOF 持久化文件恢复内存中的数据。而 AOF 刚刚开启时 appendonly.aof 持久化文件中没有任何数据。拿空的 appendonly.aof 持久化文件恢复内存，就会导致以前所有数据都丢失。</p></div> <p>AOF重写</p> <p>对比下面两组命令：</p> <table><thead><tr><th>AOF重写前</th> <th>AOF重写后</th></tr></thead> <tbody><tr><td>set count 1&lt;br /incr count&lt;br /incr count&lt;br /incr count</td> <td>set count 4</td></tr></tbody></table> <p>两组命令执行后对于count来说最终的值是一致的，但是进行AOF重写后省略了中间过程，可以让AOF文件体积更小，缩短数据恢复时间。而Redis会根据AOF文件的体积来决定是否进行AOF重写。参考的配置项如下：</p> <table><thead><tr><th>配置项</th> <th>含义</th></tr></thead> <tbody><tr><td>auto-aof-rewrite-percentage 100</td> <td>文件体积增大100%时执行AOF重写</td></tr> <tr><td>auto-aof-rewrite-min-size 64mb</td> <td>文件体积增长到64mb时执行AOF重写</td></tr></tbody></table> <p>实际工作中不要进行频繁的AOF重写，因为CPU、内存资源和硬盘资源二者之间肯定是CPU、内存资源更加宝贵，所以不应该过多耗费CPU性能去节省硬盘空间。另外数据恢复也不是高频操作，所以节约数据恢复时间价值也不是非常大。</p> <h3 id="_3-持久化文件损坏修复"><a href="#_3-持久化文件损坏修复" class="header-anchor">#</a> 3.持久化文件损坏修复</h3> <p>Redis服务器启动时如果读取了损坏的持久化文件会导致启动失败，此时为了让Redis服务器能够正常启动，需要对损坏的持久化文件进行修复。这里以AOF文件为例介绍修复操作的步骤。</p> <ul><li><p>第一步：备份要修复的appendonly.aof文件</p></li> <li><p>第二步：执行修复程序</p> <p>/usr/local/redis/bin/redis-check-aof --fix /usr/local/redis/appendonly.aof</p></li> <li><p>第三步：重启Redis</p></li></ul> <p>注意：所谓修复持久化文件仅仅是把损坏的部分去掉，而没法把受损的数据找回。</p> <h3 id="_4-扩展阅读-两种持久化机制的取舍"><a href="#_4-扩展阅读-两种持久化机制的取舍" class="header-anchor">#</a> 4.扩展阅读：两种持久化机制的取舍</h3> <p>RDB</p> <p>[1]优势</p> <p>适合大规模的数据恢复，速度较快</p> <p>[2]劣势</p> <p>会丢失最后一次快照后的所有修改，不能绝对保证数据的高度一致性和完整性。Fork的时候，内存中的数据被克隆了一份，大致2倍的膨胀性需要考虑，但上述成立有条件，Linux也有优化手段</p> <p>AOF</p> <p>[1]优势</p> <p>选择appendfsync always方式运行时理论上能够做到数据完整一致，但此时性能又不好。文件内容具备一定可读性，能够用来分析Redis工作情况。</p> <p>[2]劣势</p> <p>持久化相同的数据，文件体积比RDB大，恢复速度比RDB慢。效率在同步写入时低于RDB，不同步写入时与RDB相同。</p> <p>RDB和AOF并存</p> <p>Redis重启的时候会优先载入AOF文件来恢复原始的数据，因为在通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要完整</p> <p>RDB的数据不实时，同时使用两者时服务器重启也只会找AOF文件。那要不要只使用AOF呢？作者建议不要，因为RDB更适合用于备份数据库(AOF在不断变化不好备份)、快速重启，而且不会有AOF可能潜在的bug，留着作为一个万一的手段。</p> <p>使用建议</p> <p>如果Redis仅仅作为缓存可以不使用任何持久化方式。</p> <p>其他应用方式综合考虑性能和完整性、一致性要求。</p> <p>RDB文件只用作后备用途，建议只在Slave上持久化RDB文件，而且只要15分钟备份一次就够了，只保留save 900 1这条规则。如果Enalbe AOF，好处是在最恶劣情况下也只会丢失不超过两秒数据，启动脚本较简单只load自己的AOF文件就可以了。代价一是带来了持续的IO，二是AOF rewrite的最后将rewrite过程中产生的新数据写到新文件造成的阻塞几乎是不可避免的。只要硬盘许可，应该尽量减少AOF rewrite的频率，AOF重写的基础大小默认值64M太小了，可以设到5G以上。默认超过原大小100%大小时重写可以改到适当的数值。如果不开启AOF，仅靠Master-Slave Replication 实现高可用性能也不错。能省掉一大笔IO也减少了rewrite时带来的系统波动。代价是如果Master/Slave同时倒掉，会丢失十几分钟的数据，启动脚本也要比较两个Master/Slave中的RDB文件，载入较新的那个。新浪微博就选用了这种架构。</p> <h2 id="九、redis事务控制"><a href="#九、redis事务控制" class="header-anchor">#</a> 九、Redis事务控制</h2> <h3 id="_1-redis事务控制的相关命令"><a href="#_1-redis事务控制的相关命令" class="header-anchor">#</a> 1.Redis事务控制的相关命令</h3> <table><thead><tr><th>命令名</th> <th>作用</th></tr></thead> <tbody><tr><td>MULTI</td> <td>表示开始收集命令，后面所有命令都不是马上执行，而是加入到一个队列中。</td></tr> <tr><td>EXEC</td> <td>执行MULTI后面命令队列中的所有命令。</td></tr> <tr><td>DISCARD</td> <td>放弃执行队列中的命令。</td></tr> <tr><td>WATCH</td> <td>“观察“、”监控“一个KEY，在当前队列外的其他命令操作这个KEY时，放弃执行自己队列的命令</td></tr> <tr><td>UNWATCH</td> <td>放弃监控一个KEY</td></tr></tbody></table> <h3 id="_2-命令队列执行失败的两种情况"><a href="#_2-命令队列执行失败的两种情况" class="header-anchor">#</a> 2.命令队列执行失败的两种情况</h3> <p>加入队列时失败</p> <div class="language-html extra-class"><pre class="language-html"><code>127.0.0.1:6379 multi
+OK
+127.0.0.1:6379 set age 20
+QUEUED
+127.0.0.1:6379 incr age
+QUEUED
+127.0.0.1:6379 incr age www
+(error) ERR wrong number of arguments for 'incr' command
+127.0.0.1:6379 exec
+(error) EXECABORT Transaction discarded because of previous errors.
+</code></pre></div><p>遇到了入队时即可检测到的错误，整个队列都不会执行。</p> <p>执行队列时失败</p> <div class="language-html extra-class"><pre class="language-html"><code>127.0.0.1:6379 multi
+OK
+127.0.0.1:6379 set age 30
+QUEUED
+127.0.0.1:6379 incrby age 5
+QUEUED
+127.0.0.1:6379 incrby age 5
+QUEUED
+127.0.0.1:6379 incrby age ww
+QUEUED
+127.0.0.1:6379 incrby age 5
+QUEUED
+127.0.0.1:6379 EXEC
+1) OK
+2) (integer) 35
+3) (integer) 40
+4) (error) ERR value is not an integer or out of range
+5) (integer) 45
+127.0.0.1:6379 get age
+&quot;45&quot;
+</code></pre></div><p>错误在入队时检测不出来，整个队列执行时有错的命令执行失败，但是其他命令并没有回滚。</p> <p>Redis为什么不支持回滚</p> <p>官方解释如下：</p> <div class="language- extra-class"><pre><code>如果你有使用关系式数据库的经验， 那么 “Redis 在事务失败时不进行回滚，而是继续执行余下的命令”这种做法可能会让你觉得有点奇怪。以下是这种做法的优点：
+1.Redis 命令只会因为错误的语法而失败（并且这些问题不能在入队时发现），或是命令用在了错误类型的键上面：这也就是说，从实用性的角度来说，失败的命令是由编程错误造成的，而这些错误应该在开发的过程中被发现，而不应该出现在生产环境中。
+	2.因为不需要对回滚进行支持，所以 Redis 的内部可以保持简单且快速。
+有种观点认为 Redis 处理事务的做法会产生 bug ， 然而需要注意的是， 在通常情况下， 回滚并不能解决编程错误带来的问题。 举个例子， 如果你本来想通过 INCR 命令将键的值加上 1 ， 却不小心加上了 2 ， 又或者对错误类型的键执行了 INCR ， 回滚是没有办法处理这些情况的。
+</code></pre></div><h3 id="_3-悲观锁和乐观锁"><a href="#_3-悲观锁和乐观锁" class="header-anchor">#</a> 3.悲观锁和乐观锁</h3> <p>在使用WATCH命令监控一个KEY后，当前队列中的命令会由于外部命令的执行而放弃，这是乐观锁的体现。</p> <ul><li><p>悲观锁</p> <p>认为当前环境非常容易发生碰撞，所以执行操作前需要把数据锁定，操作完成后释放锁，其他操作才可以继续操作。</p></li> <li><p>乐观锁</p> <p>认为当前环境不容易发生碰撞，所以执行操作前不锁定数据，万一碰撞真的发生了，那么检查版本号：</p> <ul><li>如果是基于最新的版本所做的修改：服务器接受，修改成功</li> <li>如果是基于旧的版本号所做的修改：服务器不接受，修改失败，整个MULTI队列中的操作都被丢弃</li></ul></li></ul> <h2 id="十、redis主从复制机制"><a href="#十、redis主从复制机制" class="header-anchor">#</a> 十、Redis主从复制机制</h2> <p><img alt="p02" data-src="/javanote/assets/img/p02.0fdfdfbb.png" loading="lazy" class="lazy"></p> <h3 id="_1-读写分离的好处"><a href="#_1-读写分离的好处" class="header-anchor">#</a> 1.读写分离的好处：</h3> <ul><li>性能优化：主服务器专注于写操作，可以用更适合写入数据的模式工作；同样，从服务器专注于读操作，可以用更适合读取数据的模式工作。</li> <li>强化数据安全，避免单点故障：由于数据同步机制的存在，各个服务器之间数据保持一致，所以其中某个服务器宕机不会导致数据丢失或无法访问。从这个角度说参与主从复制的Redis服务器构成了一个&lt;b&lt;font color=&quot;blue&quot;集群&lt;/font&lt;/b。</li></ul> <h3 id="_2-搭建步骤"><a href="#_2-搭建步骤" class="header-anchor">#</a> 2.搭建步骤</h3> <p>思路</p> <p>Redis集群在运行时使用的是同一个可执行文件，只是对应的配置文件不同。</p> <p><img alt="p03" data-src="/javanote/assets/img/p03.27f5f2f5.png" loading="lazy" class="lazy"></p> <p>每个配置文件中相同的参数是：</p> <div class="language-html extra-class"><pre class="language-html"><code>daemonize yes
+dir /usr/local/cluster-redis
+</code></pre></div><p>不同的参数有：</p> <table><thead><tr><th>配置项名称</th> <th>作用</th> <th>取值</th></tr></thead> <tbody><tr><td>port</td> <td>Redis服务器启动后监听的端口号</td> <td>6000&lt;br /7000&lt;br /8000</td></tr> <tr><td>dbfilename</td> <td>RDB文件存储位置</td> <td>dump6000.rdb&lt;br /dump7000.rdb&lt;br /dump8000.rdb</td></tr> <tr><td>logfile</td> <td>日志文件位置</td> <td>/var/logs/redis6000.log&lt;br //var/logs/redis7000.log&lt;br //var/logs/redis8000.log</td></tr> <tr><td>pidfile</td> <td>pid文件位置</td> <td>/var/run/redis6000.pid&lt;br //var/run/redis7000.pid&lt;br //var/run/redis8000.pid</td></tr></tbody></table> <p>步骤</p> <ul><li>第一步：创建/usr/local/cluster-redis目录</li> <li>第二步：把原始未经修改的redis.conf复制到/usr/local/cluster-redis目录</li> <li>第三步：把/usr/local/cluster-redis目录下的redis.conf复制为redis6000.conf</li> <li>第四步：按照既定计划修改redis6000.conf中的相关配置项
+<ul><li>daemonize yes</li> <li>dir</li> <li>port</li> <li>dbfilename</li> <li>logfile</li> <li>pidfile</li></ul></li> <li>第五步：复制redis6000.conf为redis7000.conf</li> <li>第六步：修改redis7000.conf中的相关配置项
+<ul><li>port</li> <li>dbfilename</li> <li>logfile</li> <li>pidfile</li></ul></li> <li>第七步：复制redis6000.conf为redis8000.conf</li> <li>第八步：修改redis8000.conf中的相关配置项
+<ul><li>port</li> <li>dbfilename</li> <li>logfile</li> <li>pidfile</li></ul></li></ul> <p>启动Redis主从复制集群</p> <div class="language-html extra-class"><pre class="language-html"><code>/usr/local/redis/bin/redis-server /usr/local/cluster-redis/redis6000.conf
+/usr/local/redis/bin/redis-server /usr/local/cluster-redis/redis7000.conf
+/usr/local/redis/bin/redis-server /usr/local/cluster-redis/redis8000.conf
+</code></pre></div><p>使用redis-cli停止指定服务器的命令格式如下：&lt;br/
+/usr/local/bin/redis-cli -h IP地址 -p 端口号 shutdown</p> <h3 id="_3-主从关系"><a href="#_3-主从关系" class="header-anchor">#</a> 3.主从关系</h3> <p>查看主从关系</p> <div class="language-html extra-class"><pre class="language-html"><code>127.0.0.1:6000 info replication
+## Replication
+role:master
+connected_slaves:0
+</code></pre></div><p>刚刚启动的集群服务器中每一个节点服务器都认为自己是主服务器。需要建立主从关系。</p> <p>设定主从关系</p> <p>在从机上指定主机位置即可</p> <div class="language-html extra-class"><pre class="language-html"><code>SLAVEOF 127.0.0.1 6000
+</code></pre></div><p>取消主从关系</p> <p>在从机上执行命令</p> <div class="language-html extra-class"><pre class="language-html"><code>SLAVEOF NO ONE
+</code></pre></div><h3 id="_4-初步测试"><a href="#_4-初步测试" class="header-anchor">#</a> 4.初步测试</h3> <ul><li>测试1：在主机写入数据，在从机查看</li> <li>测试2：在从机写入数据报错。配置文件中的依据是：slave-read-only yes</li> <li>测试3：主机执行SHUTDOWN看从机状态</li> <li>测试4：主机恢复启动，看从机状态</li> <li>测试5：从机SHUTDOWN，此时主机写入数据，从机恢复启动查看状态。重新设定主从关系后看新写入的数据是否同步。</li></ul> <h3 id="_5-哨兵模式"><a href="#_5-哨兵模式" class="header-anchor">#</a> 5.哨兵模式</h3> <p>作用</p> <p>通过哨兵服务器监控master/slave实现主从复制集群的自动管理。</p> <p><img alt="p04" data-src="/javanote/assets/img/p04.44a49a3c.png" loading="lazy" class="lazy"></p> <p>相关概念</p> <p>[1]主观下线</p> <p>1台哨兵检测到某节点服务器下线。</p> <p>[2]客观下线</p> <p>认为某个节点服务器下线的哨兵服务器达到指定数量。这个数量后面在哨兵的启动配置文件中指定。</p> <p>提示：只有 master 服务器做客观下线的判断， slave 只做主观下线的判定。</p> <p>[3]心跳检查</p> <p>心跳（heart beat）检查：客户端为了确认服务器端是否正在运行，不断的给服务器端发送数据库包。通过服务器端返回的数据包判断服务器端是否正在运行的工作机制。</p> <p>配置方式</p> <p>简单起见我们只配置一台哨兵。我们所需要做的就是创建一个哨兵服务器运行所需要的配置文件。</p> <p>vim /usr/local/cluster-redis/sentinel.conf</p> <table><thead><tr><th>格式</th> <th>sentinel monitor 为主机命名 主机IP 主机端口号 将主机判定为下线时需要Sentinel同意的数量</th></tr></thead> <tbody><tr><td>例子</td> <td>sentinel monitor mymaster 127.0.0.1 6000 1</td></tr></tbody></table> <p>启动哨兵</p> <p>/usr/local/redis/bin/--sentinel</p> <div class="language-html extra-class"><pre class="language-html"><code>+sdown master mymaster 127.0.0.1 6379 【主观下线】
++odown master mymaster 127.0.0.1 6379 #quorum 1/1【客观下线】
+……
++vote-for-leader 17818eb9240c8a625d2c8a13ae9d99ae3a70f9d2 1【选举leader】
+……
++failover-state-send-slaveof-noone slave 127.0.0.1:6381 127.0.0.1 6381 @ mymaster 127.0.0.1 6379【把一个从机设置为主机】
+
+-------------挂掉的主机又重新启动---------------------
+-sdown slave 127.0.0.1:6379 127.0.0.1 6379 @ mymaster 127.0.0.1 6381【离开主观下线状态】
++convert-to-slave slave 127.0.0.1:6379 127.0.0.1 6379 @ mymaster 127.0.0.1 6381【转换为从机】
+</code></pre></div><p>假设两个 slave 服务器参与选举：</p> <ul><li>情况1：
+<ul><li>slave A：投票给 slave B</li> <li>slave B：投票给 slave A</li> <li>两个服务器各得一票，平手，不能确定，需要继续投票</li></ul></li> <li>情况2：
+<ul><li>slave A：投票给自己</li> <li>slave B：投票给自己</li> <li>两个服务器各得一票，平手，不能确定，需要继续投票</li></ul></li> <li>情况3：
+<ul><li>slave A：投票给自己</li> <li>slave B：投票给 slave A</li> <li>slave A 得 2 票，slave B 没有得票，所以 slave A 当选</li></ul></li></ul> <h2 id="十一、发布订阅"><a href="#十一、发布订阅" class="header-anchor">#</a> 十一、发布订阅</h2> <p>这个功能不是 Redis 的主要功能，实际开发时发布订阅方面的需求还是要找专门的消息队列产品来完成。</p> <h3 id="_1-订阅一个频道"><a href="#_1-订阅一个频道" class="header-anchor">#</a> 1.订阅一个频道</h3> <div class="language-html extra-class"><pre class="language-html"><code>127.0.0.1:6379 SUBSCRIBE cctv
+Reading messages... (press Ctrl-C to quit)
+1) &quot;subscribe&quot;
+2) &quot;cctv&quot;
+3) (integer) 1
+
+</code></pre></div><h3 id="_2-在一个频道上发布信息"><a href="#_2-在一个频道上发布信息" class="header-anchor">#</a> 2.在一个频道上发布信息</h3> <div class="language-html extra-class"><pre class="language-html"><code>127.0.0.1:6379 PUBLISH cctv hai
+(integer) 1
+</code></pre></div><div class="language-html extra-class"><pre class="language-html"><code>127.0.0.1:6379 SUBSCRIBE cctv
+Reading messages... (press Ctrl-C to quit)
+1) &quot;subscribe&quot;
+2) &quot;cctv&quot;
+3) (integer) 1
+1) &quot;message&quot;
+2) &quot;cctv&quot;
+3) &quot;hai&quot;
+</code></pre></div><h2 id="十二、jedis"><a href="#十二、jedis" class="header-anchor">#</a> 十二、Jedis</h2> <p>Jedis 是我们 Java 程序连接 Redis 服务器的客户端。</p> <h3 id="_1-一个对比"><a href="#_1-一个对比" class="header-anchor">#</a> 1.一个对比</h3> <table><thead><tr><th></th> <th>MySQL</th> <th>Redis</th></tr></thead> <tbody><tr><td>连接</td> <td>Connection</td> <td>Jedis</td></tr> <tr><td>连接池</td> <td>C3P0、DBCP、Druid等等</td> <td>JedisPool</td></tr> <tr><td>操作完成</td> <td>关闭连接</td> <td>关闭连接</td></tr></tbody></table> <h3 id="_2-redis准备"><a href="#_2-redis准备" class="header-anchor">#</a> 2.Redis准备</h3> <p>理解Redis配置文件中bind配置项含义
+bind后面跟的ip地址是客户端访问Redis时使用的IP地址。规则是：Redis要求客户端访问的地址，必须是 bind 配置项绑定的地址。看下面例子：</p> <table><thead><tr><th>bind值</th> <th>访问方式</th></tr></thead> <tbody><tr><td>127.0.0.1</td> <td>./redis-cli -h 127.0.0.1</td></tr> <tr><td>192.168.200.100</td> <td>./redis-cli -h 192.168.200.100</td></tr></tbody></table> <p><img alt="images" data-src="/javanote/assets/img/p09.294fb33a.png" loading="lazy" class="lazy"></p> <p>所以，结论是：bind 配置项要绑定可以对外暴露的本机地址。那么 Redis 为什么会有这样的要求？就是因为在实际项目中，Redis 不是给用户直接访问的，而是给 Java 程序访问的。所以 Redis 只要绑定一个内部访问地址，就能够屏蔽外部的访问，所以这个地址绑定机制，能够对 Redis 进行保护。</p> <p>查看Linux系统本机IP</p> <p>远程客户端访问Linux服务器时不能使用127.0.0.1，要使用网络上的实际IP。可以用ifconfig命令查看。</p> <p>将Redis配置文件中的bind配置项设置为本机IP。</p> <div class="language-html extra-class"><pre class="language-html"><code>bind [你的实际IP]
+bind 192.168.200.100
+</code></pre></div><h3 id="_3-jedis"><a href="#_3-jedis" class="header-anchor">#</a> 3.Jedis</h3> <div class="language-xml extra-class"><pre class="language-xml"><code>	&lt;dependency
+		&lt;groupIdredis.clients&lt;/groupId
+		&lt;artifactIdjedis&lt;/artifactId
+		&lt;version2.9.0&lt;/version
+	&lt;/dependency
+</code></pre></div><div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//指定Redis服务器的IP地址和端口号</span>
+<span class="token class-name">Jedis</span> jedis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Jedis</span><span class="token punctuation">(</span><span class="token string">&quot;192.168.200.100&quot;</span><span class="token punctuation">,</span> <span class="token number">6379</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//执行ping命令</span>
+<span class="token class-name">String</span> ping <span class="token operator">=</span> jedis<span class="token punctuation">.</span><span class="token function">ping</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ping<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//关闭连接</span>
+jedis<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><h3 id="_4-jedispool"><a href="#_4-jedispool" class="header-anchor">#</a> 4.JedisPool</h3> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//声明Linux服务器IP地址</span>
+<span class="token class-name">String</span> host <span class="token operator">=</span> <span class="token string">&quot;192.168.200.100&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//声明Redis端口号</span>
+<span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token class-name">Protocol</span><span class="token punctuation">.</span>DEFAULT_PORT<span class="token punctuation">;</span>
+
+<span class="token comment">//创建连接池对象</span>
+<span class="token class-name">JedisPool</span> jedisPool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JedisPool</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span> port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//获取Jedis对象连接Redis</span>
+<span class="token class-name">Jedis</span> jedis <span class="token operator">=</span> jedisPool<span class="token punctuation">.</span><span class="token function">getResource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//执行具体操作</span>
+<span class="token class-name">String</span> ping <span class="token operator">=</span> jedis<span class="token punctuation">.</span><span class="token function">ping</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ping<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//关闭连接</span>
+jedisPool<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="十三、总结"><a href="#十三、总结" class="header-anchor">#</a> 十三、总结</h2> <ul><li>理论：理解
+<ul><li>新时代互联网项目对后端开发提出的新挑战</li> <li>Redis 持久化机制</li> <li>Redis 事务控制</li> <li>Redis 主从复制、哨兵模式</li> <li>Redis 发布订阅（了解）</li></ul></li> <li>操作：练习
+<ul><li>Redis 程序安装</li> <li>Redis 数据结构
+<ul><li>基本数据结构：string、list、hash、set、zset</li> <li>衍生数据结构：Geo、HyperLoglogs、bitmap</li></ul></li> <li>主从复制、哨兵模式</li> <li>Jedis</li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/javanote/note/middleware/nginx/" class="prev">
+        Nginx
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/javanote/assets/js/app.4d8a0605.js" defer></script><script src="/javanote/assets/js/11.31b4bfe5.js" defer></script><script src="/javanote/assets/js/53.c685fb7a.js" defer></script>
+  </body>
+</html>

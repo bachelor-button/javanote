@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CAT | Java全栈</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="Java 基础, Java 部分源码, JVM, Spring, Spring Boot, Spring Cloud, 数据库原理, MySQL, ElasticSearch, Docker, Linux, 分布式, 中间件, Git">
+    
+    <link rel="preload" href="/javanote/assets/css/0.styles.1d83b9a0.css" as="style"><link rel="preload" href="/javanote/assets/js/app.4d8a0605.js" as="script"><link rel="preload" href="/javanote/assets/js/11.31b4bfe5.js" as="script"><link rel="preload" href="/javanote/assets/js/212.e743f232.js" as="script"><link rel="prefetch" href="/javanote/assets/js/10.c191a387.js"><link rel="prefetch" href="/javanote/assets/js/100.f858324b.js"><link rel="prefetch" href="/javanote/assets/js/101.cf545769.js"><link rel="prefetch" href="/javanote/assets/js/102.70c05b3a.js"><link rel="prefetch" href="/javanote/assets/js/103.f1004525.js"><link rel="prefetch" href="/javanote/assets/js/104.0d76607f.js"><link rel="prefetch" href="/javanote/assets/js/105.1706f100.js"><link rel="prefetch" href="/javanote/assets/js/106.c2ff977c.js"><link rel="prefetch" href="/javanote/assets/js/107.5aede27e.js"><link rel="prefetch" href="/javanote/assets/js/108.8ceb754f.js"><link rel="prefetch" href="/javanote/assets/js/109.0921def7.js"><link rel="prefetch" href="/javanote/assets/js/110.1b5f3a78.js"><link rel="prefetch" href="/javanote/assets/js/111.60c4a726.js"><link rel="prefetch" href="/javanote/assets/js/112.a779216c.js"><link rel="prefetch" href="/javanote/assets/js/113.b5d94b79.js"><link rel="prefetch" href="/javanote/assets/js/114.c6f877f7.js"><link rel="prefetch" href="/javanote/assets/js/115.47ecb381.js"><link rel="prefetch" href="/javanote/assets/js/116.92ec84e7.js"><link rel="prefetch" href="/javanote/assets/js/117.e4829b5a.js"><link rel="prefetch" href="/javanote/assets/js/118.b23c1a98.js"><link rel="prefetch" href="/javanote/assets/js/119.b43f94dd.js"><link rel="prefetch" href="/javanote/assets/js/12.fa4003f9.js"><link rel="prefetch" href="/javanote/assets/js/120.f30ed6c6.js"><link rel="prefetch" href="/javanote/assets/js/121.b0022ef6.js"><link rel="prefetch" href="/javanote/assets/js/122.8fffcc78.js"><link rel="prefetch" href="/javanote/assets/js/123.e3fa7a42.js"><link rel="prefetch" href="/javanote/assets/js/124.58e10cb2.js"><link rel="prefetch" href="/javanote/assets/js/125.1b49d5f0.js"><link rel="prefetch" href="/javanote/assets/js/126.7f8e276b.js"><link rel="prefetch" href="/javanote/assets/js/127.000a6e84.js"><link rel="prefetch" href="/javanote/assets/js/128.18177328.js"><link rel="prefetch" href="/javanote/assets/js/129.0a2b7f4e.js"><link rel="prefetch" href="/javanote/assets/js/13.c51f2bed.js"><link rel="prefetch" href="/javanote/assets/js/130.31bfbbdd.js"><link rel="prefetch" href="/javanote/assets/js/131.dab5fd7f.js"><link rel="prefetch" href="/javanote/assets/js/132.34fb1d32.js"><link rel="prefetch" href="/javanote/assets/js/133.3cc3cb6c.js"><link rel="prefetch" href="/javanote/assets/js/134.8b0d230c.js"><link rel="prefetch" href="/javanote/assets/js/135.905e9937.js"><link rel="prefetch" href="/javanote/assets/js/136.23e19c54.js"><link rel="prefetch" href="/javanote/assets/js/137.3c091787.js"><link rel="prefetch" href="/javanote/assets/js/138.83313b98.js"><link rel="prefetch" href="/javanote/assets/js/139.c8e9d90b.js"><link rel="prefetch" href="/javanote/assets/js/14.8fe80835.js"><link rel="prefetch" href="/javanote/assets/js/140.de3bddcd.js"><link rel="prefetch" href="/javanote/assets/js/141.1575c6e3.js"><link rel="prefetch" href="/javanote/assets/js/142.a6471307.js"><link rel="prefetch" href="/javanote/assets/js/143.ad7eb666.js"><link rel="prefetch" href="/javanote/assets/js/144.c43ced04.js"><link rel="prefetch" href="/javanote/assets/js/145.633601ea.js"><link rel="prefetch" href="/javanote/assets/js/146.b65b7a43.js"><link rel="prefetch" href="/javanote/assets/js/147.f6ba557e.js"><link rel="prefetch" href="/javanote/assets/js/148.046226ae.js"><link rel="prefetch" href="/javanote/assets/js/149.0ad83751.js"><link rel="prefetch" href="/javanote/assets/js/15.414ac078.js"><link rel="prefetch" href="/javanote/assets/js/150.230e4d1c.js"><link rel="prefetch" href="/javanote/assets/js/151.905804f3.js"><link rel="prefetch" href="/javanote/assets/js/152.154b514a.js"><link rel="prefetch" href="/javanote/assets/js/153.37aa1b21.js"><link rel="prefetch" href="/javanote/assets/js/154.76fcd840.js"><link rel="prefetch" href="/javanote/assets/js/155.684e2d46.js"><link rel="prefetch" href="/javanote/assets/js/156.2288654a.js"><link rel="prefetch" href="/javanote/assets/js/157.9550ddf7.js"><link rel="prefetch" href="/javanote/assets/js/158.6f176501.js"><link rel="prefetch" href="/javanote/assets/js/159.38b45246.js"><link rel="prefetch" href="/javanote/assets/js/16.f6bcfda9.js"><link rel="prefetch" href="/javanote/assets/js/160.24484228.js"><link rel="prefetch" href="/javanote/assets/js/161.f8a53ea7.js"><link rel="prefetch" href="/javanote/assets/js/162.91a5d72d.js"><link rel="prefetch" href="/javanote/assets/js/163.2ad88c09.js"><link rel="prefetch" href="/javanote/assets/js/164.4cefc831.js"><link rel="prefetch" href="/javanote/assets/js/165.96d54d27.js"><link rel="prefetch" href="/javanote/assets/js/166.3ced3f05.js"><link rel="prefetch" href="/javanote/assets/js/167.9fd4dada.js"><link rel="prefetch" href="/javanote/assets/js/168.64063340.js"><link rel="prefetch" href="/javanote/assets/js/169.49eefc79.js"><link rel="prefetch" href="/javanote/assets/js/17.5ebaaa3f.js"><link rel="prefetch" href="/javanote/assets/js/170.3938afd5.js"><link rel="prefetch" href="/javanote/assets/js/171.5eb5c5a0.js"><link rel="prefetch" href="/javanote/assets/js/172.a9e33ea2.js"><link rel="prefetch" href="/javanote/assets/js/173.98e6d831.js"><link rel="prefetch" href="/javanote/assets/js/174.03448352.js"><link rel="prefetch" href="/javanote/assets/js/175.64340ac0.js"><link rel="prefetch" href="/javanote/assets/js/176.2dc52060.js"><link rel="prefetch" href="/javanote/assets/js/177.bd69843e.js"><link rel="prefetch" href="/javanote/assets/js/178.59341490.js"><link rel="prefetch" href="/javanote/assets/js/179.cc35c0a6.js"><link rel="prefetch" href="/javanote/assets/js/18.62d03701.js"><link rel="prefetch" href="/javanote/assets/js/180.11ae1e52.js"><link rel="prefetch" href="/javanote/assets/js/181.3e438e5d.js"><link rel="prefetch" href="/javanote/assets/js/182.c53a8efc.js"><link rel="prefetch" href="/javanote/assets/js/183.8b441dfb.js"><link rel="prefetch" href="/javanote/assets/js/184.d7f6c4f5.js"><link rel="prefetch" href="/javanote/assets/js/185.b439d0f4.js"><link rel="prefetch" href="/javanote/assets/js/186.b68e5585.js"><link rel="prefetch" href="/javanote/assets/js/187.56de8200.js"><link rel="prefetch" href="/javanote/assets/js/188.841fcdf2.js"><link rel="prefetch" href="/javanote/assets/js/189.be2262c2.js"><link rel="prefetch" href="/javanote/assets/js/19.0efb6573.js"><link rel="prefetch" href="/javanote/assets/js/190.40a63f47.js"><link rel="prefetch" href="/javanote/assets/js/191.a61a7c80.js"><link rel="prefetch" href="/javanote/assets/js/192.88507421.js"><link rel="prefetch" href="/javanote/assets/js/193.d0a95520.js"><link rel="prefetch" href="/javanote/assets/js/194.c66644e0.js"><link rel="prefetch" href="/javanote/assets/js/195.fdaceef8.js"><link rel="prefetch" href="/javanote/assets/js/196.85a1da29.js"><link rel="prefetch" href="/javanote/assets/js/197.a0b73b7e.js"><link rel="prefetch" href="/javanote/assets/js/198.c46de3af.js"><link rel="prefetch" href="/javanote/assets/js/199.86ad5ea9.js"><link rel="prefetch" href="/javanote/assets/js/2.8a34de3e.js"><link rel="prefetch" href="/javanote/assets/js/20.25232ae5.js"><link rel="prefetch" href="/javanote/assets/js/200.3d524295.js"><link rel="prefetch" href="/javanote/assets/js/201.2352b044.js"><link rel="prefetch" href="/javanote/assets/js/202.c96b8ae2.js"><link rel="prefetch" href="/javanote/assets/js/203.344e4887.js"><link rel="prefetch" href="/javanote/assets/js/204.cedde8a4.js"><link rel="prefetch" href="/javanote/assets/js/205.76202206.js"><link rel="prefetch" href="/javanote/assets/js/206.c4406aa6.js"><link rel="prefetch" href="/javanote/assets/js/207.8a27b698.js"><link rel="prefetch" href="/javanote/assets/js/208.59f5b615.js"><link rel="prefetch" href="/javanote/assets/js/209.fd4a6c64.js"><link rel="prefetch" href="/javanote/assets/js/21.d432caaa.js"><link rel="prefetch" href="/javanote/assets/js/210.b0e3a8d1.js"><link rel="prefetch" href="/javanote/assets/js/211.7cb84367.js"><link rel="prefetch" href="/javanote/assets/js/213.d50db884.js"><link rel="prefetch" href="/javanote/assets/js/214.6da86c20.js"><link rel="prefetch" href="/javanote/assets/js/215.fd5aa565.js"><link rel="prefetch" href="/javanote/assets/js/216.e95bcc55.js"><link rel="prefetch" href="/javanote/assets/js/217.2231449c.js"><link rel="prefetch" href="/javanote/assets/js/218.b8330003.js"><link rel="prefetch" href="/javanote/assets/js/219.aa7e9cf0.js"><link rel="prefetch" href="/javanote/assets/js/22.53113347.js"><link rel="prefetch" href="/javanote/assets/js/220.9ff6e0e6.js"><link rel="prefetch" href="/javanote/assets/js/23.2238c07a.js"><link rel="prefetch" href="/javanote/assets/js/24.cb7d3039.js"><link rel="prefetch" href="/javanote/assets/js/25.b4eaea24.js"><link rel="prefetch" href="/javanote/assets/js/26.e42a49f7.js"><link rel="prefetch" href="/javanote/assets/js/27.e7587f1f.js"><link rel="prefetch" href="/javanote/assets/js/28.19eae749.js"><link rel="prefetch" href="/javanote/assets/js/29.9ddf7186.js"><link rel="prefetch" href="/javanote/assets/js/3.e91a84a2.js"><link rel="prefetch" href="/javanote/assets/js/30.a380d83f.js"><link rel="prefetch" href="/javanote/assets/js/31.02c44506.js"><link rel="prefetch" href="/javanote/assets/js/32.e4bff71a.js"><link rel="prefetch" href="/javanote/assets/js/33.e26b4f6b.js"><link rel="prefetch" href="/javanote/assets/js/34.187f65f5.js"><link rel="prefetch" href="/javanote/assets/js/35.6cd623a3.js"><link rel="prefetch" href="/javanote/assets/js/36.c018db78.js"><link rel="prefetch" href="/javanote/assets/js/37.fd665c05.js"><link rel="prefetch" href="/javanote/assets/js/38.123aa35e.js"><link rel="prefetch" href="/javanote/assets/js/39.58271e1f.js"><link rel="prefetch" href="/javanote/assets/js/4.953d09eb.js"><link rel="prefetch" href="/javanote/assets/js/40.d588f7b4.js"><link rel="prefetch" href="/javanote/assets/js/41.330ac4ba.js"><link rel="prefetch" href="/javanote/assets/js/42.4d2bcc61.js"><link rel="prefetch" href="/javanote/assets/js/43.e446c0f3.js"><link rel="prefetch" href="/javanote/assets/js/44.77abc34b.js"><link rel="prefetch" href="/javanote/assets/js/45.910e4aa5.js"><link rel="prefetch" href="/javanote/assets/js/46.7f8fd6bb.js"><link rel="prefetch" href="/javanote/assets/js/47.9e340085.js"><link rel="prefetch" href="/javanote/assets/js/48.b4c35e1e.js"><link rel="prefetch" href="/javanote/assets/js/49.807495b7.js"><link rel="prefetch" href="/javanote/assets/js/5.fe579469.js"><link rel="prefetch" href="/javanote/assets/js/50.71cfb288.js"><link rel="prefetch" href="/javanote/assets/js/51.8da13592.js"><link rel="prefetch" href="/javanote/assets/js/52.cf90a64f.js"><link rel="prefetch" href="/javanote/assets/js/53.c685fb7a.js"><link rel="prefetch" href="/javanote/assets/js/54.7d73666a.js"><link rel="prefetch" href="/javanote/assets/js/55.59497bd7.js"><link rel="prefetch" href="/javanote/assets/js/56.22cdda6e.js"><link rel="prefetch" href="/javanote/assets/js/57.36f6ee91.js"><link rel="prefetch" href="/javanote/assets/js/58.6655543d.js"><link rel="prefetch" href="/javanote/assets/js/59.1d073e32.js"><link rel="prefetch" href="/javanote/assets/js/6.1af208a0.js"><link rel="prefetch" href="/javanote/assets/js/60.f782c216.js"><link rel="prefetch" href="/javanote/assets/js/61.4f05bcba.js"><link rel="prefetch" href="/javanote/assets/js/62.d607ed0e.js"><link rel="prefetch" href="/javanote/assets/js/63.0d7a42e8.js"><link rel="prefetch" href="/javanote/assets/js/64.ce15498e.js"><link rel="prefetch" href="/javanote/assets/js/65.b9f31598.js"><link rel="prefetch" href="/javanote/assets/js/66.aeff3690.js"><link rel="prefetch" href="/javanote/assets/js/67.f6f59ffa.js"><link rel="prefetch" href="/javanote/assets/js/68.f875e4ca.js"><link rel="prefetch" href="/javanote/assets/js/69.d6512b6b.js"><link rel="prefetch" href="/javanote/assets/js/7.5739f4db.js"><link rel="prefetch" href="/javanote/assets/js/70.881dc1cf.js"><link rel="prefetch" href="/javanote/assets/js/71.263db750.js"><link rel="prefetch" href="/javanote/assets/js/72.58f08a97.js"><link rel="prefetch" href="/javanote/assets/js/73.df9399d4.js"><link rel="prefetch" href="/javanote/assets/js/74.1d6ddc56.js"><link rel="prefetch" href="/javanote/assets/js/75.fcb30922.js"><link rel="prefetch" href="/javanote/assets/js/76.46a74eb4.js"><link rel="prefetch" href="/javanote/assets/js/77.b5e7728c.js"><link rel="prefetch" href="/javanote/assets/js/78.fcc34355.js"><link rel="prefetch" href="/javanote/assets/js/79.9d5204da.js"><link rel="prefetch" href="/javanote/assets/js/8.26c83b6c.js"><link rel="prefetch" href="/javanote/assets/js/80.672a4f74.js"><link rel="prefetch" href="/javanote/assets/js/81.78acaf25.js"><link rel="prefetch" href="/javanote/assets/js/82.7755c8c3.js"><link rel="prefetch" href="/javanote/assets/js/83.9b495285.js"><link rel="prefetch" href="/javanote/assets/js/84.a1270bb3.js"><link rel="prefetch" href="/javanote/assets/js/85.64d4eb9a.js"><link rel="prefetch" href="/javanote/assets/js/86.9cd6604e.js"><link rel="prefetch" href="/javanote/assets/js/87.588e06ac.js"><link rel="prefetch" href="/javanote/assets/js/88.8dad582a.js"><link rel="prefetch" href="/javanote/assets/js/89.b19689ac.js"><link rel="prefetch" href="/javanote/assets/js/9.51e5d2e7.js"><link rel="prefetch" href="/javanote/assets/js/90.586b9559.js"><link rel="prefetch" href="/javanote/assets/js/91.c9188033.js"><link rel="prefetch" href="/javanote/assets/js/92.69a38839.js"><link rel="prefetch" href="/javanote/assets/js/93.f0c9bdcd.js"><link rel="prefetch" href="/javanote/assets/js/94.f8f6b855.js"><link rel="prefetch" href="/javanote/assets/js/95.a92c2c02.js"><link rel="prefetch" href="/javanote/assets/js/96.ab442531.js"><link rel="prefetch" href="/javanote/assets/js/97.8a60e627.js"><link rel="prefetch" href="/javanote/assets/js/98.3eed55eb.js"><link rel="prefetch" href="/javanote/assets/js/99.b9c138ea.js">
+    <link rel="stylesheet" href="/javanote/assets/css/0.styles.1d83b9a0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/javanote/" class="home-link router-link-active"><!----> <span class="site-name">Java全栈</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/basic/java/day01/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/linux/background/" class="nav-link">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/mysql/mysql-basic/" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/web/WEBday01_HTML-CSS/" class="nav-link">
+  web
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级" class="dropdown-title"><span class="title">高级</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级" class="mobile-dropdown-title"><span class="title">高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/advance/juc/chapter01/" class="nav-link">
+  JUC
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/jvm/chapter01/" class="nav-link">
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/mysql/chapter01/" class="nav-link">
+  MYSQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="中间件" class="dropdown-title"><span class="title">中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="中间件" class="mobile-dropdown-title"><span class="title">中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/rabbitmq/day01/" class="nav-link">
+  rabbitmq
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/elasticsearch/day01/" class="nav-link">
+  elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/nginx/" class="nav-link">
+  nginx
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springboot/" class="nav-link">
+  springboot
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springcloud/day01/" class="nav-link">
+  springcloud
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/distributed-transaction/" class="nav-link">
+  分布式事务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/tools/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/tools/maven/maven-overview/" class="nav-link">
+  maven
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="ssm" class="dropdown-title"><span class="title">ssm</span> <span class="arrow down"></span></button> <button type="button" aria-label="ssm" class="mobile-dropdown-title"><span class="title">ssm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/mybatis/preface/" class="nav-link">
+  mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/spring/AOP-aspect-oriented-programming/agency-model/" class="nav-link">
+  spring
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/springmvc/basic-function/" class="nav-link">
+  springmvc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/others/cryptography/" class="nav-link">
+  密码学
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/basic/java/day01/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/linux/background/" class="nav-link">
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/mysql/mysql-basic/" class="nav-link">
+  mysql
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/basic/web/WEBday01_HTML-CSS/" class="nav-link">
+  web
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级" class="dropdown-title"><span class="title">高级</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级" class="mobile-dropdown-title"><span class="title">高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/advance/juc/chapter01/" class="nav-link">
+  JUC
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/jvm/chapter01/" class="nav-link">
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/advance/mysql/chapter01/" class="nav-link">
+  MYSQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="中间件" class="dropdown-title"><span class="title">中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="中间件" class="mobile-dropdown-title"><span class="title">中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/rabbitmq/day01/" class="nav-link">
+  rabbitmq
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/elasticsearch/day01/" class="nav-link">
+  elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/redis/" class="nav-link">
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/middleware/nginx/" class="nav-link">
+  nginx
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springboot/" class="nav-link">
+  springboot
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/springcloud/day01/" class="nav-link">
+  springcloud
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/microservice/distributed-transaction/" class="nav-link">
+  分布式事务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/tools/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/tools/maven/maven-overview/" class="nav-link">
+  maven
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="ssm" class="dropdown-title"><span class="title">ssm</span> <span class="arrow down"></span></button> <button type="button" aria-label="ssm" class="mobile-dropdown-title"><span class="title">ssm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/mybatis/preface/" class="nav-link">
+  mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/spring/AOP-aspect-oriented-programming/agency-model/" class="nav-link">
+  spring
+</a></li><li class="dropdown-item"><!----> <a href="/javanote/note/ssm/springmvc/basic-function/" class="nav-link">
+  springmvc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javanote/note/others/cryptography/" class="nav-link">
+  密码学
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/javanote/note/microservice/springboot/" class="sidebar-link">SpringBoot基础</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>springcloud</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/javanote/note/microservice/distributed-transaction/" class="sidebar-link">分布式事务</a></li><li><a href="/javanote/note/microservice/docker/" class="sidebar-link">Docker 简介</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="cat"><a href="#cat" class="header-anchor">#</a> CAT</h1> <blockquote><p>本文由 <a href="http://ksria.com/simpread/" target="_blank" rel="noopener noreferrer">简悦 SimpRead<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 转码， 原文地址 <a href="https://zhuanlan.zhihu.com/p/146921939" target="_blank" rel="noopener noreferrer">zhuanlan.zhihu.com<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <h2 id="cat-是什么"><a href="#cat-是什么" class="header-anchor">#</a> <strong>Cat 是什么？</strong></h2> <p>CAT（Central Application Tracking）是基于 Java 开发的实时应用监控平台，包括实时应用监控，业务监控。</p> <p>CAT 作为服务端项目基础组件，提供了 Java, C/C++, Node.js, Python, Go 等多语言客户端，已经在美团点评的基础架构中间件框架（MVC 框架，RPC 框架，数据库框架，缓存框架等，消息队列，配置系统等）深度集成，为美团点评各业务线提供系统丰富的性能指标、健康状况、实时告警等。</p> <p>CAT 很大的优势是它是一个实时系统，CAT 大部分系统是分钟级统计，但是从数据生成到服务端处理结束是秒级别，秒级定义是 48 分钟 40 秒，基本上看到 48 分钟 38 秒数据，整体报表的统计粒度是分钟级；第二个优势，监控数据是全量统计，客户端预计算；链路数据是采样计算。</p> <p>Github: <a href="https://link.zhihu.com/?target=https%3A//github.com/dianping/cat" target="_blank" rel="noopener noreferrer">https://github.com/dianping/cat<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="cat-功能亮点"><a href="#cat-功能亮点" class="header-anchor">#</a> <strong>Cat 功能亮点</strong></h3> <ul><li>实时处理：信息的价值会随时间锐减，尤其是事故处理过程中</li> <li>全量数据：全量采集指标数据，便于深度分析故障案例</li> <li>高可用：故障的还原与问题定位，需要高可用监控来支撑</li> <li>故障容忍：故障不影响业务正常运转、对业务透明</li> <li>高吞吐：海量监控数据的收集，需要高吞吐能力做保证</li> <li>可扩展：支持分布式、跨 IDC 部署，横向扩展的监控系统</li></ul> <h3 id="为什么要用-cat"><a href="#为什么要用-cat" class="header-anchor">#</a> <strong>为什么要用 Cat?</strong></h3> <p><strong>场景一</strong>：用户反馈 App 无法下单，用户反馈无法支付，用户反馈商品无法搜索等问题</p> <p>场景一的问题在于当系统出现问题后，第一反馈的总是用户。我们需要做的是什么，是在出问题后研发第一时间知晓，而不是让用户来告诉我们出问题了。</p> <p>Cat 可以出故障后提供秒级别的异常告警机制，不用再等用户来反馈问题了。</p> <p><strong>场景二</strong>：出故障后如何快速定位问题</p> <p>一般传统的方式当出现问题后，我们就会去服务器上看看服务是否还存活。如果存活就会看看日志是否有异常信息。</p> <p>在 Cat 后台的首页，会展示各个系统的运行情况，如果有异常，则会大片飘红，非常明显。最直接的方式还是直接查看 Problem 报表，这里会为我们展示直接的异常信息，快速定位问题。</p> <p><img alt="" data-src="https://pic4.zhimg.com/v2-41def1faca6c08eeeee7065ed954c233_r.jpg" loading="lazy" class="lazy"></p> <p><strong>场景三</strong>：用户反馈订单列表要 10 几秒才展示，用户反馈下单一直在转圈圈</p> <p>场景三属于优化相关，对于研发来说，优化是一个长期的过程，没有最好只有更好。优化除了需要有对应的方案，最重要的是要对症下药。</p> <p>所谓的对症下药也就是在优化之前，你得先知道哪里比较慢。RPC 调用慢？数据库查询慢？缓存更新慢?</p> <p>Cat 可以提供详细的性能数据，95 线，99 线等。更细粒度的就是可以看到某个请求或者某个业务方法的所有耗时逻辑，前提是你做了埋点操作。</p> <h2 id="cat-报表"><a href="#cat-报表" class="header-anchor">#</a> <strong>Cat 报表</strong></h2> <p>Cat 目前有五种报表，每种都有特定的应用场景，下面我们来具体聊聊这些报表的作用。</p> <h3 id="transaction-报表"><a href="#transaction-报表" class="header-anchor">#</a> <strong>Transaction 报表</strong></h3> <p>适用于监控一段代码运行情况，比如：运行次数、QPS、错误次数、失败率、响应时间统计（平均影响时间、Tp 分位值）等等场景。</p> <p>埋点方式：</p> <div class="language- extra-class"><pre class="language-text"><code>public void shopService() {
+    Transaction transaction = Cat.newTransaction(&quot;ShopService&quot;, &quot;Service&quot;);
+    try {
+        service();
+        transaction.setStatus(Transaction.SUCCESS);
+    } catch (Exception e) {
+        transaction.setStatus(e); // catch 到异常，设置状态，代表此请求失败
+        Cat.logError(e); // 将异常上报到cat上
+        // 也可以选择向上抛出： throw e;
+    } finally {
+        transaction.complete();
+    }
+}
+
+</code></pre></div><p>可以在基础框架中对 Rpc, 数据库等框架进行埋点，这样就可以通过 Cat 来监控这些组件了。</p> <p>业务中需要埋点也可以使用 Cat 的 Transaction，比如下单，支付等核心功能，通常我们对 URL 进行埋点就可以了，也就包含了具体的业务流程。</p> <p><img alt="" data-src="https://pic4.zhimg.com/v2-65ceac3973a70d165ee5b79b2624f53f_r.jpg" loading="lazy" class="lazy"></p> <h3 id="event-报表"><a href="#event-报表" class="header-anchor">#</a> <strong>Event 报表</strong></h3> <p>适用于监控一段代码运行次数，比如记录程序中一个事件记录了多少次，错误了多少次。Event 报表的整体结构与 Transaction 报表几乎一样，只缺少响应时间的统计。</p> <p>埋点方式：</p> <div class="language- extra-class"><pre class="language-text"><code>Cat.logEvent(&quot;Func&quot;, &quot;Func1&quot;);
+
+</code></pre></div><p><img alt="" data-src="https://pic1.zhimg.com/v2-98a8600144437edabc83c7aa470ce058_r.jpg" loading="lazy" class="lazy"></p> <h3 id="problem-报表"><a href="#problem-报表" class="header-anchor">#</a> <strong>Problem 报表</strong></h3> <p>Problem 记录整个项目在运行过程中出现的问题，包括一些异常、错误、访问较长的行为。</p> <p>如果有人反馈你的接口报 500 错误了，你进 Cat 后就直接可以去 Problem 报表了，错误信息就在 Problem 中。</p> <p><img alt="" data-src="https://pic3.zhimg.com/v2-81a4d6b13f260497719475d4b2bac62e_r.jpg" loading="lazy" class="lazy"></p> <p>Problem 报表不需要手动埋点，我们只需要在项目中集成日志的 LogAppender 就可以将所有 error 异常记录，下面的段落中会讲解如何整合 LogAppender。</p> <h3 id="heartbeat-报表"><a href="#heartbeat-报表" class="header-anchor">#</a> <strong>Heartbeat 报表</strong></h3> <p>Heartbeat 报表是 CAT 客户端，以一分钟为周期，定期向服务端汇报当前运行时候的一些状态。</p> <p><img alt="" data-src="https://pic1.zhimg.com/v2-e19e1597a0f43c455a1f190ae93c23c0_r.jpg" loading="lazy" class="lazy"></p> <p>系统指标有系统的负载信息，内存使用情况，磁盘使用情况等。</p> <p>JVM 指标有 GC 相关信息，线程相关信息。</p> <h3 id="business-报表"><a href="#business-报表" class="header-anchor">#</a> <strong>Business 报表</strong></h3> <p>Business 报表对应着业务指标，比如订单指标。与 Transaction、Event、Problem 不同，Business 更偏向于宏观上的指标，另外三者偏向于微观代码的执行情况。</p> <p>这个报表我也没怎么用过，用的多的还是前面几个。</p> <p><img alt="" data-src="https://pic1.zhimg.com/v2-8f696565f5a4ff01cc3c353015c32acc_r.jpg" loading="lazy" class="lazy"></p> <h2 id="cat-在-kitty-cloud-中的应用"><a href="#cat-在-kitty-cloud-中的应用" class="header-anchor">#</a> <strong>Cat 在 Kitty Cloud 中的应用</strong></h2> <p>Kitty Cloud 的基础组件是 Kitty，Kitty 里面对需要的一些框架都进行了一层包装，比如扩展，增加 Cat 埋点之类的功能。</p> <h3 id="cat-的集成"><a href="#cat-的集成" class="header-anchor">#</a> <strong>Cat 的集成</strong></h3> <p>Kitty 中对 Cat 封装了一层，在使用的时候直接依赖 kitty-spring-cloud-starter-cat 即可整合 Cat 到项目中。</p> <div class="language- extra-class"><pre class="language-text"><code> &lt;dependency&gt;
+       &lt;groupId&gt;com.cxytiandi&lt;/groupId&gt;
+       &lt;artifactId&gt;kitty-spring-cloud-starter-cat&lt;/artifactId&gt;
+       &lt;version&gt;Kitty Version&lt;/version&gt;
+ &lt;/dependency&gt;
+
+</code></pre></div><p>然后在 application 配置文件中配置 Cat 的服务端地址信息，多个英文逗号分隔：</p> <div class="language- extra-class"><pre class="language-text"><code>cat.servers=47.105.66.210
+
+</code></pre></div><p>最后需要配置一下 Cat 的 LogAppender，这样应用在记录 error 级别的日志时，Cat 可以及时进行异常告警操作。</p> <p>在 logback.xml 增加下面的配置：</p> <div class="language- extra-class"><pre class="language-text"><code> &lt;appender &gt;&lt;/appender&gt;
+ &lt;root level=&quot;INFO&quot;&gt;
+     &lt;appender-ref ref=&quot;CatAppender&quot; /&gt;
+ &lt;/root&gt;
+
+</code></pre></div><p>启动项目，然后访问你的 REST API。可以在 Cat 的控制台看到 URL 的监控信息。</p> <p><img alt="" data-src="https://pic2.zhimg.com/v2-b3c39e5b701af6da574222095097c465_r.jpg" loading="lazy" class="lazy"></p> <p>点击 URL 进去可以看到具体的 URL 信息。</p> <p><img alt="" data-src="https://pic3.zhimg.com/v2-1c3088caf5b9e8e6ab3d4ebaebb0e482_r.jpg" loading="lazy" class="lazy"></p> <p>再进一步可以看到整个 URL 的信息，比如数据库的查询，缓存的操作，Http 的调用等。后端同学在优化性能的时候就直接从 URL 下手可以将整个请求的链路耗时的情况都分析清楚。</p> <p><img alt="" data-src="https://pic2.zhimg.com/v2-32efd6225bd0fc69ba34fa6f8fdfedfd_r.jpg" loading="lazy" class="lazy"></p> <h3 id="mybatis-埋点"><a href="#mybatis-埋点" class="header-anchor">#</a> <strong>Mybatis 埋点</strong></h3> <p>Kitty 中 Mybatis 是用的 Mybatis Plus, 主要是对数据库相关操作的 SQL 进行了 Cat 埋点，可以很方便的查看 SQL 的耗时情况。</p> <p>依赖 kitty-spring-cloud-starter-mybatis：</p> <div class="language- extra-class"><pre class="language-text"><code> &lt;dependency&gt;
+     &lt;groupId&gt;com.cxytiandi&lt;/groupId&gt;
+     &lt;artifactId&gt;kitty-spring-cloud-starter-mybatis&lt;/artifactId&gt;
+     &lt;version&gt;Kitty Version&lt;/version&gt;
+ &lt;/dependency&gt;
+
+</code></pre></div><p>其他的使用方式还是跟 Mybatis Plus 一样</p> <p>只要涉及到数据库的操作，都会在 Cat 中进行数据的展示。</p> <p><img alt="" data-src="https://pic4.zhimg.com/v2-6b1b0d80acb788cad5e73e15bb6a8fef_r.jpg" loading="lazy" class="lazy"></p> <p>点击 SQL 进去还可以看到是哪个 Mapper 的操作。</p> <p><img alt="" data-src="https://pic1.zhimg.com/v2-b38ecf72579abf66c61c053a059cb50c_r.jpg" loading="lazy" class="lazy"></p> <p>再进一步就可以看到具体的 SQL 语句和消耗的时间。</p> <p><img alt="" data-src="https://pic3.zhimg.com/v2-f1191b77ec992ce8688c1e7362d3c426_r.jpg" loading="lazy" class="lazy"></p> <p>有了这些数据，后端研发同学就可以对相关的 SQL 进行优化了。</p> <h3 id="redis-埋点"><a href="#redis-埋点" class="header-anchor">#</a> <strong>Redis 埋点</strong></h3> <p>如果需要使用 Spring Data Redis 的话，直接集成 kitty-spring-cloud-starter-redis 就可以，kitty-spring-cloud-starter-redis 中对 Redis 的命令进行了埋点，可以在 Cat 上直观的查看对应的命令和消耗的时间。</p> <p>添加对应的 Maven 依赖：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;dependency&gt;
+     &lt;groupId&gt;com.cxytiandi&lt;/groupId&gt;
+     &lt;artifactId&gt;kitty-spring-cloud-starter-redis&lt;/artifactId&gt;
+     &lt;version&gt;Kitty Version&lt;/version&gt;
+ &lt;/dependency&gt;
+
+</code></pre></div><p>直接使用 StringRedisTemplate：</p> <div class="language- extra-class"><pre class="language-text"><code>@Autowired
+private StringRedisTemplate stringRedisTemplate;
+
+stringRedisTemplate.opsForValue().set(&quot;name&quot;, &quot;yinjihuan&quot;);
+
+
+</code></pre></div><p>Cat 中可以看到 Redis 信息。</p> <p><img alt="" data-src="https://pic2.zhimg.com/v2-89f778274bceb5f2924ff081889b9c25_r.jpg" loading="lazy" class="lazy"></p> <p>点击 Redis 进去可以看到有哪些命令。</p> <p><img alt="" data-src="https://pic2.zhimg.com/v2-994e5aadab4d8e759641b295e57b27e5_r.jpg" loading="lazy" class="lazy"></p> <p>再进去可以看到命令的详细信息，比如操作的 key 和消耗的时间。</p> <p><img alt="" data-src="https://pic3.zhimg.com/v2-5cb7b31646bc3e130a02c568ea69ca8a_r.jpg" loading="lazy" class="lazy"></p> <h3 id="mongodb-埋点"><a href="#mongodb-埋点" class="header-anchor">#</a> <strong>MongoDB 埋点</strong></h3> <p>Kitty 中对 Spring Data Mongodb 做了封装，只对 MongoTemplate 做了埋点。使用时需要依赖 kitty-spring-cloud-starter-mongodb。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.cxytiandi&lt;/groupId&gt;
+    &lt;artifactId&gt;kitty-spring-cloud-starter-mongodb&lt;/artifactId&gt;
+    &lt;version&gt;Kitty Version&lt;/version&gt;
+&lt;/dependency&gt;
+
+</code></pre></div><p>在发生 Mongo 的操作后，Cat 上就可以看到相关的数据了。</p> <p><img alt="" data-src="https://pic2.zhimg.com/v2-5c56dec022035d8d6d702112268c2145_r.jpg" loading="lazy" class="lazy"></p> <p>点进去就可以看到是 MongoTemplate 的哪个方法发生了调用。</p> <p><img alt="" data-src="https://pic2.zhimg.com/v2-bcdeca39e68b94e960bc89ee292e1c35_r.jpg" loading="lazy" class="lazy"></p> <p>再进一步就可以看到具体的 Mongo 参数和消耗的时间。</p> <p><img alt="" data-src="https://pic4.zhimg.com/v2-8135bf6b732008aa8b4d92da1f4cc3a3_r.jpg" loading="lazy" class="lazy"></p> <p><strong>还有 Dubbo, Feign，Jetcache，ElasticSearch 等框架的埋点就不细讲了，感兴趣的可以移步 Github 查看代码。</strong></p> <h2 id="cat-使用小技巧"><a href="#cat-使用小技巧" class="header-anchor">#</a> <strong>Cat 使用小技巧</strong></h2> <h3 id="埋点工具类"><a href="#埋点工具类" class="header-anchor">#</a> <strong>埋点工具类</strong></h3> <p>如果要对业务方法进行监控，我们一般会用 Transaction 功能，将业务逻辑包含在 Transaction 里面，就能监控这个业务的耗时信息。</p> <p>埋点的方式也是通过 Cat.newTransaction 来进行，具体可以参考上面 Transaction 介绍时给出的埋点示列。</p> <p>像这种埋点的方式最好是有一个统一的工具类去做，将埋点的细节封装起来。</p> <div class="language- extra-class"><pre class="language-text"><code>public class CatTransactionManager {
+    public static &lt;T&gt; T newTransaction(Supplier&lt;T&gt; function, String type, String name, Map&lt;String, Object&gt; data) {
+        Transaction transaction = Cat.newTransaction(type, name);
+        if (data != null &amp;&amp; !data.isEmpty()) {
+            data.forEach(transaction::addData);
+        }
+        try {
+            T result = function.get();
+            transaction.setStatus(Message.SUCCESS);
+            return result;
+        } catch (Exception e) {
+            Cat.logError(e);
+            if (e.getMessage() != null) {
+                Cat.logEvent(type + &quot;_&quot; + name + &quot;_Error&quot;, e.getMessage());
+            }
+            transaction.setStatus(e);
+            throw e;
+        } finally {
+            transaction.complete();
+        }
+    }
+}
+
+</code></pre></div><p>工具类使用：</p> <div class="language- extra-class"><pre class="language-text"><code>public SearchResponse search(SearchRequest searchRequest, RequestOptions options) {
+    Map&lt;String, Object&gt; catData = new HashMap&lt;&gt;(1);
+    catData.put(ElasticSearchConstant.SEARCH_REQUEST, searchRequest.toString());
+    return CatTransactionManager.newTransaction(() -&gt; {
+        try {
+            return restHighLevelClient.search(searchRequest, options);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }, ElasticSearchConstant.ES_CAT_TYPE, ElasticSearchConstant.SEARCH, catData);
+}
+
+</code></pre></div><p>通过使用工具类，不再需要每个监控的地方都是设置 Transaction 是否 complete，是否成功这些信息了。</p> <h3 id="注解埋点"><a href="#注解埋点" class="header-anchor">#</a> <strong>注解埋点</strong></h3> <p>为了让 Transaction 使用更方便，我们可以自定义注解来做这个事情。比如需要监控下单，支付等核心业务方法，那么就可以使用自定义的 Transaction 注解加在方法上，然后通过 AOP 去统一做监控。</p> <p>定义注解：</p> <div class="language- extra-class"><pre class="language-text"><code>@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD, ElementType.TYPE})
+public @interface CatTransaction {
+    /**
+     * 类型, 默认为Method
+     * @return
+     */
+    String type() default &quot;&quot;;
+    /**
+     * 名称, 默认为类名.方法名
+     * @return
+     */
+    String name() default &quot;&quot;;
+    /**
+     * 是否保存参数信息到Cat
+     * @return
+     */
+    boolean isSaveParamToCat() default true;
+}
+
+
+</code></pre></div><p>定义切面：</p> <div class="language- extra-class"><pre class="language-text"><code>@Aspect
+public class CatTransactionAspect {
+    @Around(&quot;@annotation(catTransaction)&quot;)
+    public Object aroundAdvice(ProceedingJoinPoint joinpoint, CatTransaction catTransaction) throws Throwable {
+        String type = catTransaction.type();
+        if (StringUtils.isEmpty(type)){
+            type = CatConstantsExt.METHOD;
+        }
+        String name = catTransaction.name();
+        if (StringUtils.isEmpty(name)){
+            name = joinpoint.getSignature().getDeclaringType().getSimpleName() + &quot;.&quot; + joinpoint.getSignature().getName();
+        }
+        Map&lt;String, Object&gt; data = new HashMap&lt;&gt;(1);
+        if (catTransaction.isSaveParamToCat()) {
+            Object[] args = joinpoint.getArgs();
+            if (args != null) {
+                data.put(&quot;params&quot;, JsonUtils.toJson(args));
+            }
+        }
+        return CatTransactionManager.newTransaction(() -&gt; {
+            try {
+                return joinpoint.proceed();
+            } catch (Throwable throwable) {
+               throw new RuntimeException(throwable);
+            }
+        }, type, name, data);
+    }
+
+}
+
+
+</code></pre></div><p>注解使用：</p> <div class="language- extra-class"><pre class="language-text"><code>@CatTransaction
+@Override
+public Page&lt;ArticleIndexBO&gt; searchArticleIndex(ArticleIndexSearchParam param) {
+}
+
+
+</code></pre></div><h2 id="你可能关心的几个问题"><a href="#你可能关心的几个问题" class="header-anchor">#</a> <strong>你可能关心的几个问题</strong></h2> <h3 id="cat-能做链路跟踪吗"><a href="#cat-能做链路跟踪吗" class="header-anchor">#</a> <strong>Cat 能做链路跟踪吗？</strong></h3> <p>Cat 主要是一个实时监控系统，并不是一个标准的全链路系统，主要是 Cat 的 logview 在异步线程等等一些场景下，不太合适，Cat 本身模型并不适合这个。Cat 的 Github 上有说明：在美团点评内部，有 mtrace 专门做全链路分析。</p> <p>但是如果在 Mvc，远程调用等这些框架中做好了数据的无缝传输，Cat 也可以充当一个链路跟踪的系统，基本的场景足够了。</p> <p>Cat 也可以构建远程消息树，可以看到请求经过了哪些服务，每个服务的耗时等信息。只不过服务之间的依赖关系图在 Cat 中没有。</p> <p>下图请求从网关进行请求转发到 articles 上面，然后 articles 里面调用了 users 的接口。</p> <p><img alt="" data-src="https://pic3.zhimg.com/v2-e76b898a3f90b21a59e35ea1f599f0aa_r.jpg" loading="lazy" class="lazy"></p> <h3 id="cat-跟-skywalking-哪个好用"><a href="#cat-跟-skywalking-哪个好用" class="header-anchor">#</a> <strong>Cat 跟 Skywalking 哪个好用?</strong></h3> <p>Skywalking 也是一款非常优秀的 APM 框架，我还没用过，不过看过一些文档，功能点挺全的 ，界面也挺好看。最大的优势是不用像 Cat 一样需要埋点，使用字节码增强的方式来对应用进行监控。</p> <p>之所以列出这个小标题是因为如果大家还没有用的话肯定会纠结要选择落地哪个去做监控。我个人认为这两个都可以，可以自己先弄个简单的版本体验体验，结合你想要的功能点来评估落地哪个。</p> <p>用 Cat 的话最好有一套基础框架，在基础框架中埋好点，这样才能在 Cat 中详细的显示各种信息来帮助我们快速定位问题和优化性能。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/javanote/assets/js/app.4d8a0605.js" defer></script><script src="/javanote/assets/js/11.31b4bfe5.js" defer></script><script src="/javanote/assets/js/212.e743f232.js" defer></script>
+  </body>
+</html>
